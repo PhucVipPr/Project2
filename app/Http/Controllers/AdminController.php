@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
-    //oh yeah OMG
 
     //
     function viewHome(){
@@ -23,6 +22,11 @@ class AdminController extends Controller
             ->select('products.*', 'image.url', 'category.cate_name','sell_product.prices')
             ->get();
         return view('admin/product/index',['products'=>$products]);
+    }
+
+    function viewCategory(){
+        $categories = DB::table('category')->get();
+        return view('admin/product/categories',['category'=>$categories]);
     }
 
     function viewClient(){

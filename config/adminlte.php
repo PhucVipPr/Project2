@@ -321,10 +321,13 @@ return [
         [
             'text' => 'Product',
             'url'  => 'admin/product/index',
-            'icon' => 'fab fa-wikipedia-w',
+            'icon' => '',
         ],
-
-
+        [
+            'text' => 'Category',
+            'url'  => 'admin/product/categories',
+            'icon' => '',
+        ],
     ],
 
     /*
