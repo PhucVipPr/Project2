@@ -28,10 +28,10 @@
     </tr>
     </thead>
     <tbody class="table-group-divider">
-    @foreach($categories as $category)
+    @foreach($category as $cate)
         <tr>
-            <th scope="row">{{$category->cate_id}}</th>
-            <td>{{$category->cate_name}}</td>
+            <th scope="row">{{$cate->cate_id}}</th>
+            <td>{{$cate->cate_name}}</td>
         </tr>
     @endforeach
     </tbody>

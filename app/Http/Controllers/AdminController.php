@@ -25,8 +25,8 @@ class AdminController extends Controller
     }
 
     function viewCategory(){
-        $categories = DB::table('category')->get();
-        return view('admin/product/categories',['category'=>$categories]);
+        $category = DB::table('category')->get();
+        return view('admin/product/categories',['category'=>$category]);
     }
 
     function viewClient(){
