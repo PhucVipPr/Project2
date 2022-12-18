@@ -28,7 +28,7 @@ Route::post('/logout',[\App\Http\Controllers\LoginController::class,'logout']);
 
 //Admin
 Route::get('/admin/product/index',[\App\Http\Controllers\AdminController::class,'viewProduct']);
-Route::get('/admin/product/categories',[\App\Http\Controllers\AdminController::class,'viewCategory']);
+Route::get('/admin/category/categories',[\App\Http\Controllers\AdminController::class,'viewCategory']);
 Route::get('/admin/home',[\App\Http\Controllers\AdminController::class,'viewHome']);
 
 //Product
@@ -36,8 +36,9 @@ Route::get('/admin/product/add_product',[\App\Http\Controllers\AdminProductContr
 Route::post('/admin/product/add_product',[\App\Http\Controllers\AdminProductController::class,'store']);
 
 //Category
-Route::get('/admin/product/add_category',[\App\Http\Controllers\AdminCategory::class,'create']);
-Route::post('/admin/product/add_category',[\App\Http\Controllers\AdminCategory::class,'store']);
+Route::get('/admin/category/add_category',[\App\Http\Controllers\AdminCategory::class,'create']);
+Route::post('/admin/category/add_category',[\App\Http\Controllers\AdminCategory::class,'store']);
+Route::delete('/admin/category/{categories}/delete',[\App\Http\Controllers\AdminCategory::class,'destroy']);
 
 //Client
 Route::get('/client/home',[\App\Http\Controllers\AdminController::class,'viewClient']);

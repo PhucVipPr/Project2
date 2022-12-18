@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -22,6 +23,12 @@ class AdminCategory extends Controller
             'cate_id'=> $cate_id,
             'cate_name' => $cate_name,
         ]);
-        return redirect('admin/product/add_category')->with('Added successfully', 'Your new category has been saved!');;
+        return redirect('admin/product/add_category')->with('Added successfully', 'Your new category has been saved!');
+    }
+
+    public function destroy($cate_id){
+        $categories = Category::findOrFail($cate_id);
+        $categories->delete();
+        return redirect('admin/product/categories');
     }
 }
