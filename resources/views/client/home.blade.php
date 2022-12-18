@@ -35,6 +35,57 @@
 <!-- end loader -->
 <!-- header -->
 <header>
+    <div class="logo">
+        <img src="{{asset('images/logo.png')}}">
+    </div>
+    <div class="menu">
+        <li><a href="">Trang chủ</a></li>
+        <li><a href="">Sữa tăng cân</a>
+            <ul class="sub-menu">
+                <li><a href="">Tăng cân nhanh</a></li>
+                <li><a href="">Tăng cân nạc</a></li>
+            </ul>
+        </li>
+        <li><a href="">Whey Protein</a>
+            <ul class="sub-menu">
+                <li><a href="">Whey Protein Blend</a></li>
+                <li><a href="">Whey Protein Isolate</a></li>
+                <li><a href="">Hydrolyzed Whey</a></li>
+                <li><a href="">Casein Protein</a></li>
+                <li><a href="">Meal Replacement</a></li>
+            </ul>
+        </li>
+        <li><a href="">BCAAs, EAAs</a></li>
+        <li><a href="">Pre-Workout,Creatine</a>
+            <ul class="sub-menu">
+                <li><a href="">Pre-Workout</a></li>
+                <li><a href="">Pre & Giảm mỡ</a></li>
+                <li><a href="">Creatine</a></li>
+                <li><a href="">Đơn chất</a></li>
+            </ul>
+        </li>
+        <li><a href="">Vitamin,khoáng chất</a>
+            <ul class="sub-menu">
+                <li><a href="">Bổ sung Vitamin</a></li>
+                <li><a href="">Tăng Testosterone</a></li>
+                <li><a href="">Bổ sung dầu cá</a></li>
+            </ul>
+        </li>
+        <li><a href="">Giảm mỡ</a>
+            <ul class="sub-menu">
+                <li><a href="">Sinh nhiệt đốt mỡ</a></li>
+                <li><a href="">Ít chất kích thích</a></li>
+            </ul>
+        </li>
+    </div>
+    <div class="others">
+        <li><input placeholder="Tìm kiếm" type="text"> <i class="fa fa-search"></i></li>
+        <li> <a class="fa fa-user" href=""></a></li>
+        <li> <a class="fa fa-shopping-bag" href=""></a></li>
+    </div>
+</header>
+
+<header1>
     <!-- header inner -->
     <div class="header">
         <div class="header_full_bg">
@@ -55,7 +106,7 @@
                         <div class="col-md-5">
                             <div class="banner_text">
                                 <h1>Hàng ngon <br>Biến hình ngay thôi</h1>
-                                <a class="get_btn" href="#about" role="button" >Về sản phẩm</a> <a class="get_btn" href="#contact" role="button">Liên hệ ngay nào!</a>
+                                <a class="get_btn" href="#protien" role="button" >Về sản phẩm</a> <a class="get_btn" href="#contact" role="button">Liên hệ ngay nào!</a>
                             </div>
                         </div>
                         <div class="col-md-7">
@@ -67,7 +118,7 @@
         </div>
 
     </div>
-</header>
+</header1>
 <!-- end header inner -->
 <!-- end header -->
 <!-- Về sản phẩm  -->
@@ -347,11 +398,11 @@
 </footer>
 <!-- end footer -->
 <!-- Javascript files-->
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.bundle.min.js"></script>
-<script src="js/jquery-3.0.0.min.js"></script>
+<script src="{{asset('js/jquery.min.js')}}"></script>
+<script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('js/jquery-3.0.0.min.js')}}"></script>
 <!-- sidebar -->
-<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-<script src="js/custom.js"></script>
+<script src="{{asset('js/jquery.mCustomScrollbar.concat.min.js')}}"></script>
+<script src="{{asset('js/custom.js')}}"></script>
 </body>
 </html>
