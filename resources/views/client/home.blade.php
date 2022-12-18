@@ -142,7 +142,7 @@
             </div>
             <div class="col-md-3 col-sm-6">
                 <div class="protien">
-                    <figure><img src="{{asset('images/on-whey-gold-standard-whey-protein-5lbs-double-rich-chocolate-gymstore.png')}}" alt="#"/></figure>
+                    <figure><img src="{{asset('images/wheygold.png')}}" alt="#"/></figure>
                     <h3>$400</h3>
                     <span>  Passages  </span>
                     <a class="read_more mar_top" href="Javascript:void(0)"> Mua ngay</a>
