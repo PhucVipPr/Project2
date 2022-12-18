@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <!-- basic -->
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <!-- mobile metas -->
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-      <!-- site metas -->
-      <title>pro</title>
-      <meta name="keywords" content="">
-      <meta name="description" content="">
-      <meta name="author" content="">
-      <!-- bootstrap css -->
-      <link rel="stylesheet" href="css/bootstrap.min.css">
-      <!-- style css -->
-      <link rel="stylesheet" href="css/style.css">
-      <!-- Responsive-->
-      <link rel="stylesheet" href="css/responsive.css">
-      <!-- fevicon -->
-      <link rel="icon" href="images/fevicon.png" type="image/gif" />
-      <!-- Scrollbar Custom CSS -->
-      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
-      <!-- Tweaks for older IEs-->
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>pro</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+    <!-- style css -->
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
+    <!-- fevicon -->
+    <link rel="icon" href="{{asset('images/fevicon.png')}}" type="image/gif" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="{{asset('css/jquery.mCustomScrollbar.min.css')}}">
+    <!-- Tweaks for older IEs-->
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
       <!--[if lt IE 9]>
@@ -148,26 +148,15 @@
                      </select>
                   </div>
                   <div class="category-right-content row">
+                      @forelse($products as $products)
                      <div class="category-right-content-item">
-                        <img src="{{asset('images/wheygold.png')}}" alt="">
-                        <h1>Whey Gold Standard 2lbs 900g</h1>
-                        <p>920.000<sup>đ</sup></p>
+                            <img src="{{$products-> url}}" href="#"/>
+                            <h1>{{$products-> product_name}}</h1>
+                            <p>{{$products->prices}}<sup>đ</sup></p>
                      </div>
-                     <div class="category-right-content-item">
-                        <img src="{{asset('images/wheygold.png')}}" alt="">
-                        <h1>Whey Gold Standard 2lbs 900g</h1>
-                        <p>920.000<sup>đ</sup></p>
-                     </div>
-                     <div class="category-right-content-item">
-                        <img src="{{asset('images/wheygold.png')}}" alt="">
-                        <h1>Whey Gold Standard 2lbs 900g</h1>
-                        <p>920.000<sup>đ</sup></p>
-                     </div>
-                     <div class="category-right-content-item">
-                        <img src="{{asset('images/wheygold.png')}}" alt="">
-                        <h1>Whey Gold Standard 2lbs 900g</h1>
-                        <p>920.000<sup>đ</sup></p>
-                     </div>
+                      @empty
+                          <p>Danh sach rong</p>
+                      @endforelse
                   </div>
 
                   <div class="category-right-bottom row">

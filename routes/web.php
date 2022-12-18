@@ -44,6 +44,7 @@ Route::put('/admin/category/edit_category',[\App\Http\Controllers\AdminCategory:
 Route::delete('/admin/category/{category}/delete',[\App\Http\Controllers\AdminCategory::class,'destroy']);
 
 //Client
-Route::get('/client/home',[\App\Http\Controllers\AdminController::class,'viewClient']);
-
+Route::get('/client/home',[\App\Http\Controllers\ClientController::class,'viewClient']);
+Route::get('/client/home/category',[\App\Http\Controllers\ClientController::class,'viewCategory']);
+Route::get('/client/product/{id}',[\App\Http\Controllers\ClientController::class,'show']);
 

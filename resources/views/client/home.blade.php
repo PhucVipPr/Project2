@@ -132,37 +132,19 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-3 col-sm-6">
+            <div class="col-md-3 col-sm-6 row">
+                @forelse($products as $products)
                 <div class="protien">
-                    <figure><img src="{{asset('images/mutant-iso-surge-mint-chocolate-chip.png')}}" alt="#"/></figure>
-                    <h3>$400</h3>
-                    <span> Variations  </span>
+
+                        <figure> <img src="{{$products-> url}}"/></figure>
+                        <h1>{{$products-> product_name}}</h1>
+                        <p>{{$products->prices}}</p>
                     <a class="read_more mar_top" href="Javascript:void(0)"> Mua ngay</a>
+
                 </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="protien">
-                    <figure><img src="{{asset('images/wheygold.png')}}" alt="#"/></figure>
-                    <h3>$400</h3>
-                    <span>  Passages  </span>
-                    <a class="read_more mar_top" href="Javascript:void(0)"> Mua ngay</a>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="protien">
-                    <figure><img src="{{asset('images/rule1-r1-protein-5lbs-chocolate-fudge-whey-protein-phat-trien-co-bap-gymstore (1).png')}}" alt="#"/></figure>
-                    <h3>$400</h3>
-                    <span> Variations </span>
-                    <a class="read_more mar_top" href="Javascript:void(0)"> Mua ngay</a>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="protien">
-                    <figure><img src="{{asset('images/nutrabolic-hydropure-extreme-chocolate.png')}}" alt="#"/></figure>
-                    <h3>$400</h3>
-                    <span> Pedicure </span>
-                    <a class="read_more mar_top" href="Javascript:void(0)"> Mua ngay</a>
-                </div>
+                @empty
+                    <p>Danh sach rong</p>
+                @endforelse
             </div>
         </div>
     </div>
