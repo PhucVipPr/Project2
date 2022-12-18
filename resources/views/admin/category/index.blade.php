@@ -35,7 +35,7 @@
             <td>{{$cate->cate_name}}</td>
             <td>
                 <div class="action d-flex flex-row">
-                    <form method="POST" action="{{url('/admin/category/categories/'.$cate->cate_id.'/delete')}}">
+                    <form method="POST" action="{{url('/admin/category/'.$cate->cate_id.'/delete')}}">
                         @csrf
                         @method('delete')
                         <button type="submit" onclick="return confirm('Category will move to trash! Do you still want to delete?')"

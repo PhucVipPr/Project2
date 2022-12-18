@@ -325,7 +325,7 @@ return [
         ],
         [
             'text' => 'Category',
-            'url'  => 'admin/product/categories',
+            'url'  => 'admin/category/index',
             'icon' => '',
         ],
     ],
