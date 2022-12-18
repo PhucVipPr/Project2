@@ -16,7 +16,7 @@
 <body>
 <h1>Category</h1>
 <br>
-<a href="{{url('admin/product/add_category')}}">
+<a href="{{url('admin/category/add_category')}}">
     <button type="button" class="btn btn-primary btn-lg" class="fa fa-plus">Add category</button>
 </a>
 <br>
@@ -29,12 +29,13 @@
     </tr>
     </thead>
     <tbody class="table-group-divider">
-    @foreach($category as $cate)
+    @foreach($categories as $cate)
         <tr>
             <th scope="row">{{$cate->cate_id}}</th>
             <td>{{$cate->cate_name}}</td>
             <td>
                 <div class="action d-flex flex-row">
+                    <a href="{{url('/admin/category/'.$cate->cate_id.'/edit')}}">Edit</a>&nbsp;
                     <form method="POST" action="{{url('/admin/category/'.$cate->cate_id.'/delete')}}">
                         @csrf
                         @method('delete')

@@ -9,7 +9,24 @@ use Illuminate\Support\Facades\DB;
 class AdminCategory extends Controller
 {
     public function create(){
-        return view('admin/product/add_category');
+        return view('admin/category/add_category');
+    }
+
+    public function edit($cate_id){
+        $categories = Category::findOrFail($cate_id);
+        return view('admin/category/edit_category',compact('categories'));
+    }
+
+    public function update(Request $request,$cate_id){
+        $new = $request->validate([
+           'cate_id' => 'required|max:100',
+           'cate_name' => 'required',
+        ]);
+        $new = Category::find($cate_id);
+        $new->cate_id = $request->cate_id;
+        $new->cate_name = $request->cate_name;
+        $new->save();
+        return redirect('admin/category/index')->with('completed', 'Your category has been updated');
     }
 
     public function store(Request $request){
@@ -19,16 +36,16 @@ class AdminCategory extends Controller
         ]);
         $cate_id = $request->input('cate_id');
         $cate_name = $request->input('cate_name');
-        DB::table('category')->insert([
+        DB::table('categories')->insert([
             'cate_id'=> $cate_id,
             'cate_name' => $cate_name,
         ]);
-        return redirect('admin/category/add_category')->with('Added successfully', 'Your new category has been saved!');
+        return redirect('admin/category/add_category')->with('completed', 'Your new category has been saved!');
     }
 
     public function destroy($cate_id){
-        $category= Category::findOrFail($cate_id);
-        $category->delete();
+        $categories = Category::findOrFail($cate_id);
+        $categories->delete();
         return redirect('admin/category/index');
     }
 }

@@ -2,7 +2,7 @@
 
 @section('content')
     <h1 style="">Add Category</h1>
-    <form method="POST" action="{{url('admin/product/add_category')}}">
+    <form method="POST" action="{{url('admin/category/add_category')}}">
         @csrf
         @method('post')
         <div class="mb-3">
