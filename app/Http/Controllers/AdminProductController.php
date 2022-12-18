@@ -11,8 +11,8 @@ use mysql_xdevapi\Table;
 class AdminProductController extends Controller
 {
     public function create(){
-        $category = Category::get();
-        return view('admin/product/add_product');
+        $categories = Category::get();
+        return view('admin/product/add_product',['category'=>$categories]);
     }
 
     public function store(Request $request){

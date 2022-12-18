@@ -30,6 +30,7 @@
         <th scope="col">Product_Price</th>
         <th scope="col">Product_Code</th>
         <th scope="col">Product_Info</th>
+        <th scope="col">Action</th>
     </tr>
     </thead>
     <tbody class="table-group-divider">
@@ -42,6 +43,7 @@
         <td>{{$product->prices}}</td>
         <td>{{$product->product_code}}</td>
         <td>{{$product->product_info}}</td>
+        <td></td>
     </tr>
     @endforeach
     </tbody>

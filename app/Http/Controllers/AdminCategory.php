@@ -22,6 +22,6 @@ class AdminCategory extends Controller
             'cate_id'=> $cate_id,
             'cate_name' => $cate_name,
         ]);
-        return redirect('admin/product/add_category');
+        return redirect('admin/product/add_category')->with('Added successfully', 'Your new category has been saved!');;
     }
 }

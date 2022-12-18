@@ -15,9 +15,9 @@
         </div>
         <div class="mb-3">
             <label class="form-label">Category_Name</label>
-            <select class="form-control" name="cate_name">
-                @foreach($category as $cate)
-                    <option value="{{ $cate->category_id }}">{{ $cate->category_name }}</option>
+            <select class="form-control" name="cate_id" >
+                @foreach($categories as $cate)
+                    <option value="{{ $cate->cate_id }}">{{ $cate->cate_name }}</option>
                 @endforeach
             </select>
         </div>
