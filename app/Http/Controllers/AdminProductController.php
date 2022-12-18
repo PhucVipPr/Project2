@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use Illuminate\Support\Facades\DB;
@@ -9,15 +10,15 @@ use mysql_xdevapi\Table;
 
 class AdminProductController extends Controller
 {
-    public function addProduct(){
-        return view('admin/product/add_product');
+    public function create(){
+        $categories = Category::get();
+        return view('admin/product/add_product',['category'=>$categories]);
     }
 
-    public function saveProduct(Request $request){
+    public function store(Request $request){
         $this->validate($request,[
             'product_id' => 'required|max:255',
             'url' => 'required',
-            'cate_name' => 'required',
             'product_name' => 'required',
             'prices' => 'required|numeric|max:10000000',
             'product_code' => 'required|numeric',
@@ -25,7 +26,6 @@ class AdminProductController extends Controller
         ]);
         $product_id = $request->input('product_id');
         $url = $request->input('url');
-        $cate_name = $request->input('cate_name');
         $product_name = $request->input('product_name');
         $prices = $request->input('prices');
         $product_code = $request->input('product_code');
@@ -39,13 +39,10 @@ class AdminProductController extends Controller
         DB::table('image')->insert([
             'url' => $url,
         ]);
-        DB::table('category')->insert([
-            'cate_name' => $cate_name,
-        ]);
         DB::table('sell_product')->insert([
             'prices' => $prices,
         ]);
         action([AdminProductController::class,'addProduct']);
-        return redirect('admin/product/index');
+        return redirect('admin/product/add_product');
     }
 }

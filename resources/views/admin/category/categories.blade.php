@@ -25,6 +25,7 @@
     <tr>
         <th scope="col">Category_Id</th>
         <th scope="col">Category_Name</th>
+        <th>Action</th>
     </tr>
     </thead>
     <tbody class="table-group-divider">
@@ -32,6 +33,16 @@
         <tr>
             <th scope="row">{{$cate->cate_id}}</th>
             <td>{{$cate->cate_name}}</td>
+            <td>
+                <div class="action d-flex flex-row">
+                    <form method="POST" action="{{url('/admin/category/categories/'.$cate->cate_id.'/delete')}}">
+                        @csrf
+                        @method('delete')
+                        <button type="submit" onclick="return confirm('Category will move to trash! Do you still want to delete?')"
+                                class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                    </form>
+                </div>
+            </td>
         </tr>
     @endforeach
     </tbody>

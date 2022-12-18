@@ -2,8 +2,9 @@
 
 @section('content')
     <h1 style="">Add product</h1>
-    <form action="{{url('admin/product/index')}}" method="POST">
+    <form action="{{url('admin/product/add_product')}}" method="POST">
         @csrf
+        @method('POST')
         <div class="mb-3">
             <label class="form-label">Product_Id</label>
             <input class="form-control" name="product_id" placeholder="Enter product ID">
@@ -14,7 +15,11 @@
         </div>
         <div class="mb-3">
             <label class="form-label">Category_Name</label>
-            <input class="form-control" name="cate_name">
+            <select class="form-control" name="cate_id" >
+                @foreach($categories as $cate)
+                    <option value="{{ $cate->cate_id }}">{{ $cate->cate_name }}</option>
+                @endforeach
+            </select>
         </div>
         <div class="mb-3">
             <label class="form-label">Product_Name</label>
