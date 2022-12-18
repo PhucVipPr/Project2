@@ -24,12 +24,12 @@
     <thead>
     <tr>
         <th scope="col">Product_Id</th>
-        <th scope="col">Product_Image</th>
         <th scope="col">Category_Name</th>
         <th scope="col">Product_Name</th>
-        <th scope="col">Product_Price</th>
         <th scope="col">Product_Code</th>
         <th scope="col">Product_Info</th>
+        <th scope="col">Product_Image</th>
+        <th scope="col">Product_Price</th>
         <th scope="col">Action</th>
     </tr>
     </thead>
@@ -37,13 +37,18 @@
     @foreach($products as $product)
     <tr>
         <th scope="row">{{$product->product_id}}</th>
-        <td><img src="{{$product->url}}" width="100px"></td>
         <td>{{$product->cate_name}}</td>
         <td>{{$product->product_name}}</td>
-        <td>{{$product->prices}}</td>
         <td>{{$product->product_code}}</td>
         <td>{{$product->product_info}}</td>
-        <td></td>
+        <td><img src="{{$product->url}}" width="100px"></td>
+        <td>{{$product->prices}}</td>
+        <td>
+            <div class="action d-flex flex-row">
+                <a href="{{url('/admin/product/'.$product->product_id.'/edit')}}">Edit</a>&nbsp;
+                </form>
+            </div>
+        </td>
     </tr>
     @endforeach
     </tbody>

@@ -19,7 +19,8 @@ class AdminController extends Controller
             ->join('image', 'products.product_id', '=', 'image.product_id')
             ->join('categories', 'products.cate_id', '=', 'categories.cate_id')
             ->join('sell_product', 'products.product_id', '=', 'sell_product.product_id')
-            ->select('products.*', 'image.url', 'categories.cate_name','sell_product.prices')
+            ->select('products.product_id','products.product_code','products.product_name','products.product_info',
+                'image.url','categories.cate_id', 'categories.cate_name','sell_product.prices')
             ->get();
         return view('admin/product/index',['products'=>$products]);
     }

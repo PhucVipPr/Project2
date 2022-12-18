@@ -30,19 +30,29 @@ class AdminProductController extends Controller
         $prices = $request->input('prices');
         $product_code = $request->input('product_code');
         $product_info = $request->input('product_info');
+        $cate_id = $request->input('cate_id');
         DB::table('products')->insert([
+            'cate_id' => $cate_id,
             'product_id' => $product_id,
             'product_name' => $product_name,
             'product_code' => $product_code,
             'product_info' => $product_info,
         ]);
         DB::table('image')->insert([
+            'product_id' => $product_id,
             'url' => $url,
         ]);
         DB::table('sell_product')->insert([
+            'product_id' => $product_id,
             'prices' => $prices,
         ]);
-        action([AdminProductController::class,'addProduct']);
         return redirect('admin/product/add_product');
+    }
+
+
+    public function destroy($product_id){
+        $products = Category::findOrFail($product_id);
+        $products->delete();
+        return redirect('admin/product/index');
     }
 }

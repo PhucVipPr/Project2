@@ -35,9 +35,12 @@ Route::get('/admin/home',[\App\Http\Controllers\AdminController::class,'viewHome
 Route::get('/admin/product/add_product',[\App\Http\Controllers\AdminProductController::class,'create']);
 Route::post('/admin/product/add_product',[\App\Http\Controllers\AdminProductController::class,'store']);
 
+
 //Category
 Route::get('/admin/category/add_category',[\App\Http\Controllers\AdminCategory::class,'create']);
 Route::post('/admin/category/add_category',[\App\Http\Controllers\AdminCategory::class,'store']);
+Route::get('/admin/category/edit_category',[\App\Http\Controllers\AdminCategory::class,'edit']);
+Route::put('/admin/category/edit_category',[\App\Http\Controllers\AdminCategory::class,'update']);
 Route::delete('/admin/category/{category}/delete',[\App\Http\Controllers\AdminCategory::class,'destroy']);
 
 //Client
