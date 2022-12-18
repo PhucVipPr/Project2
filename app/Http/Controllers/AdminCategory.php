@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AdminCategory extends Controller
 {
-    public function addCategory(){
+    public function create(){
         return view('admin/product/add_category');
     }
 
-    public function saveCategory(Request $request){
+    public function store(Request $request){
         $this->validate($request,[
             'cate_id' => 'required',
             'cate_name' => 'required',
@@ -21,5 +22,6 @@ class AdminCategory extends Controller
             'cate_id'=> $cate_id,
             'cate_name' => $cate_name,
         ]);
+        return redirect('admin/product/add_category');
     }
 }

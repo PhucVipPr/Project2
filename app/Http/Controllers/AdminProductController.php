@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use Illuminate\Support\Facades\DB;
@@ -9,11 +10,12 @@ use mysql_xdevapi\Table;
 
 class AdminProductController extends Controller
 {
-    public function addProduct(){
+    public function create(){
+        $category = Category::get();
         return view('admin/product/add_product');
     }
 
-    public function saveProduct(Request $request){
+    public function store(Request $request){
         $this->validate($request,[
             'product_id' => 'required|max:255',
             'url' => 'required',
@@ -41,6 +43,6 @@ class AdminProductController extends Controller
             'prices' => $prices,
         ]);
         action([AdminProductController::class,'addProduct']);
-        return redirect('admin/product/index');
+        return redirect('admin/product/add_product');
     }
 }
