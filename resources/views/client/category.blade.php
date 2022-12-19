@@ -77,7 +77,11 @@
             </li>
          </div>
          <div class="others">
-            <li><input placeholder="Tìm kiếm" type="text"> <i class="fa fa-search"></i></li>
+             <form action="{{\Illuminate\Support\Facades\URL::to('/tim-kiem')}}" method="POST">
+                 {{csrf_field()}}
+                 <li><input name="keywords_submit" placeholder="Tìm kiếm" type="text"></li>
+                 <button type="submit" name="search_items" class="btn btn-default btn-sm" value="Tìm kiếm">Tìm kiếm</button>
+             </form>
             <li> <a class="fa fa-user" href=""></a></li>
             <li> <a class="fa fa-shopping-bag" href=""></a></li>
          </div>
@@ -153,6 +157,7 @@
                             <img src="{{$products-> url}}" href="#"/>
                             <h1>{{$products-> product_name}}</h1>
                             <p>{{$products->prices}}<sup>đ</sup></p>
+                         <a class="read_more mar_top" href="{{url('/client/product/{id}')}}"> Mua ngay</a>
                      </div>
                       @empty
                           <p>Danh sach rong</p>

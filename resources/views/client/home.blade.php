@@ -135,11 +135,10 @@
             <div class="col-md-3 col-sm-6 row">
                 @forelse($products as $products)
                 <div class="protien">
-
                         <figure> <img src="{{$products-> url}}"/></figure>
                         <h1>{{$products-> product_name}}</h1>
                         <p>{{$products->prices}}</p>
-                    <a class="read_more mar_top" href="Javascript:void(0)"> Mua ngay</a>
+                    <a class="read_more mar_top" href="{{url('/client/product/{id}')}}"> Mua ngay</a>
 
                 </div>
                 @empty

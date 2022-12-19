@@ -77,7 +77,7 @@
             </li>
          </div>
          <div class="others">
-            <li><input placeholder="Tìm kiếm" type="text"> <i class="fa fa-search"></i></li>
+            <li><input name="keywords_submit" placeholder="Tìm kiếm" type="text"> <i class="fa fa-search"></i></li>
             <li> <a class="fa fa-user" href=""></a></li>
             <li> <a class="fa fa-shopping-bag" href=""></a></li>
          </div>

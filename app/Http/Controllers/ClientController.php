@@ -17,8 +17,9 @@ class ClientController extends Controller
 
         return view('client/category',['products'=>$products]);
     }
-    function show($id){
-        $products = DB::table('products')->find($id);
-        dd($products);
+    public function show($id){
+        return view('client/product',["product_id"=>$id]);
     }
+
 }
+

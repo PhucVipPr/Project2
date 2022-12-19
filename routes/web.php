@@ -21,6 +21,8 @@ Route::get('home',function (){
     return view('site/home');
 });
 
+
+
 //Login
 Route::get('/login',[\App\Http\Controllers\LoginController::class,'viewLogin']);
 Route::post('/login',[\App\Http\Controllers\LoginController::class,'login']);
@@ -47,4 +49,5 @@ Route::delete('/admin/category/{category}/delete',[\App\Http\Controllers\AdminCa
 Route::get('/client/home',[\App\Http\Controllers\ClientController::class,'viewClient']);
 Route::get('/client/home/category',[\App\Http\Controllers\ClientController::class,'viewCategory']);
 Route::get('/client/product/{id}',[\App\Http\Controllers\ClientController::class,'show']);
+
 

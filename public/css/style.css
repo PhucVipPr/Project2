@@ -263,7 +263,7 @@ button {
      width: 100%;
      position: relative;
      padding-left: 0;
-     
+
 }
 
 .header_full_bg {
@@ -1003,7 +1003,7 @@ header{
      width: 20%;
 }
 .category-right{
-     width: 80%; 
+     width: 80%;
 }
 .category-right-top-item:first-child{
      flex: 2;
