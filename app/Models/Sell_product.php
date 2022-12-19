@@ -9,5 +9,5 @@ class Sell_product extends Model
 {
     use HasFactory;
     protected $primaryKey = 'sp_id';
-    protected $fillable = [''];
+    protected $fillable = ['product_id','prices'];
 }

@@ -96,14 +96,7 @@
             <div class="product-content row">
                <div class="product-content-left row">
                   <div class="product-content-left-big-img">
-                     <img src="{{asset('images/wheygold.1.png')}}" alt="" width="200px">
-
-                  </div>
-                  <div class="product-content-left-small-img">
-                     <img src="{{asset('images/wheygold.4.png')}}" alt="">
-                     <img src="{{asset('images/wheygold.1.png')}}" alt="">
-                     <img src="{{asset('images/wheygold.2.png')}}" alt="">
-                     <img src="{{asset('images/wheygold.3.png')}}" alt="">
+                     <img src="{{$images->first()}}" alt="" width="200px">
                   </div>
                </div>
                <div class="product-content-right">
