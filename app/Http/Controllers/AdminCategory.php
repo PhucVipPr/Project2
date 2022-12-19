@@ -17,16 +17,14 @@ class AdminCategory extends Controller
         return view('admin/category/edit_category',compact('categories'));
     }
 
-    public function update(Request $request,$cate_id){
-        $new = $request->validate([
-           'cate_id' => 'required|max:100',
-           'cate_name' => 'required',
+    public function update(Request $request, $cate_id)
+    {
+        $updateData = $request->validate([
+            'cate_id' => 'required|max:255',
+            'cate_name' => 'required|max:255',
         ]);
-        $new = Category::find($cate_id);
-        $new->cate_id = $request->cate_id;
-        $new->cate_name = $request->cate_name;
-        $new->save();
-        return redirect('admin/category/index')->with('completed', 'Your category has been updated');
+        DB::table('categories')->where('cate_id','=',$cate_id)->update($updateData);
+        return redirect('/admin/category/index')->with('completed', 'Your category has been updated');
     }
 
     public function store(Request $request){

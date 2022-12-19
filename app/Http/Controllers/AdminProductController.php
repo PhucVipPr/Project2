@@ -49,6 +49,27 @@ class AdminProductController extends Controller
         return redirect('admin/product/add_product');
     }
 
+    public function edit($product_id){
+        $categories = Category::get();
+        $products = Product::findOrFail($product_id);
+        $url = DB::table('image')->get();
+        $prices = DB::table('sell_product')->get();
+        return view('admin/product/edit_product',compact('products'),['category'=>$categories
+        ,'url'=>$url,'price'=>$prices]);
+    }
+
+    public function update(Request $request, $product_id){
+        $this->validate($request,[
+            'product_id' => 'required|max:255',
+            'url' => 'required',
+            'product_name' => 'required',
+            'prices' => 'required|numeric|max:10000000',
+            'product_code' => 'required|numeric',
+            'product_info' => 'required',
+        ]);
+        DB::table('products')->where('product_id','=',$product_id)->update($this);
+        return redirect('/admin/product/index')->with('completed', 'Your product has been updated');
+    }
 
     public function destroy($product_id){
         $products = Category::findOrFail($product_id);
