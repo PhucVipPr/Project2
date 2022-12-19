@@ -96,24 +96,16 @@
             <div class="product-content row">
                <div class="product-content-left row">
                   <div class="product-content-left-big-img">
-                     <img src="{{asset('images/wheygold.1.png')}}" alt="" width="200px">
-
-                  </div>
-                  <div class="product-content-left-small-img">
-                     <img src="{{asset('images/wheygold.4.png')}}" alt="">
-                     <img src="{{asset('images/wheygold.1.png')}}" alt="">
-                     <img src="{{asset('images/wheygold.2.png')}}" alt="">
-                     <img src="{{asset('images/wheygold.3.png')}}" alt="">
+                     <img src="{{$images->first()}}" alt="" width="200px">
                   </div>
                </div>
                <div class="product-content-right">
                   <div class="product-content-right-product-name">
-                      @foreach($products as $product)
-                     <h1>{{$product->product_name}}</h1>
-                     <p>Mã sản phẩm:{{$product->product_code}}</p>
+                     <h1>{{$products->product_name}}</h1>
+                     <p>Mã sản phẩm:{{$products->product_code}}</p>
                   </div>
                   <div class="product-content-right-product-price">
-                     <p>{{$product->prices}}<sup>đ</sup></p>
+                     <p><sup>đ</sup></p>
                   </div>
                   <div class="product-content-right-product-favor">
                      <p style="font-weight: bold;">Hương vị:</p>
@@ -147,15 +139,12 @@
                            </div>
                         </div>
                         <div class="product-content-right-bottom-content-chitiet">
-                            <p>{{$product->product_info}}</p>
+                            <p>{{$products->product_info}}</p>
                         </div>
                         <div class="product-content-right-bottom-content-chitiethon">
                            chi tiet hon wheygold
                         </div>
                      </div>
-                      @empty
-                          <p>Danh sach rong</p>
-                      @endforelse
                   </div>
                </div>
 

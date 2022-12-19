@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Image;
 use App\Models\Product;
+use App\Models\Sell_product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -21,7 +24,10 @@ class ClientController extends Controller
 
     public function show($product_id){
         $product = DB::table('products')->where('product_id',"=",$product_id)->first();
-        return view('client/product',['products'=>$product]);
+        $categories =Category::all();
+        $image = Image::all();
+        $sellProduct = Sell_product::all();
+        return view('client/product',compact('product','categories','image','sellProduct'));
     }
 
 }

@@ -132,18 +132,18 @@
             </div>
         </div>
         <div class="column">
-            <div class="col-md-3 col-sm-6 ">
-                <div class="protien">
+                <div class="category-right-content row">
                     @forelse($products as $product)
-                        <figure> <img src="{{$product-> url}}"/></figure>
-                        <h1>{{$product-> product_name}}</h1>
-                        <p>{{$product->prices}}</p>
-                    <a class="read_more mar_top" href="{{url('/client/product/'.$product->product_id)}}"> Mua ngay</a>
+                        <div class="category-right-content-item">
+                            <img src="{{$product-> url}}" href="#"/>
+                            <h1>{{$product-> product_name}}</h1>
+                            <p>{{$product->prices}}<sup>đ</sup></p>
+                            <a class="read_more mar_top" href="{{url('/client/product/{id}')}}"> Mua ngay</a>
+                        </div>
                     @empty
                         <p>Danh sach rong</p>
                     @endforelse
                 </div>
-            </div>
         </div>
     </div>
 </div>
