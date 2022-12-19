@@ -16,11 +16,11 @@ class AdminController extends Controller
 
     function viewProduct(){
         $products = DB::table('products')
-            ->join('image', 'products.product_id', '=', 'image.product_id')
+            ->join('images', 'products.product_id', '=', 'images.product_id')
             ->join('categories', 'products.cate_id', '=', 'categories.cate_id')
-            ->join('sell_product', 'products.product_id', '=', 'sell_product.product_id')
+            ->join('sell_products', 'products.product_id', '=', 'sell_products.product_id')
             ->select('products.product_id','products.product_code','products.product_name','products.product_info',
-                'image.url','categories.cate_id', 'categories.cate_name','sell_product.prices')
+                'images.url','categories.cate_id', 'categories.cate_name','sell_products.prices')
             ->get();
         return view('admin/product/index',['products'=>$products]);
     }
