@@ -55,7 +55,7 @@ class AdminProductController extends Controller
         $url = DB::table('image')->get();
         $prices = DB::table('sell_product')->get();
         return view('admin/product/edit_product',compact('products'),['category'=>$categories
-        ,'url'=>$url,'price'=>$prices]);
+        ,'image'=>$url,'sell_product'=>$prices]);
     }
 
     public function update(Request $request, $product_id){
@@ -68,6 +68,8 @@ class AdminProductController extends Controller
             'product_info' => 'required',
         ]);
         DB::table('products')->where('product_id','=',$product_id)->update($this);
+        DB::table('image')->where('product_id','=',$product_id)->update($this);
+        DB::table('sell_product')->where('product_id','=',$product_id)->update($this);
         return redirect('/admin/product/index')->with('completed', 'Your product has been updated');
     }
 
