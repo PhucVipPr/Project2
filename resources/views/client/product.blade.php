@@ -108,12 +108,11 @@
                </div>
                <div class="product-content-right">
                   <div class="product-content-right-product-name">
-                      @foreach($products as $product)
-                     <h1>{{$product->product_name}}</h1>
-                     <p>Mã sản phẩm:{{$product->product_code}}</p>
+                     <h1>{{$products->product_name}}</h1>
+                     <p>Mã sản phẩm:{{$products->product_code}}</p>
                   </div>
                   <div class="product-content-right-product-price">
-                     <p>{{$product->prices}}<sup>đ</sup></p>
+                     <p><sup>đ</sup></p>
                   </div>
                   <div class="product-content-right-product-favor">
                      <p style="font-weight: bold;">Hương vị:</p>
@@ -147,15 +146,12 @@
                            </div>
                         </div>
                         <div class="product-content-right-bottom-content-chitiet">
-                            <p>{{$product->product_info}}</p>
+                            <p>{{$products->product_info}}</p>
                         </div>
                         <div class="product-content-right-bottom-content-chitiethon">
                            chi tiet hon wheygold
                         </div>
                      </div>
-                      @empty
-                          <p>Danh sach rong</p>
-                      @endforelse
                   </div>
                </div>
 
