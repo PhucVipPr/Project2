@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <!-- basic -->
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <!-- mobile metas -->
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-      <!-- site metas -->
-      <title>pro</title>
-      <meta name="keywords" content="">
-      <meta name="description" content="">
-      <meta name="author" content="">
-      <!-- bootstrap css -->
-      <link rel="stylesheet" href="css/bootstrap.min.css">
-      <!-- style css -->
-      <link rel="stylesheet" href="css/style.css">
-      <!-- Responsive-->
-      <link rel="stylesheet" href="css/responsive.css">
-      <!-- fevicon -->
-      <link rel="icon" href="images/fevicon.png" type="image/gif" />
-      <!-- Scrollbar Custom CSS -->
-      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
-      <!-- Tweaks for older IEs-->
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>pro</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+    <!-- style css -->
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
+    <!-- fevicon -->
+    <link rel="icon" href="{{asset('images/fevicon.png')}}" type="image/gif" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="{{asset('css/jquery.mCustomScrollbar.min.css')}}">
+    <!-- Tweaks for older IEs-->
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
       <!--[if lt IE 9]>
@@ -77,7 +77,7 @@
             </li>
          </div>
          <div class="others">
-            <li><input placeholder="Tìm kiếm" type="text"> <i class="fa fa-search"></i></li>
+            <li><input name="keywords_submit" placeholder="Tìm kiếm" type="text"> <i class="fa fa-search"></i></li>
             <li> <a class="fa fa-user" href=""></a></li>
             <li> <a class="fa fa-shopping-bag" href=""></a></li>
          </div>
@@ -104,16 +104,16 @@
                      <img src="{{asset('images/wheygold.1.png')}}" alt="">
                      <img src="{{asset('images/wheygold.2.png')}}" alt="">
                      <img src="{{asset('images/wheygold.3.png')}}" alt="">
-
                   </div>
                </div>
                <div class="product-content-right">
                   <div class="product-content-right-product-name">
-                     <h1>Whey Gold Standard 2lbs 900g</h1>
-                     <p>Mã sản phẩm: 11111</p>
+                      @foreach($products as $product)
+                     <h1>{{$product->product_name}}</h1>
+                     <p>Mã sản phẩm:{{$product->product_code}}</p>
                   </div>
                   <div class="product-content-right-product-price">
-                     <p>920.000<sup>đ</sup></p>
+                     <p>{{$product->prices}}<sup>đ</sup></p>
                   </div>
                   <div class="product-content-right-product-favor">
                      <p style="font-weight: bold;">Hương vị:</p>
@@ -147,13 +147,15 @@
                            </div>
                         </div>
                         <div class="product-content-right-bottom-content-chitiet">
-                           chi tiet wheygold
+                            <p>{{$product->product_info}}</p>
                         </div>
                         <div class="product-content-right-bottom-content-chitiethon">
                            chi tiet hon wheygold
                         </div>
                      </div>
-
+                      @empty
+                          <p>Danh sach rong</p>
+                      @endforelse
                   </div>
                </div>
 

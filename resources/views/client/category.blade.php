@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <!-- basic -->
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <!-- mobile metas -->
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-      <!-- site metas -->
-      <title>pro</title>
-      <meta name="keywords" content="">
-      <meta name="description" content="">
-      <meta name="author" content="">
-      <!-- bootstrap css -->
-      <link rel="stylesheet" href="css/bootstrap.min.css">
-      <!-- style css -->
-      <link rel="stylesheet" href="css/style.css">
-      <!-- Responsive-->
-      <link rel="stylesheet" href="css/responsive.css">
-      <!-- fevicon -->
-      <link rel="icon" href="images/fevicon.png" type="image/gif" />
-      <!-- Scrollbar Custom CSS -->
-      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
-      <!-- Tweaks for older IEs-->
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>pro</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+    <!-- style css -->
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
+    <!-- fevicon -->
+    <link rel="icon" href="{{asset('images/fevicon.png')}}" type="image/gif" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="{{asset('css/jquery.mCustomScrollbar.min.css')}}">
+    <!-- Tweaks for older IEs-->
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
       <!--[if lt IE 9]>
@@ -77,7 +77,11 @@
             </li>
          </div>
          <div class="others">
-            <li><input placeholder="Tìm kiếm" type="text"> <i class="fa fa-search"></i></li>
+             <form action="{{\Illuminate\Support\Facades\URL::to('/tim-kiem')}}" method="POST">
+                 {{csrf_field()}}
+                 <li><input name="keywords_submit" placeholder="Tìm kiếm" type="text"></li>
+                 <button type="submit" name="search_items" class="btn btn-default btn-sm" value="Tìm kiếm">Tìm kiếm</button>
+             </form>
             <li> <a class="fa fa-user" href=""></a></li>
             <li> <a class="fa fa-shopping-bag" href=""></a></li>
          </div>
@@ -148,26 +152,16 @@
                      </select>
                   </div>
                   <div class="category-right-content row">
+                      @forelse($products as $product)
                      <div class="category-right-content-item">
-                        <img src="{{asset('images/wheygold.png')}}" alt="">
-                        <h1>Whey Gold Standard 2lbs 900g</h1>
-                        <p>920.000<sup>đ</sup></p>
+                            <img src="{{$product-> url}}" href="#"/>
+                            <h1>{{$product-> product_name}}</h1>
+                            <p>{{$product->prices}}<sup>đ</sup></p>
+                         <a class="read_more mar_top" href="{{url('/client/product/{id}')}}"> Mua ngay</a>
                      </div>
-                     <div class="category-right-content-item">
-                        <img src="{{asset('images/wheygold.png')}}" alt="">
-                        <h1>Whey Gold Standard 2lbs 900g</h1>
-                        <p>920.000<sup>đ</sup></p>
-                     </div>
-                     <div class="category-right-content-item">
-                        <img src="{{asset('images/wheygold.png')}}" alt="">
-                        <h1>Whey Gold Standard 2lbs 900g</h1>
-                        <p>920.000<sup>đ</sup></p>
-                     </div>
-                     <div class="category-right-content-item">
-                        <img src="{{asset('images/wheygold.png')}}" alt="">
-                        <h1>Whey Gold Standard 2lbs 900g</h1>
-                        <p>920.000<sup>đ</sup></p>
-                     </div>
+                      @empty
+                          <p>Danh sach rong</p>
+                      @endforelse
                   </div>
 
                   <div class="category-right-bottom row">

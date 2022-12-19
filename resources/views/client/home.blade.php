@@ -125,43 +125,23 @@
 <div id="protien" class="protien_main">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-8">
                 <div class="titlepage">
                     <h2>Về sản phẩm</h2>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-3 col-sm-6">
+        <div class="column">
+            <div class="col-md-3 col-sm-6 ">
                 <div class="protien">
-                    <figure><img src="{{asset('images/mutant-iso-surge-mint-chocolate-chip.png')}}" alt="#"/></figure>
-                    <h3>$400</h3>
-                    <span> Variations  </span>
-                    <a class="read_more mar_top" href="Javascript:void(0)"> Mua ngay</a>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="protien">
-                    <figure><img src="{{asset('images/wheygold.png')}}" alt="#"/></figure>
-                    <h3>$400</h3>
-                    <span>  Passages  </span>
-                    <a class="read_more mar_top" href="Javascript:void(0)"> Mua ngay</a>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="protien">
-                    <figure><img src="{{asset('images/rule1-r1-protein-5lbs-chocolate-fudge-whey-protein-phat-trien-co-bap-gymstore (1).png')}}" alt="#"/></figure>
-                    <h3>$400</h3>
-                    <span> Variations </span>
-                    <a class="read_more mar_top" href="Javascript:void(0)"> Mua ngay</a>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="protien">
-                    <figure><img src="{{asset('images/nutrabolic-hydropure-extreme-chocolate.png')}}" alt="#"/></figure>
-                    <h3>$400</h3>
-                    <span> Pedicure </span>
-                    <a class="read_more mar_top" href="Javascript:void(0)"> Mua ngay</a>
+                    @forelse($products as $product)
+                        <figure> <img src="{{$product-> url}}"/></figure>
+                        <h1>{{$product-> product_name}}</h1>
+                        <p>{{$product->prices}}</p>
+                    <a class="read_more mar_top" href="{{url('/client/product/'.$product->product_id)}}"> Mua ngay</a>
+                    @empty
+                        <p>Danh sach rong</p>
+                    @endforelse
                 </div>
             </div>
         </div>
