@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -17,8 +18,10 @@ class ClientController extends Controller
 
         return view('client/category',['products'=>$products]);
     }
-    public function show($id){
-        return view('client/product',["product_id"=>$id]);
+
+    public function show($product_id){
+        $product = DB::table('products')->where('product_id',"=",$product_id)->first();
+        return view('client/product',['products'=>$product]);
     }
 
 }

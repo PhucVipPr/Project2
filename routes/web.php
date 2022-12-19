@@ -48,6 +48,6 @@ Route::delete('/admin/category/{category}/delete',[\App\Http\Controllers\AdminCa
 //Client
 Route::get('/client/home',[\App\Http\Controllers\ClientController::class,'viewClient']);
 Route::get('/client/home/category',[\App\Http\Controllers\ClientController::class,'viewCategory']);
-Route::get('/client/product/{id}',[\App\Http\Controllers\ClientController::class,'show']);
+Route::get('/client/product/{product_id}',[\App\Http\Controllers\ClientController::class,'show']);
 
 

@@ -104,16 +104,16 @@
                      <img src="{{asset('images/wheygold.1.png')}}" alt="">
                      <img src="{{asset('images/wheygold.2.png')}}" alt="">
                      <img src="{{asset('images/wheygold.3.png')}}" alt="">
-
                   </div>
                </div>
                <div class="product-content-right">
                   <div class="product-content-right-product-name">
-                     <h1>Whey Gold Standard 2lbs 900g</h1>
-                     <p>Mã sản phẩm: 11111</p>
+                      @foreach($products as $product)
+                     <h1>{{$product->product_name}}</h1>
+                     <p>Mã sản phẩm:{{$product->product_code}}</p>
                   </div>
                   <div class="product-content-right-product-price">
-                     <p>920.000<sup>đ</sup></p>
+                     <p>{{$product->prices}}<sup>đ</sup></p>
                   </div>
                   <div class="product-content-right-product-favor">
                      <p style="font-weight: bold;">Hương vị:</p>
@@ -147,13 +147,15 @@
                            </div>
                         </div>
                         <div class="product-content-right-bottom-content-chitiet">
-                           chi tiet wheygold
+                            <p>{{$product->product_info}}</p>
                         </div>
                         <div class="product-content-right-bottom-content-chitiethon">
                            chi tiet hon wheygold
                         </div>
                      </div>
-
+                      @empty
+                          <p>Danh sach rong</p>
+                      @endforelse
                   </div>
                </div>
 

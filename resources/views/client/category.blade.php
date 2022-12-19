@@ -152,11 +152,11 @@
                      </select>
                   </div>
                   <div class="category-right-content row">
-                      @forelse($products as $products)
+                      @forelse($products as $product)
                      <div class="category-right-content-item">
-                            <img src="{{$products-> url}}" href="#"/>
-                            <h1>{{$products-> product_name}}</h1>
-                            <p>{{$products->prices}}<sup>đ</sup></p>
+                            <img src="{{$product-> url}}" href="#"/>
+                            <h1>{{$product-> product_name}}</h1>
+                            <p>{{$product->prices}}<sup>đ</sup></p>
                          <a class="read_more mar_top" href="{{url('/client/product/{id}')}}"> Mua ngay</a>
                      </div>
                       @empty

@@ -125,25 +125,24 @@
 <div id="protien" class="protien_main">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-8">
                 <div class="titlepage">
                     <h2>Về sản phẩm</h2>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-3 col-sm-6 row">
-                @forelse($products as $products)
+        <div class="column">
+            <div class="col-md-3 col-sm-6 ">
                 <div class="protien">
-                        <figure> <img src="{{$products-> url}}"/></figure>
-                        <h1>{{$products-> product_name}}</h1>
-                        <p>{{$products->prices}}</p>
-                    <a class="read_more mar_top" href="{{url('/client/product/{id}')}}"> Mua ngay</a>
-
+                    @forelse($products as $product)
+                        <figure> <img src="{{$product-> url}}"/></figure>
+                        <h1>{{$product-> product_name}}</h1>
+                        <p>{{$product->prices}}</p>
+                    <a class="read_more mar_top" href="{{url('/client/product/'.$product->product_id)}}"> Mua ngay</a>
+                    @empty
+                        <p>Danh sach rong</p>
+                    @endforelse
                 </div>
-                @empty
-                    <p>Danh sach rong</p>
-                @endforelse
             </div>
         </div>
     </div>

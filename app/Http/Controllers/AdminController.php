@@ -30,10 +30,5 @@ class AdminController extends Controller
         return view('admin/category/index',['categories'=>$categories]);
     }
 
-    function viewClient(){
-        $products = DB::table('products')->get();
-        return view('client/home',['products'=>$products]);
-    }
-
 
 }
