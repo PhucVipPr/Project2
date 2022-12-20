@@ -20,7 +20,6 @@ class AdminCategory extends Controller
     public function update(Request $request, $cate_id)
     {
         $updateData = $request->validate([
-            'cate_id' => 'required|max:255',
             'cate_name' => 'required|max:255',
         ]);
         DB::table('categories')->where('cate_id','=',$cate_id)->update($updateData);

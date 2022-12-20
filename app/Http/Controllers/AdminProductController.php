@@ -12,13 +12,15 @@ use mysql_xdevapi\Table;
 
 class AdminProductController extends Controller
 {
-    public function create(){
+    public function create()
+    {
         $categories = Category::get();
-        return view('admin/product/add_product',['category'=>$categories]);
+        return view('admin/product/add_product', ['category' => $categories]);
     }
 
-    public function store(Request $request){
-        $this->validate($request,[
+    public function store(Request $request)
+    {
+        $this->validate($request, [
             'product_id' => 'required|max:255',
             'url' => 'required',
             'product_name' => 'required',
@@ -51,33 +53,30 @@ class AdminProductController extends Controller
         return redirect('admin/product/add_product');
     }
 
-    public function edit($product_id){
+    public function edit($product_id)
+    {
         $categories = Category::get();
         $products = Product::findOrFail($product_id);
         $url = Image::get();
         $prices = Sell_product::get();
-        return view('admin/product/edit_product',compact('products'),['category'=>$categories
-        ,'images'=>$url,'prices'=>$prices]);
+        return view('admin/product/edit_product', compact('products'), ['category' => $categories
+            , 'images' => $url, 'prices' => $prices]);
     }
 
-    public function update(Request $request, $product_id){
-        $this->validate($request,[
-            'product_id' => 'required|max:255',
+    public function update(Request $request, $product_id)
+    {
+        $this->validate($request, [
             'url' => 'required',
             'product_name' => 'required',
             'prices' => 'required|numeric|max:10000000',
             'product_code' => 'required|numeric',
             'product_info' => 'required',
         ]);
-        DB::table('products')->where('product_id','=',$product_id)->update($this);
-        DB::table('images')->where('product_id','=',$product_id)->update($this);
-        DB::table('sell_products')->where('product_id','=',$product_id)->update($this);
+        DB::table('products')->where('product_id', '=', $product_id)->update($this);
+        DB::table('images')->where('product_id', '=', $product_id)->update($this);
+        DB::table('sell_products')->where('product_id', '=', $product_id)->update($this);
         return redirect('/admin/product/index')->with('completed', 'Your product has been updated');
     }
-
-    public function destroy($product_id){
-        $products = Category::findOrFail($product_id);
-        $products->delete();
-        return redirect('admin/product/index');
-    }
 }
+
+

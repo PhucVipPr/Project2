@@ -7,7 +7,7 @@
         @method('put')
         <div class="mb-3">
             <label class="form-label">Category_Id</label>
-            <input class="form-control" name="cate_id" value="{{$categories->cate_id}}" placeholder="Enter ID">
+            <input class="form-control" name="cate_id" value="{{$categories->cate_id}}" readonly>
         </div>
         <div class="mb-3">
             <label class="form-label">Category_Name</label>

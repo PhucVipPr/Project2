@@ -7,7 +7,7 @@
         @method('put')
         <div class="mb-3">
             <label class="form-label">Product_Id</label>
-            <input class="form-control" name="product_id" value="{{$products->product_id}}" placeholder="Enter product ID">
+            <input class="form-control" name="product_id" value="{{$products->product_id}}" readonly>
         </div>
         <div class="mb-3">
             <label class="form-label">Image_URL</label>
