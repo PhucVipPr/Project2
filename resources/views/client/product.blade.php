@@ -91,21 +91,21 @@
       <section class="product">
          <div class="container">
             <div class="product-top row">
-               <p>Trang chủ</p> <span>&#10230; </span> <p>Sữa tăng cân</p> <span>&#10230; </span> <p>Tăng cân nhanh</p><span>&#10230; </span> <p>Whey Gold Standard 2lbs 900g</p>
+               <p>Trang chủ</p> <span>&#10230; </span> <p>Sữa tăng cân</p> <span>&#10230; </span> <p>{{$product->cate_id}}</p><span>&#10230; </span> <p>{{$product->product_name}}</p>
             </div>
             <div class="product-content row">
                <div class="product-content-left row">
                   <div class="product-content-left-big-img">
-                     <img src="{{$images->first()}}" alt="" width="200px">
+                     <img src="{{$image->url}}" alt="" width="200px">
                   </div>
                </div>
                <div class="product-content-right">
                   <div class="product-content-right-product-name">
-                     <h1>{{$products->product_name}}</h1>
-                     <p>Mã sản phẩm:{{$products->product_code}}</p>
+                     <h1>{{$product->product_name}}</h1>
+                     <p>Mã sản phẩm:{{$product->product_code}}</p>
                   </div>
                   <div class="product-content-right-product-price">
-                     <p><sup>đ</sup></p>
+                     <p>Gía:{{$sellProduct->prices}} <sup>đ</sup></p>
                   </div>
                   <div class="product-content-right-product-favor">
                      <p style="font-weight: bold;">Hương vị:</p>
@@ -139,7 +139,7 @@
                            </div>
                         </div>
                         <div class="product-content-right-bottom-content-chitiet">
-                            <p>{{$products->product_info}}</p>
+                            <p>{{$product->product_info}}</p>
                         </div>
                         <div class="product-content-right-bottom-content-chitiethon">
                            chi tiet hon wheygold
