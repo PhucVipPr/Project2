@@ -132,6 +132,7 @@
             </div>
         </div>
         <div class="column">
+            <a href="{{url('/client/home/category')}}" ><h4 class="more_product">Xem thêm sản phẩm</h4></a>
                 <div class="category-right-content row">
                     @forelse($products as $product)
                         <div class="category-right-content-item">
