@@ -36,10 +36,10 @@
 <!-- header -->
 <header>
     <div class="logo">
-        <img src="{{asset('images/logo.png')}}">
+        <img src="{{asset('images/logo.png')}}" href="{{url('/client/home')}}">
     </div>
     <div class="menu">
-        <li><a href="">Trang chủ</a></li>
+        <li><a href="{{url('/client/home')}}">Trang chủ</a></li>
         <li><a href="">Sữa tăng cân</a>
             <ul class="sub-menu">
                 <li><a href="">Tăng cân nhanh</a></li>
@@ -94,7 +94,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="logo">
-                                <a href="index.html"><img src="{{asset('images/logo.png')}}" alt="#"/></a>
+                                <a href=""><img src="{{asset('images/logo.png')}}" alt="{{url('/client/home')}}"/></a>
                             </div>
                         </div>
                     </div>

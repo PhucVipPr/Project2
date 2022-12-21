@@ -37,7 +37,7 @@
             <img src="{{asset('images/logo.png')}}">
          </div>
          <div class="menu">
-            <li><a href="">Trang chủ</a></li>
+            <li><a href="{{url('/client/home')}}">Trang chủ</a></li>
             <li><a href="">Sữa tăng cân</a>
                <ul class="sub-menu">
                   <li><a href="">Tăng cân nhanh</a></li>
