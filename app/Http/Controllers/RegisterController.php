@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Testing\Fluent\Concerns\Has;
 
 class RegisterController extends Controller
 {
@@ -21,7 +23,7 @@ class RegisterController extends Controller
         DB::table('users')->insert([
             'name'=>$name,
             'email'=>$email,
-            'password'=>$password,
+            'password'=>Hash::make($password),
             'phone'=>$phone,
             'address'=>$address,
             'isAdmin'=>$isAdmin,
