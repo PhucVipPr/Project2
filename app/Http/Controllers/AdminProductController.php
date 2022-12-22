@@ -60,7 +60,7 @@ class AdminProductController extends Controller
         $url = Image::get();
         $prices = Sell_product::get();
         return view('admin/product/edit_product', compact('products'), ['category' => $categories
-            , 'images' => $url, 'sell_products' => $prices]);
+            , 'url' => $url, 'prices' => $prices]);
     }
 
     public function update(Request $request, $product_id)

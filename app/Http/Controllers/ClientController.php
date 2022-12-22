@@ -23,7 +23,11 @@ class ClientController extends Controller
     }
 
     public function show($product_id){
-        $product = DB::table('products')->where('product_id',"=",$product_id)->first();
+        $product = DB::table('categories')
+            ->join('products','products.cate_id','=','categories.cate_id')
+            ->select('products.*','categories.cate_name')
+            ->get()
+            ->where('product_id',"=",$product_id)->first();
         $image = DB::table('images')->where('product_id',"=",$product_id)->first();
         $sellProduct = DB::table('sell_products')->where('product_id',"=",$product_id)->first();
         return view('client/product',compact('product','image','sellProduct'));

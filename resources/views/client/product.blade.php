@@ -91,7 +91,7 @@
       <section class="product">
          <div class="container">
             <div class="product-top row">
-               <p>Trang chủ</p> <span>&#10230; </span> <p>Sữa tăng cân</p> <span>&#10230; </span> <p>{{$product->cate_id}}</p><span>&#10230; </span> <p>{{$product->product_name}}</p>
+               <p>Trang chủ</p> <span>&#10230; </span> <p>Sữa tăng cân</p> <span>&#10230; </span> <p>{{$product->cate_name}}</p><span>&#10230; </span> <p>{{$product->product_name}}</p>
             </div>
             <div class="product-content row">
                <div class="product-content-left row">
