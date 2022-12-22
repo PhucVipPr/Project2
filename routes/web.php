@@ -35,6 +35,7 @@ Route::post('/register',[\App\Http\Controllers\RegisterController::class,'storea
 Route::get('/admin/product/index',[\App\Http\Controllers\AdminController::class,'viewProduct']);
 Route::get('/admin/category/index',[\App\Http\Controllers\AdminController::class,'viewCategory']);
 Route::get('/admin/home',[\App\Http\Controllers\AdminController::class,'viewHome']);
+Route::get('/admin/users/index',[\App\Http\Controllers\AdminController::class,'viewUser']);
 
 //Product
 Route::get('/admin/product/add_product',[\App\Http\Controllers\AdminProductController::class,'create']);

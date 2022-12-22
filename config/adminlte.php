@@ -328,6 +328,11 @@ return [
             'url'  => 'admin/category/index',
             'icon' => '',
         ],
+        [
+            'text' => 'User',
+            'url' => 'admin/users/index',
+            'icon' => '',
+        ],
     ],
 
     /*

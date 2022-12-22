@@ -14,6 +14,10 @@ class AdminController extends Controller
         return view('admin/home');
     }
 
+    function viewUser(){
+        return view('admin/users/index');
+    }
+
     function viewProduct(){
         $products = DB::table('products')
             ->join('images', 'products.product_id', '=', 'images.product_id')
