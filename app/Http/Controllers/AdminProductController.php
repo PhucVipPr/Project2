@@ -65,16 +65,20 @@ class AdminProductController extends Controller
 
     public function update(Request $request, $product_id)
     {
-        $updateData = $request->validate([
-            'url' => 'required',
+        $updateProduct = $request->validate([
             'product_name' => 'required',
-            'prices' => 'required|numeric|max:10000000',
             'product_code' => 'required|numeric',
             'product_info' => 'required',
         ]);
-        DB::table('products')->where('product_id', '=', $product_id)->update($updateData );
-        DB::table('images')->where('images.product_id', '=', $product_id)->update($updateData);
-        DB::table('sell_products')->where('sell_products.product_id', '=', $product_id)->update($updateData);
+        $updateUrl = $request->validate([
+            'url' => 'required',
+        ]);
+        $updatePrice = $request->validate([
+            'prices' => 'required|numeric|max:10000000',
+        ]);
+        DB::table('products')->where('product_id', '=', $product_id)->update($updateProduct);
+        DB::table('images')->where('images.product_id', '=', $product_id)->update($updateUrl);
+        DB::table('sell_products')->where('sell_products.product_id', '=', $product_id)->update($updatePrice);
         return redirect('/admin/product/index')->with('completed', 'Your product has been updated');
     }
 }
