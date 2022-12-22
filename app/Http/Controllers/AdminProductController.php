@@ -59,7 +59,7 @@ class AdminProductController extends Controller
         $products = Product::findOrFail($product_id);
         $url = Image::get();
         $prices = Sell_product::get();
-        return view('admin/product/edit_product', compact('products'), ['category' => $categories
+        return view('admin/product/edit_product', compact('products','url','prices','categories'), ['category' => $categories
             , 'url' => $url, 'prices' => $prices]);
     }
 
