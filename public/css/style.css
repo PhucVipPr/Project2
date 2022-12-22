@@ -963,7 +963,7 @@ header{
     line-height: 20px;
 }
 .others{
-     flex: 1;
+     flex: 1.2;
      display: flex;
 }
 .others > li {

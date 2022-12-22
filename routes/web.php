@@ -57,5 +57,6 @@ Route::get('/client/home',[\App\Http\Controllers\ClientController::class,'viewCl
 Route::get('/client/home/category',[\App\Http\Controllers\ClientController::class,'viewCategory']);
 //Xem chi tiet san pham
 Route::get('/client/home/product/{product_id}',[\App\Http\Controllers\ClientController::class,'show']);
-
+//Tim kiem
+Route::post('/client/home/search',[\App\Http\Controllers\ClientController::class,'search']);
 
