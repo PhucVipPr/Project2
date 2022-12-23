@@ -35,8 +35,13 @@ class ClientController extends Controller
     }
 
     function viewCategory(){
-        $products = DB::select("SELECT * FROM products INNER JOIN images ON products.product_id = images.product_id INNER JOIN sell_products ON products.product_id = sell_products.product_id");
-        return view('client/category',['products'=>$products]);
+        //$products = DB::select("SELECT * FROM products INNER JOIN images ON products.product_id = images.product_id INNER JOIN sell_products ON products.product_id = sell_products.product_id");
+        $product = DB::table('products')
+            ->join('images','images.product_id','=','products.product_id')
+            ->join('sell_products','sell_products.product_id','=','products.product_id')
+            ->select('products.*','images.url','sell_products.prices')
+            ->paginate(3);
+        return view('client/category',['products'=>$product]);
     }
 
     public function show($product_id){

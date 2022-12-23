@@ -169,7 +169,7 @@
                         <p>Hiển thị 2 <span>|</span>4 sản phẩm</p>
                      </div>
                      <div class="category-right-bottom-items">
-                        <p><span>&#171;</span>1 2 3 4 5<span>&#187;</span>Trang cuối</p>
+                        <p><span></span>{{$products->links("pagination::bootstrap-4")}}<span></span></p>
                      </div>
                   </div>
 

@@ -37,7 +37,7 @@
         <img src="{{asset('images/logo.png')}}">
     </div>
     <div class="menu">
-        <li><a href="">Trang chủ</a></li>
+        <li><a href="{{url('/client/home')}}">Trang chủ</a></li>
         <li><a href="">Sữa tăng cân</a>
             <ul class="sub-menu">
                 <li><a href="">Tăng cân nhanh</a></li>
@@ -135,30 +135,32 @@
                 </ul>
             </div>
             <div class="category-right row">
-                <div class="category-right-top-item">
-                    <p>Kết quả tìm kiếm</p>
-                </div>
-                <div class="category-right-top-item">
-                    <button><span>Bộ lọc</span><i class="fas fa-sort-down"></i></button>
-                </div>
-                <div class="category-right-top-item">
-                    <select name="" id="">
-                        <option value="">Sắp xếp</option>
-                        <option value="">Giá cao đến thấp</option>
-                        <option value="">Giá thấp đến cao</option>
-                    </select>
-                </div>
-                <div class="category-right-content row">
-                    @forelse($search_product as $product)
+                    <div class="category-right-top-item">
+                        <p>Kết quả tìm kiếm</p>
+                    </div>
+                    <div class="category-right-top-item">
+                        <button><span>Bộ lọc</span><i class="fas fa-sort-down"></i></button>
+                    </div>
+                    <div class="category-right-top-item">
+                        <select name="" id="">
+                            <option value="">Sắp xếp</option>
+                            <option value="">Giá cao đến thấp</option>
+                            <option value="">Giá thấp đến cao</option>
+                        </select>
+                    </div>
+                <div class="category-right center">
+                    <div class="category-right-content row">
                         <div class="category-right-content-item">
-                            <img src="{{$product-> url}}" href="#"/>
-                            <h1>{{$product-> product_name}}</h1>
-                            <p>{{$product->prices}}<sup>đ</sup></p>
-                            <a class="read_more mar_top" href="{{url('/client/home/product/'.$product->product_id)}}"> Mua ngay</a>
+                            @forelse($search_product as $product)
+                                <img src="{{$product-> url}}" href="#"/>
+                                <h1>{{$product-> product_name}}</h1>
+                                <p>{{$product->prices}}<sup>đ</sup></p>
+                                <a class="read_more mar_top" href="{{url('/client/home/product/'.$product->product_id)}}"> Mua ngay</a>
+                            @empty
+                                <p>Danh sach rong</p>
+                            @endforelse
                         </div>
-                    @empty
-                        <p>Danh sach rong</p>
-                    @endforelse
+                    </div>
                 </div>
 
                 <div class="category-right-bottom row">

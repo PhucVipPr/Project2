@@ -1031,7 +1031,6 @@ header{
 .category-right-top-item select{
      width: 100%;
      padding: 10px 15px;
-     display: flex;
      justify-content:space-between;
      background-color: #ffff;
      border: 1px solid #dddddd;
