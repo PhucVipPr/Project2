@@ -55,12 +55,15 @@ class AdminProductController extends Controller
 
     public function edit($product_id)
     {
-        $categories = Category::get();
-        $products = Product::findOrFail($product_id);
-        $url = Image::get();
-        $prices = Sell_product::get();
-        return view('admin/product/edit_product', compact('products','url','prices','categories'), ['category' => $categories
-            , 'url' => $url, 'prices' => $prices]);
+        $category = Category::get();
+        $products = DB::table('products')
+            ->join('images','images.product_id','=','products.product_id')
+            ->join('sell_products','sell_products.product_id','=','products.product_id')
+            ->select('products.*','images.url','sell_products.prices')
+            ->get()
+            ->where('product_id','=',$product_id)->first();
+        ;
+        return view('admin/product/edit_product', compact('products','category'));
     }
 
     public function update(Request $request, $product_id)
