@@ -59,4 +59,7 @@ Route::get('/client/home/category',[\App\Http\Controllers\ClientController::clas
 Route::get('/client/home/product/{product_id}',[\App\Http\Controllers\ClientController::class,'show']);
 //Tim kiem
 Route::post('/client/home/search',[\App\Http\Controllers\ClientController::class,'search']);
+//Gio hang
+Route::get('/client/cart',[\App\Http\Controllers\ClientController::class,'viewCart']);
+Route::get('/client/cart/{product_id}',[\App\Http\Controllers\ClientController::class,'addCart']);
 

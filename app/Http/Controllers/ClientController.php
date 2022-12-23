@@ -17,6 +17,23 @@ class ClientController extends Controller
 
         return view('client/home',['products'=>$products]);
     }
+
+    function viewCart(){
+        return view('client/cart');
+    }
+
+    function addCart($product_id){
+        $products = Product::findOrFail($product_id);
+        $cart = session()->get('cart',[]);
+        if(isset($cart[$product_id])){
+            $cart[$product_id]['quantity']++;
+        }else{
+            $cart[$product_id] = [
+                ''
+            ];
+        }
+    }
+
     function viewCategory(){
         $products = DB::select("SELECT * FROM products INNER JOIN images ON products.product_id = images.product_id INNER JOIN sell_products ON products.product_id = sell_products.product_id");
         return view('client/category',['products'=>$products]);

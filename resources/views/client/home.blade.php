@@ -92,11 +92,11 @@
                     <a class="fa fa-sign-out" href="#">Logout</a>
                 </div>
             </div></li>
-        <li> <a class="fa fa-shopping-bag" href=""></a></li>
+        <li> <a class="fa fa-shopping-cart" href="{{url('client/cart')}}"></a></li>
     </div>
 </header>
 
-<header1>
+<header1>s
     <!-- header inner -->
     <div class="header">
         <div class="header_full_bg">
