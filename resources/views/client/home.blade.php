@@ -96,7 +96,7 @@
     </div>
 </header>
 
-<header1>s
+<header1>
     <!-- header inner -->
     <div class="header">
         <div class="header_full_bg">
