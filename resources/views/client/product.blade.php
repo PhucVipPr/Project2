@@ -79,7 +79,7 @@
          <div class="others">
             <li><input name="keywords_submit" placeholder="Tìm kiếm" type="text"> <i class="fa fa-search"></i></li>
             <li> <a class="fa fa-user" href=""></a></li>
-            <li> <a class="fa fa-shopping-bag" href=""></a></li>
+             <li> <a class="fa fa-shopping-cart" href="{{url('client/cart')}}"></a></li>
          </div>
       </header>
 
@@ -117,14 +117,19 @@
                         <span>Rocky rode</span>
                      </div>
                   </div>
-                  <div class="quantity">
-                     <p style="font-weight:bold;">Số lượng</p>
-                     <input type="number" min="0" value="1"><br>
+                   <form action="{{url('client/cart',$product->id)}}" method="POST">
+                  <div>
+                     <p style="font-weight:bold;">Số lượng</p>&nbsp;
+                     <input name="quantity" type="number" min="1" value="1" max="100"><br>
                   </div>
                   <p style="color: red;">Vui lòng chọn hương vị</p>
                   <div class="product-content-right-product-button">
-                     <button><i class="fa fa-shopping-cart"></i><p>Mua Hàng</p></button>
+                     <button type="submit">
+                         <i class="fa fa-shopping-cart"></i>
+                         <p>Mua Hàng</p>
+                     </button>
                   </div>
+                   </form>
                   <div class="product-content-right-bottom">
                      <div class="product-content-right-bottom-top">
                         &#8744;

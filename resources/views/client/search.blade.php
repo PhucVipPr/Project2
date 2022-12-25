@@ -79,7 +79,7 @@
     <div class="others">
         <li><input name="keywords_submit" placeholder="Tìm kiếm" type="text"> <i class="fa fa-search"></i></li>
         <li> <a class="fa fa-user" href=""></a></li>
-        <li> <a class="fa fa-shopping-bag" href=""></a></li>
+        <li> <a class="fa fa-shopping-cart" href="{{url('client/cart')}}"></a></li>
     </div>
 </header>
 

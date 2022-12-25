@@ -27,26 +27,25 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($products as $product)
                             <tr>
                                 <td>
                                     <figure class="itemside align-items-center">
-                                        <div class="aside"><img src="{{$product->url}}" width="100px" class="img-sm"></div>
-                                        <figcaption class="info"><p>{{$product->product_name}}</p>
-                                            <p class="text-muted small">From: {{$product->cate_name}}</p>
+                                        <div class="aside" name="url"><img src="{{$details->url}}" width="100px" class="img-sm"></div>
+                                        <figcaption class="info" name="product_name"><p>{{$details->product_name}}</p>
+                                            <p class="text-muted small" name="cate_name">From: {{$details->cate_name}}</p>
                                         </figcaption>
                                     </figure>
                                 </td>
                                 <td>
-                                    <input type="number" max="100" min="1">
+                                    <input type="number" name="quantity" min="0" value="1" max="100">
                                 </td>
                                 <td>
-                                    <div class="price-wrap"> <var class="price">{{$product->prices}}</var> <small class="text-muted"></small> </div>
+                                    <div class="price-wrap"> <var name="prices">{{$details->prices}}</var> <small class="text-muted"></small> </div>
                                 </td>
                                 <td class="text-right d-none d-md-block"> <a data-original-title="Save to Wishlist" title="" href="" class="btn btn-light" data-toggle="tooltip" data-abc="true">
                                     </a> <a href="" class="btn btn-light btn-round" data-abc="true"> Remove</a> </td>
                             </tr>
-                        @endforeach
+
                         </tbody>
                     </table>
                 </div>
@@ -67,7 +66,7 @@
                 <div class="card-body">
                     <dl class="dlist-align">
                         <dt>Total price:</dt>
-                        <dd class="text-right ml-3">$</dd>
+                        <dd class="text-right ml-3">{{$details['prices'] * $details['quantity']}}</dd>
                     </dl>
                     <dl class="dlist-align">
                         <dt>Discount:</dt>
@@ -75,10 +74,10 @@
                     </dl>
                     <dl class="dlist-align">
                         <dt>Total:</dt>
-                        <dd class="text-right text-dark b ml-3"><strong></strong></dd>
+                        <dd class="text-right text-dark b ml-3">{{$details['prices'] * $details['quantity']}}<strong></strong></dd>
                     </dl>
                     <hr> <a href="#" class="btn btn-out btn-primary btn-square btn-main" data-abc="true"> Make Purchase </a>
-                    <a href="#" class="btn btn-out btn-success btn-square btn-main mt-2" data-abc="true">Continue Shopping</a>
+                    <a href="{{url('client/home')}}" class="btn btn-out btn-success btn-square btn-main mt-2" data-abc="true">Continue Shopping</a>
                 </div>
             </div>
         </aside>

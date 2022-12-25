@@ -83,7 +83,7 @@
                  <button type="submit" name="search_items" class="btn btn-default btn-sm" value="Tìm kiếm">Tìm kiếm</button>
              </form>
             <li> <a class="fa fa-user" href=""></a></li>
-            <li> <a class="fa fa-shopping-bag" href=""></a></li>
+             <li> <a class="fa fa-shopping-cart" href="{{url('client/cart')}}"></a></li>
          </div>
       </header>
 
