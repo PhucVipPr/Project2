@@ -63,3 +63,5 @@ Route::post('/client/home/search',[\App\Http\Controllers\ClientController::class
 Route::get('/client/cart',[\App\Http\Controllers\CartController::class,'viewCart']);
 Route::post('/client/cart/{product_id}',[\App\Http\Controllers\CartController::class,'addCart']);
 
+//Tin tức
+Route::get('/client/home/tintuc',[\App\Http\Controllers\ClientController::class,'news']);

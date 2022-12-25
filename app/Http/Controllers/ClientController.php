@@ -44,5 +44,9 @@ class ClientController extends Controller
         $search_product = DB::select("SELECT * FROM products INNER JOIN images ON products.product_id = images.product_id INNER JOIN sell_products ON products.product_id = sell_products.product_id WHERE product_name LIKE '%$keyword%'");
         return view('client/search')->with('search_product',$search_product);
     }
+
+    public function news(){
+        return view('/client/news');
+    }
 }
 
