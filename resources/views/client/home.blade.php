@@ -96,7 +96,7 @@
     </div>
 </header>
 
-<header1>s
+<header1>
     <!-- header inner -->
     <div class="header">
         <div class="header_full_bg">
@@ -170,7 +170,6 @@
                     <p>PT store là nơi buôn bán và là chuyên gia phân phối thực phẩm bổ sung hàng đầu thị trường trong quận Hoàng Mai.
                         Với nguyện vọng hoạt động tại hơn 70 quốc gia, chúng tôi mang đến giá trị và nguồn sản phẩm sạch bằng cách kết nối các nhà cung cấp TPBS hàng đầu thế giới.
                         Chúng tôi kết hợp hiểu biết sâu sắc về ngành, chuyên môn kỹ thuật và nhiều thập kỷ kinh nghiệm phân phối chọn lọc phê duyệt chặt chẽ các sản phẩm để mang lại giá trị sử dụng và những điều tốt nhất cho khách hàng.</p>
-                    <a class="read_more" href="Javascript:void(0)"> Đọc thêm</a>
                 </div>
             </div>
             <div class="col-md-6 pad_right0">
@@ -194,7 +193,7 @@
             <div class="col-md-6">
                 <div class="titlepage">
                     <h2>Tác dụng tuyệt vời dành cho bạn</h2>
-                    <a class="read_more" href="Javascript:void(0)"> Đọc ngay</a>
+                    <a class="read_more" href="{{{url('/client/home/tintuc')}}}"> Đọc ngay</a>
                 </div>
             </div>
         </div>
