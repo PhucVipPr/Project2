@@ -84,6 +84,7 @@
                       <a class="dropdown-item" href="#">Info</a>
                       <a class="fa fa-sign-out" href="#">Logout</a>
                   </div>
+                  &nbsp;
               </div></li>
              <li> <a class="fa fa-shopping-cart" href="{{url('client/cart')}}"></a></li>
          </div>
@@ -123,7 +124,7 @@
                         <span>Rocky rode</span>
                      </div>
                   </div>
-                   <form action="{{url('client/cart',$product->product_id),}}" method="POST">
+                   <form action="{{url('client/cart',$product->product_id),'addCart'}}" method="POST">
                   <div>
                      <p style="font-weight:bold;">Số lượng</p>&nbsp;
                      <input name="quantity" type="number" min="1" value="1" max="100"><br>

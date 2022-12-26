@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect('client/home');
+    return redirect('/login');
 });
 
 Route::get('home',function (){
