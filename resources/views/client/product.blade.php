@@ -76,9 +76,15 @@
                </ul>
             </li>
          </div>
-         <div class="others">
-            <li><input name="keywords_submit" placeholder="Tìm kiếm" type="text"> <i class="fa fa-search"></i></li>
-            <li> <a class="fa fa-user" href=""></a></li>
+          <li> <div class="dropdown">
+                  <button class="fa fa-user" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" value="">
+                      {{Auth::user()->name}}
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="#">Info</a>
+                      <a class="fa fa-sign-out" href="#">Logout</a>
+                  </div>
+              </div></li>
              <li> <a class="fa fa-shopping-cart" href="{{url('client/cart')}}"></a></li>
          </div>
       </header>
@@ -102,10 +108,10 @@
                <div class="product-content-right">
                   <div class="product-content-right-product-name">
                      <h1>{{$product->product_name}}</h1>
-                     <p>Mã sản phẩm:{{$product->product_code}}</p>
+                     <p>Mã sản phẩm : {{$product->product_code}}</p>
                   </div>
                   <div class="product-content-right-product-price">
-                     <p>Gía:{{$sellProduct->prices}} <sup>đ</sup></p>
+                     <p>Giá : {{$sellProduct->prices}} <sup>đ</sup></p>
                   </div>
                   <div class="product-content-right-product-favor">
                      <p style="font-weight: bold;">Hương vị:</p>
@@ -117,7 +123,7 @@
                         <span>Rocky rode</span>
                      </div>
                   </div>
-                   <form action="{{url('client/cart',$product->id)}}" method="POST">
+                   <form action="{{url('client/cart',$product->product_id),}}" method="POST">
                   <div>
                      <p style="font-weight:bold;">Số lượng</p>&nbsp;
                      <input name="quantity" type="number" min="1" value="1" max="100"><br>

@@ -10,4 +10,5 @@ class Cart extends Model
     use HasFactory;
     protected $primaryKey = ['cart_id'];
     protected $fillable = ['product_id','quantity'];
+    protected $table = 'carts';
 }
