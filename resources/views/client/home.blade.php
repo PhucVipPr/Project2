@@ -84,8 +84,8 @@
             <li><input name="keyword_submit" placeholder="Tìm kiếm" type="text"><i class="fa fa-search" style="padding-left: 10px"></i></li>
         </form>
         <li> <div class="dropdown">
-                <button class="fa fa-user" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" value="">
-                {{Auth::user()->name}}
+                <button class="fa fa-user" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    User
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="#">Info</a>
@@ -144,18 +144,41 @@
         </div>
         <div class="column">
             <a href="{{url('/client/home/category')}}" ><h4 class="more_product">Xem thêm sản phẩm</h4></a>
-                <div class="category-right-content row">
-                    @forelse($products as $product)
-                        <div class="category-right-content-item">
-                            <img src="{{$product-> url}}" href="#"/>
-                            <h1>{{$product-> product_name}}</h1>
-                            <p>{{$product->prices}}<sup>đ</sup></p>
-                            <a class="read_more mar_top" href="{{url('/client/home/product/'.$product->product_id)}}"> Mua ngay</a>
+            <div id="testimo" class="carousel slide testimo_ban1" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#testimo" data-slide-to="0" class="active"></li>
+                    <li data-target="#testimo" data-slide-to="1"></li>
+                    <li data-target="#testimo" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="container1">
+                            <div class="carousel-caption relative2">
+                                <div class="category-right-content row">
+                                    @forelse($products as $product)
+                                        <div class="category-right-content-item">
+                                            <img src="{{$product-> url}}" href="#"/>
+                                            <h1>{{$product-> product_name}}</h1>
+                                            <h1>{{$product->prices}}<sup>đ</sup></h1>
+                                            <a class="read_more mar_top" href="{{url('/client/home/product/'.$product->product_id)}}"> Mua ngay</a>
+                                        </div>
+                                    @empty
+                                        <p>Danh sach rong</p>
+                                    @endforelse
+                                </div>
+                            </div>
                         </div>
-                    @empty
-                        <p>Danh sach rong</p>
-                    @endforelse
+                    </div>
+                    <a class="carousel-control-prev" href="#testimo" role="button" data-slide="prev">
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="sr-only">Trước</span>
+                    </a>
+                    <a class="carousel-control-next" href="#testimo" role="button" data-slide="next">
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                        <span class="sr-only">Sau</span>
+                    </a>
                 </div>
+            </div>
         </div>
     </div>
 </div>

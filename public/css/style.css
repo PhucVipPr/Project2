@@ -41,6 +41,11 @@
 .container {
      max-width: 1200px;
      margin: auto;
+        
+}
+.column{
+    height: 500px;
+
 }
 
 html {
@@ -1038,12 +1043,12 @@ header{
 }
 .category-right-content{
      margin-top: 20px;
-     justify-content: space-between;
 }
 .category-right-content-item{
-     width: calc(25% - 12px);
+     width: calc(30% - 12px);
      text-align: center;
      padding: 12px 0;
+
 }
 .category-right-content-item h1{
      font-size: 11px;
@@ -1230,4 +1235,8 @@ header{
      display: none;
 }
 
+.carousel slide testimo_ban1{
+    height: 500px;
+    width: 100px;
+}
 
