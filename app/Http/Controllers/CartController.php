@@ -11,8 +11,8 @@ use Illuminate\Support\Facades\DB;
 class CartController extends Controller
 {
     public function viewCart(){
-        $cartItems = Cart::getContent();
-        return view('client/cart',compact('cartItems'));
+        $cartItems = Cart::where('cart_id',Auth::id())->get();
+        return view('client/cartList',compact('cartItems'));
     }
 
     public function addCart(Request $request,$product_id){

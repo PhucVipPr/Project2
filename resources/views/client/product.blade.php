@@ -86,7 +86,7 @@
                   </div>
                   &nbsp;
               </div></li>
-             <li> <a class="fa fa-shopping-cart" href="{{url('client/cart')}}"></a></li>
+             <li> <a class="fa fa-shopping-cart" href="{{url('client/cartList')}}"></a></li>
          </div>
       </header>
 
@@ -96,9 +96,12 @@
 
       <!-------------------------------PRODUCT-------------------->
       <section class="product">
+          <form method="POST" action="{{url('client/cart',$product->product_id)}}">
+              @csrf
          <div class="container">
             <div class="product-top row">
-               <p>Trang chủ</p> <span>&#10230; </span> <p>Sữa tăng cân</p> <span>&#10230; </span> <p>{{$product->cate_name}}</p><span>&#10230; </span> <p>{{$product->product_name}}</p>
+               <p>Trang chủ</p> <span>&#10230; </span> <p>Sữa tăng cân</p> <span>&#10230; </span> <p>{{$product->cate_name}}</p>
+                <span>&#10230; </span> <p>{{$product->product_name}}</p>
             </div>
             <div class="product-content row">
                <div class="product-content-left row">
@@ -106,7 +109,7 @@
                      <img src="{{$image->url}}" alt="" width="200px">
                   </div>
                </div>
-               <div class="product-content-right">
+               <div class="product-content-right ">
                   <div class="product-content-right-product-name">
                      <h1>{{$product->product_name}}</h1>
                      <p>Mã sản phẩm : {{$product->product_code}}</p>
@@ -124,19 +127,19 @@
                         <span>Rocky rode</span>
                      </div>
                   </div>
-                   <form action="{{url('client/cart',$product->product_id),'addCart'}}" method="POST">
-                  <div>
                      <p style="font-weight:bold;">Số lượng</p>&nbsp;
                      <input name="quantity" type="number" min="1" value="1" max="100"><br>
-                  </div>
                   <p style="color: red;">Vui lòng chọn hương vị</p>
                   <div class="product-content-right-product-button">
-                     <button type="submit">
+                      <form method="POST">
+                          @csrf
+                          <input type="hidden" name="product_id" value="{{$product->product_id}}">
+                     <button>
                          <i class="fa fa-shopping-cart"></i>
                          <p>Mua Hàng</p>
                      </button>
+                      </form>
                   </div>
-                   </form>
                   <div class="product-content-right-bottom">
                      <div class="product-content-right-bottom-top">
                         &#8744;
@@ -159,9 +162,12 @@
                      </div>
                   </div>
                </div>
-
             </div>
          </div>
+                  </div>
+               </div>
+            </div>
+          </form>
       </section>
 
       <!--  footer -->

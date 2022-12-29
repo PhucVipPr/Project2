@@ -85,14 +85,14 @@
         </form>
         <li> <div class="dropdown">
                 <button class="fa fa-user" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    User
+                    {{Auth::user()->name}}
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="#">Info</a>
                     <a class="fa fa-sign-out" href="{{url('login')}}">Logout</a>
                 </div>
             </div></li>
-        <li> <a class="fa fa-shopping-cart" href="{{url('client/cart')}}"></a></li>
+        <li> <a class="fa fa-shopping-cart" href="{{url('client/cartList')}}"></a></li>
     </div>
 </header>
 
