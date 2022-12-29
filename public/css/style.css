@@ -44,7 +44,7 @@
 
 }
 .column{
-    height: 500px;
+    height: 800px;
 
 }
 
@@ -492,10 +492,14 @@ ul.social_icon li a:hover {
 .protien {
      text-align: center;
      margin-bottom: 40px;
+
 }
 
-.protien figure {
-     margin: 0;
+.protien h1 {
+    font-size: 11px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 6px;
+    color: #333333;
 }
 
 .protien figure img {
@@ -1015,7 +1019,7 @@ header{
      width: 80%;
 }
 .category-right-top-item:first-child{
-     flex: 2;
+     flex: 1;
      font-size: 16px;
      font-family: Arial, Helvetica, sans-serif;
      font-weight: bold;
@@ -1024,15 +1028,7 @@ header{
      flex: 1;
      padding: 0 12px;
 }
-.category-right-top-item button{
-     width: 100%;
-     padding: 10px 15px;
-     display: flex;
-     justify-content:space-between;
-     background-color: #ffff;
-     border: 1px solid #dddddd;
-     cursor: pointer;
-}
+
 .category-right-top-item select{
      width: 100%;
      padding: 10px 15px;
@@ -1234,9 +1230,3 @@ header{
 .activeB{
      display: none;
 }
-
-.carousel slide testimo_ban1{
-    height: 500px;
-    width: 100px;
-}
-

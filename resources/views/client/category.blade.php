@@ -142,10 +142,9 @@
                      <p>Sữa tăng cân</p>
                   </div>
                   <div class="category-right-top-item">
-                     <button><span>Bộ lọc</span><i class="fas fa-sort-down"></i></button>
-                  </div>
-                  <div class="category-right-top-item">
+                      <a>Sắp xếp theo:</a>
                       <a href="{{URL::current()."?sort=price_desc"}}">Giá cao đến thấp</a>
+                      <a>|</a>
                       <a href="{{URL::current()."?sort=price_asc"}}"> Giá thấp đến cao</a>
                   </div>
                   <div class="category-right-content row">

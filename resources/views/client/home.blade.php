@@ -156,11 +156,13 @@
                             <div class="carousel-caption relative2">
                                 <div class="category-right-content row">
                                     @forelse($products as $product)
-                                        <div class="category-right-content-item">
+                                        <div class="col-md-3 col-sm-6">
+                                        <div class="protien">
                                             <img src="{{$product-> url}}" href="#"/>
                                             <h1>{{$product-> product_name}}</h1>
                                             <h1>{{$product->prices}}<sup>đ</sup></h1>
                                             <a class="read_more mar_top" href="{{url('/client/home/product/'.$product->product_id)}}"> Mua ngay</a>
+                                        </div>
                                         </div>
                                     @empty
                                         <p>Danh sach rong</p>
