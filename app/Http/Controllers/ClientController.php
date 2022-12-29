@@ -7,7 +7,7 @@ use App\Models\Image;
 use App\Models\Product;
 use App\Models\Sell_product;
 use App\Models\User;
-use Illuminate\Http\Request;
+use Request;
 use Illuminate\Support\Facades\DB;
 use mysql_xdevapi\Table;
 
@@ -24,7 +24,13 @@ class ClientController extends Controller
             ->join('images','images.product_id','=','products.product_id')
             ->join('sell_products','sell_products.product_id','=','products.product_id')
             ->select('products.*','images.url','sell_products.prices')
-            ->paginate(3);
+            ->paginate(4);
+        if(Request::get('sort')=='price_asc'){
+            $product = Sell_product::orderBy('prices','ASC')->get();
+        }
+        elseif(Request::get('sort')=='price_desc'){
+            $product = Sell_product::orderBy('prices','DESC')->get();
+        }
         return view('client/category',['products'=>$product]);
     }
 

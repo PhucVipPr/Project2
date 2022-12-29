@@ -145,11 +145,8 @@
                      <button><span>Bộ lọc</span><i class="fas fa-sort-down"></i></button>
                   </div>
                   <div class="category-right-top-item">
-                     <select name="" id="">
-                        <option value="">Sắp xếp</option>
-                        <option value="">Giá cao đến thấp</option>
-                        <option value="">Giá thấp đến cao</option>
-                     </select>
+                      <a href="{{URL::current()."?sort=price_desc"}}">Giá cao đến thấp</a>
+                      <a href="{{URL::current()."?sort=price_asc"}}"> Giá thấp đến cao</a>
                   </div>
                   <div class="category-right-content row">
                       @forelse($products as $product)
