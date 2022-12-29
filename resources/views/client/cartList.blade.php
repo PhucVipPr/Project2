@@ -27,12 +27,15 @@
                         </tr>
                         </thead>
                         <tbody>
+                        @if($cartItems->count()>0)
+                            @php $total = 0; @endphp
+                            @foreach($cartItems as $item)
                             <tr>
                                 <td>
                                     <figure class="itemside align-items-center">
-                                        <div class="aside" name="url"><img src="{{$details->url}}" width="100px" class="img-sm"></div>
-                                        <figcaption class="info" name="product_name"><p>{{$details->product_name}}</p>
-                                            <p class="text-muted small" name="cate_name">From: {{$details->cate_name}}</p>
+                                        <div class="aside" name="url"><img src="{{$item->products->url}}" width="100px" class="img-sm"></div>
+                                        <figcaption class="info" name="product_name"><p>{{$item->products->product_name}}</p>
+                                            <p class="text-muted small" name="cate_name">From: {{$item->products->cate_name}}</p>
                                         </figcaption>
                                     </figure>
                                 </td>
@@ -40,12 +43,20 @@
                                     <input type="number" name="quantity" min="0" value="1" max="100">
                                 </td>
                                 <td>
-                                    <div class="price-wrap"> <var name="prices">{{$details->prices}}</var> <small class="text-muted"></small> </div>
+                                    <div class="price-wrap"> <var name="prices">{{$item->products->prices}}</var> <small class="text-muted"></small> </div>
                                 </td>
-                                <td class="text-right d-none d-md-block"> <a data-original-title="Save to Wishlist" title="" href="" class="btn btn-light" data-toggle="tooltip" data-abc="true">
-                                    </a> <a href="" class="btn btn-light btn-round" data-abc="true"> Remove</a> </td>
+                                <td class="text-right d-none d-md-block">
+                                    <a data-original-title="Save to Wishlist" title="" href="" class="btn btn-light" data-toggle="tooltip" data-abc="true">
+                                    </a>
+                                    <form method="POST" action="">
+                                        @csrf
+                                        @method('delete')
+                                    <button type="submit" onclick="return confirm('Do you want to delete the product?')">Remove</button>
+                                    </form>
+                                </td>
                             </tr>
-
+                            @endforeach
+                        @endif
                         </tbody>
                     </table>
                 </div>
@@ -66,7 +77,7 @@
                 <div class="card-body">
                     <dl class="dlist-align">
                         <dt>Total price:</dt>
-                        <dd class="text-right ml-3">{{$details['prices'] * $details['quantity']}}</dd>
+                        <dd class="text-right ml-3"></dd>
                     </dl>
                     <dl class="dlist-align">
                         <dt>Discount:</dt>
@@ -74,7 +85,7 @@
                     </dl>
                     <dl class="dlist-align">
                         <dt>Total:</dt>
-                        <dd class="text-right text-dark b ml-3">{{$details['prices'] * $details['quantity']}}<strong></strong></dd>
+                        <dd class="text-right text-dark b ml-3"><strong></strong></dd>
                     </dl>
                     <hr> <a href="#" class="btn btn-out btn-primary btn-square btn-main" data-abc="true"> Make Purchase </a>
                     <a href="{{url('client/home')}}" class="btn btn-out btn-success btn-square btn-main mt-2" data-abc="true">Continue Shopping</a>
