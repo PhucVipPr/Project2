@@ -62,6 +62,7 @@ Route::post('/client/home/search',[\App\Http\Controllers\ClientController::class
 //Gio hang
 Route::get('/client/cartList',[\App\Http\Controllers\CartController::class,'viewCart']);
 Route::post('/client/cart/{id}',[\App\Http\Controllers\CartController::class,'addCart']);
+Route::delete('/client/cart/{id}/delete',[\App\Http\Controllers\CartController::class,'delete']);
 
 
 //Tin tức
