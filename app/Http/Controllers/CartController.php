@@ -11,8 +11,14 @@ use Illuminate\Support\Facades\DB;
 class CartController extends Controller
 {
     public function viewCart(){
-        $cartItems = Cart::where('user_id',Auth::id())->get();
-        return view('client/cartList',compact('cartItems'));
+        $cartItems = DB::table('carts')
+            ->join('products','products.product_id','=','carts.product_id')
+            ->join('images','carts.product_id','=','images.product_id')
+            ->join('sell_products','carts.product_id','=','sell_products.product_id')
+            ->select('products.*','images.url','sell_products.prices')
+            ->get();
+        $category = DB::table('categories')->take(1)->get();
+        return view('client/cartList',compact('cartItems','category'));
     }
 
     public function addCart(Request $request,$product_id){
@@ -25,8 +31,8 @@ class CartController extends Controller
                 ->join('sell_products', 'products.product_id', '=', 'sell_products.product_id')
                 ->select('products.product_id','products.product_code','products.product_name','products.product_info',
                     'images.url','categories.cate_id', 'categories.cate_name','sell_products.prices')
-                ->get();
-            $cart = new Cart();
+                ->get()->first();
+            $cart = new cart;
             $cart->user_id=$user->id;
             $cart->product_id=$products->product_id;
             $cart->quantity=$request->quantity;
@@ -35,5 +41,8 @@ class CartController extends Controller
         }else{
             return redirect('login');
         }
+
+        
+
     }
 }
