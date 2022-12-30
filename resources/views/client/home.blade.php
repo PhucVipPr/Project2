@@ -25,9 +25,11 @@
     <!-- Tweaks for older IEs-->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+
 </head>
 <!-- body -->
 <body class="main-layout">
@@ -156,7 +158,7 @@
                             <div class="carousel-caption relative2">
                                 <div class="category-right-content row">
                                     @forelse($products as $product)
-                                        <div class="col-md-3 col-sm-6">
+                                        <div class="col-md-3">
                                         <div class="protien">
                                             <img src="{{$product-> url}}" href="#"/>
                                             <h1>{{$product-> product_name}}</h1>
@@ -420,5 +422,7 @@
 <!-- sidebar -->
 <script src="{{asset('js/jquery.mCustomScrollbar.concat.min.js')}}"></script>
 <script src="{{asset('js/custom.js')}}"></script>
+
+
 </body>
 </html>

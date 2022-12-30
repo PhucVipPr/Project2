@@ -147,6 +147,7 @@
                       <a>|</a>
                       <a href="{{URL::current()."?sort=price_asc"}}"> Giá thấp đến cao</a>
                   </div>
+
                   <div class="category-right-content row">
                       @forelse($products as $product)
                      <div class="category-right-content-item">
