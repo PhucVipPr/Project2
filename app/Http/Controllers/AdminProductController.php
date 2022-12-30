@@ -62,7 +62,6 @@ class AdminProductController extends Controller
             ->select('products.*','images.url','sell_products.prices')
             ->get()
             ->where('product_id','=',$product_id)->first();
-        ;
         return view('admin/product/edit_product', compact('products','category'));
     }
 

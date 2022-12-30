@@ -33,9 +33,11 @@
                             <tr>
                                 <td>
                                     <figure class="itemside align-items-center">
-                                        <div class="aside" name="url"><img src="{{$item->products->url}}" width="100px" class="img-sm"></div>
-                                        <figcaption class="info" name="product_name"><p>{{$item->products->product_name}}</p>
-                                            <p class="text-muted small" name="cate_name">From: {{$item->products->cate_name}}</p>
+                                        <div class="aside" name="url"><img src="{{$item->url}}" width="100px" class="img-sm"></div>
+                                        <figcaption class="info" name="product_name"><p>Name : {{$item->product_name}}</p>
+                                            @foreach($category as $cate)
+                                            <p class="text-muted small" name="cate_name">From: {{$cate->cate_name}}</p>
+                                            @endforeach
                                         </figcaption>
                                     </figure>
                                 </td>
@@ -43,11 +45,9 @@
                                     <input type="number" name="quantity" min="0" value="1" max="100">
                                 </td>
                                 <td>
-                                    <div class="price-wrap"> <var name="prices">{{$item->products->prices}}</var> <small class="text-muted"></small> </div>
+                                    <div class="price-wrap"> <var name="prices">{{$item->prices}}</var> <small class="text-muted"></small> </div>
                                 </td>
                                 <td class="text-right d-none d-md-block">
-                                    <a data-original-title="Save to Wishlist" title="" href="" class="btn btn-light" data-toggle="tooltip" data-abc="true">
-                                    </a>
                                     <form method="POST" action="">
                                         @csrf
                                         @method('delete')

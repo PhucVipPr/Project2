@@ -31,10 +31,10 @@ class LoginController extends Controller
         }
     }
 
-    function logout(Request $request){
+    function logOut(Request $request){
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/');
+        return redirect('login');
     }
 }
