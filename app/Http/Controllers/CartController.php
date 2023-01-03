@@ -15,7 +15,7 @@ class CartController extends Controller
             ->join('products','products.product_id','=','carts.product_id')
             ->join('images','carts.product_id','=','images.product_id')
             ->join('sell_products','carts.product_id','=','sell_products.product_id')
-            ->select('products.*','images.url','sell_products.prices','carts.cart_id')
+            ->select('products.product_name','products.product_code','images.url','sell_products.prices','carts.cart_id','carts.quantity')
             ->get();
         $category = DB::table('categories')->take(1)->get();
         return view('client/cartList',compact('cartItems','category'));
@@ -32,7 +32,8 @@ class CartController extends Controller
                 ->join('sell_products', 'products.product_id', '=', 'sell_products.product_id')
                 ->select('products.product_id', 'products.product_code', 'products.product_name', 'products.product_info',
                     'images.url', 'categories.cate_id', 'categories.cate_name', 'sell_products.prices')
-                ->get()->first();
+                ->where('products.product_id','=',$product_id)
+                ->first();
             $cart = new cart;
             $cart->user_id = $user->id;
             $cart->product_id = $products->product_id;

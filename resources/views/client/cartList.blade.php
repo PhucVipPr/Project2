@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="{{asset('js/cart.js')}}">
 </head>
 <body>
+<div>
+<a href="{{url('client/home')}}"><=Home</a>
+</div>
 <div class="container-fluid">
     <div class="row">
         <aside class="col-lg-9">
@@ -23,7 +26,7 @@
                             <th scope="col">Product</th>
                             <th scope="col" width="120">Quantity</th>
                             <th scope="col" width="120">Price</th>
-                            <th scope="col" class="text-right d-none d-md-block" width="200"></th>
+                            <th>Total</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -42,13 +45,16 @@
                                     </figure>
                                 </td>
                                 <td>
-                                    <input type="number" name="quantity" min="0" value="1" max="100">
+                                    <input type="number" name="quantity" min="1" value="{{$item->quantity}}" max="100" readonly>
                                 </td>
                                 <td>
                                     <div class="price-wrap"> <var name="prices">{{$item->prices}}</var> <small class="text-muted"></small> </div>
                                 </td>
+                                <td>
+                                    <div>{{$item->quantity * $item->prices}}đ</div>
+                                </td>
                                 <td class="text-right d-none d-md-block">
-                                    <form method="POST" action="{{url('/client/cart'.$item->cart_id.'/delete')}}">
+                                    <form method="POST" action="{{url('/client/cart/'.$item->cart_id.'/delete')}}">
                                         @csrf
                                         @method('delete')
                                     <button type="submit" onclick="return confirm('Do you want to delete the product?')">Remove</button>
@@ -56,7 +62,6 @@
                                 </td>
                             </tr>
                             @endforeach
-                        @endif
                         </tbody>
                     </table>
                 </div>
@@ -70,29 +75,15 @@
                             <div class="input-group"> <input type="text" class="form-control coupon" name="" placeholder="Coupon code">
                                 <span class="input-group-append"> <button class="btn btn-primary btn-apply coupon">Apply</button> </span> </div>
                         </div>
+                        <div class="input-group">Subtotal : </div>
                     </form>
                 </div>
             </div>
-            <div class="card">
-                <div class="card-body">
-                    <dl class="dlist-align">
-                        <dt>Total price:</dt>
-                        <dd class="text-right ml-3"></dd>
-                    </dl>
-                    <dl class="dlist-align">
-                        <dt>Discount:</dt>
-                        <dd class="text-right text-danger ml-3"></dd>
-                    </dl>
-                    <dl class="dlist-align">
-                        <dt>Total:</dt>
-                        <dd class="text-right text-dark b ml-3"><strong></strong></dd>
-                    </dl>
                     <hr> <a href="#" class="btn btn-out btn-primary btn-square btn-main" data-abc="true"> Make Purchase </a>
                     <a href="{{url('client/home')}}" class="btn btn-out btn-success btn-square btn-main mt-2" data-abc="true">Continue Shopping</a>
-                </div>
-            </div>
         </aside>
     </div>
 </div>
+@endif
 </body>
 </html>

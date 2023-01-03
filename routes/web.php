@@ -26,7 +26,7 @@ Route::get('home',function (){
 //Login
 Route::get('/login',[\App\Http\Controllers\LoginController::class,'viewLogin']);
 Route::post('/login',[\App\Http\Controllers\LoginController::class,'login']);
-Route::post('/logout',[\App\Http\Controllers\LoginController::class,'logOut']);
+Route::post('/logout',[\App\Http\Controllers\LoginController::class,'logout']);
 //Register
 Route::get('/register',[\App\Http\Controllers\RegisterController::class,'register']);
 Route::post('/register',[\App\Http\Controllers\RegisterController::class,'storeaccount']);

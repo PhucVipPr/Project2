@@ -82,7 +82,10 @@
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                       <a class="dropdown-item" href="#">Info</a>
-                      <a class="fa fa-sign-out" href="#">Logout</a>
+                      <form action="{{url('logout')}}" method="POST">
+                          @csrf
+                          <button class="fa fa-sign-out">Logout</button>
+                      </form>
                   </div>
                   &nbsp;
               </div></li>
