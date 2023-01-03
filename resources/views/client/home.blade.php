@@ -87,7 +87,11 @@
         </form>
         <li> <div class="dropdown">
                 <button class="fa fa-user" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    @if(Auth::id()!=0)
                     {{Auth::user()->name}}
+                    @else
+                    User
+                    @endif
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="#">Info</a>

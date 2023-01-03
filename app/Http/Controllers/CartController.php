@@ -16,6 +16,7 @@ class CartController extends Controller
             ->join('images','carts.product_id','=','images.product_id')
             ->join('sell_products','carts.product_id','=','sell_products.product_id')
             ->select('products.product_name','products.product_code','images.url','sell_products.prices','carts.cart_id','carts.quantity')
+            ->where('carts.user_id','=',Auth::id())
             ->get();
         $category = DB::table('categories')->take(1)->get();
         return view('client/cartList',compact('cartItems','category'));

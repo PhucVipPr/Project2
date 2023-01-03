@@ -32,6 +32,7 @@
                         <tbody>
                         @if($cartItems->count()>0)
                             @php $total = 0; @endphp
+                            @php $subtotal = 0; @endphp
                             @foreach($cartItems as $item)
                             <tr>
                                 <td>
@@ -48,10 +49,10 @@
                                     <input type="number" name="quantity" min="1" value="{{$item->quantity}}" max="100" readonly>
                                 </td>
                                 <td>
-                                    <div class="price-wrap"> <var name="prices">{{$item->prices}}</var> <small class="text-muted"></small> </div>
+                                    <div class="price-wrap"> <var name="prices">{{$item->prices}}<sup>đ</sup></var> <small class="text-muted"></small> </div>
                                 </td>
                                 <td>
-                                    <div>{{$item->quantity * $item->prices}}đ</div>
+                                    <div>{{$total = $item->quantity * $item->prices}}<sup>đ</sup></div>
                                 </td>
                                 <td class="text-right d-none d-md-block">
                                     <form method="POST" action="{{url('/client/cart/'.$item->cart_id.'/delete')}}">
@@ -61,6 +62,13 @@
                                     </form>
                                 </td>
                             </tr>
+                                <tr>
+                                    @php $subtotal += $total @endphp
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>{{$subtotal}}</td>
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>
@@ -71,11 +79,10 @@
             <div class="card mb-3">
                 <div class="card-body">
                     <form>
-                        <div class="form-group"> <label>Have coupon?</label>
+                        <div class="form-group"> <label>Do you have coupon?</label>
                             <div class="input-group"> <input type="text" class="form-control coupon" name="" placeholder="Coupon code">
                                 <span class="input-group-append"> <button class="btn btn-primary btn-apply coupon">Apply</button> </span> </div>
                         </div>
-                        <div class="input-group">Subtotal : </div>
                     </form>
                 </div>
             </div>
