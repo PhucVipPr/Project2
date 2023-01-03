@@ -25,9 +25,11 @@
     <!-- Tweaks for older IEs-->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+
 </head>
 <!-- body -->
 <body class="main-layout">
@@ -36,7 +38,7 @@
 <!-- header -->
 <header>
     <div class="logo">
-        <img src="{{asset('images/logo.png')}}" href="{{url('/client/home')}}">
+        <img width="50px" src="{{asset('images/logo3.png')}}" href="{{url('/client/home')}}">
     </div>
     <div class="menu">
         <li><a href="{{url('/client/home')}}">Trang chủ</a></li>
@@ -109,7 +111,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="logo">
-                                <a href=""><img src="{{asset('images/logo.png')}}" alt="{{url('/client/home')}}"/></a>
+                                <a href=""><img src="{{asset('images/logo3.png')}}" alt="{{url('/client/home')}}"/></a>
                             </div>
                         </div>
                     </div>
@@ -148,19 +150,9 @@
         </div>
         <div class="column">
             <a href="{{url('/client/home/category')}}" ><h4 class="more_product">Xem thêm sản phẩm</h4></a>
-            <div id="testimo" class="carousel slide testimo_ban1" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#testimo" data-slide-to="0" class="active"></li>
-                    <li data-target="#testimo" data-slide-to="1"></li>
-                    <li data-target="#testimo" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="container1">
-                            <div class="carousel-caption relative2">
                                 <div class="category-right-content row">
                                     @forelse($products as $product)
-                                        <div class="col-md-3 col-sm-6">
+                                        <div class="col-md-3">
                                         <div class="protien">
                                             <img src="{{$product-> url}}" href="#"/>
                                             <h1>{{$product-> product_name}}</h1>
@@ -175,14 +167,6 @@
                             </div>
                         </div>
                     </div>
-                    <a class="carousel-control-prev" href="#testimo" role="button" data-slide="prev">
-                        <i class="fa fa-angle-left" aria-hidden="true"></i>
-                        <span class="sr-only">Trước</span>
-                    </a>
-                    <a class="carousel-control-next" href="#testimo" role="button" data-slide="next">
-                        <i class="fa fa-angle-right" aria-hidden="true"></i>
-                        <span class="sr-only">Sau</span>
-                    </a>
                 </div>
             </div>
         </div>
@@ -424,5 +408,7 @@
 <!-- sidebar -->
 <script src="{{asset('js/jquery.mCustomScrollbar.concat.min.js')}}"></script>
 <script src="{{asset('js/custom.js')}}"></script>
+
+
 </body>
 </html>
