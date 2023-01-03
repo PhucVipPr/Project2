@@ -7,7 +7,8 @@ use App\Models\Image;
 use App\Models\Product;
 use App\Models\Sell_product;
 use App\Models\User;
-use Request;
+
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use mysql_xdevapi\Table;
 
@@ -18,14 +19,14 @@ class ClientController extends Controller
         return view('client/home',['products'=>$products]);
     }
 
-    public function viewCategory(){
+    public function viewCategory(Request $request){
         //$products = DB::select("SELECT * FROM products INNER JOIN images ON products.product_id = images.product_id INNER JOIN sell_products ON products.product_id = sell_products.product_id");
         $product = DB::table('products')
             ->join('images','images.product_id','=','products.product_id')
             ->join('sell_products','sell_products.product_id','=','products.product_id')
             ->select('products.*','images.url','sell_products.prices')
             ->paginate(3);
-        if(Request::get('sort')=='price_asc'){
+        if($request-> get('sort')=='price_asc'){
             $product = DB::table('products')
                 ->join('images','images.product_id','=','products.product_id')
                 ->join('sell_products','sell_products.product_id','=','products.product_id')
@@ -33,7 +34,7 @@ class ClientController extends Controller
                 ->orderBy('prices','ASC')
                 ->paginate(3);
         }
-        elseif(Request::get('sort')=='price_desc'){
+        elseif($request->get('sort')=='price_desc'){
             $product = DB::table('products')
                 ->join('images','images.product_id','=','products.product_id')
                 ->join('sell_products','sell_products.product_id','=','products.product_id')
