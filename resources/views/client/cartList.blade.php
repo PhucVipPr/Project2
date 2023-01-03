@@ -36,7 +36,7 @@
                                         <div class="aside" name="url"><img src="{{$item->url}}" width="100px" class="img-sm"></div>
                                         <figcaption class="info" name="product_name"><p>Name : {{$item->product_name}}</p>
                                             @foreach($category as $cate)
-                                            <p class="text-muted small" name="cate_name">From: {{$cate->cate_name}}</p>
+                                            <p class="text-muted small" name="cate_name">Category : {{$cate->cate_name}}</p>
                                             @endforeach
                                         </figcaption>
                                     </figure>
@@ -48,7 +48,7 @@
                                     <div class="price-wrap"> <var name="prices">{{$item->prices}}</var> <small class="text-muted"></small> </div>
                                 </td>
                                 <td class="text-right d-none d-md-block">
-                                    <form method="POST" action="">
+                                    <form method="POST" action="{{url('/client/cart'.$item->cart_id.'/delete')}}">
                                         @csrf
                                         @method('delete')
                                     <button type="submit" onclick="return confirm('Do you want to delete the product?')">Remove</button>

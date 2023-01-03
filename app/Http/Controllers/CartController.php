@@ -15,34 +15,41 @@ class CartController extends Controller
             ->join('products','products.product_id','=','carts.product_id')
             ->join('images','carts.product_id','=','images.product_id')
             ->join('sell_products','carts.product_id','=','sell_products.product_id')
-            ->select('products.*','images.url','sell_products.prices')
+            ->select('products.*','images.url','sell_products.prices','carts.cart_id')
             ->get();
         $category = DB::table('categories')->take(1)->get();
         return view('client/cartList',compact('cartItems','category'));
     }
 
-    public function addCart(Request $request,$product_id){
+    public function addCart(Request $request,$product_id)
+    {
 
-        if(Auth::check()) {
-            $user =auth()->user();
+        if (Auth::check()) {
+            $user = auth()->user();
             $products = DB::table('products')
                 ->join('images', 'products.product_id', '=', 'images.product_id')
                 ->join('categories', 'products.cate_id', '=', 'categories.cate_id')
                 ->join('sell_products', 'products.product_id', '=', 'sell_products.product_id')
-                ->select('products.product_id','products.product_code','products.product_name','products.product_info',
-                    'images.url','categories.cate_id', 'categories.cate_name','sell_products.prices')
+                ->select('products.product_id', 'products.product_code', 'products.product_name', 'products.product_info',
+                    'images.url', 'categories.cate_id', 'categories.cate_name', 'sell_products.prices')
                 ->get()->first();
             $cart = new cart;
-            $cart->user_id=$user->id;
-            $cart->product_id=$products->product_id;
-            $cart->quantity=$request->quantity;
+            $cart->user_id = $user->id;
+            $cart->product_id = $products->product_id;
+            $cart->quantity = $request->quantity;
             $cart->save();
             return redirect()->back();
-        }else{
+        } else {
             return redirect('login');
         }
-
-        
-
     }
+
+    public function delete($cartItems){
+        $cartItems = Cart::findOrFail($cartItems);
+        $cartItems->delete();
+        return redirect('client/cartList');
+    }
+
+
+
 }
