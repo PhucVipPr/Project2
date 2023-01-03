@@ -38,7 +38,7 @@
 <!-- header -->
 <header>
     <div class="logo">
-        <img src="{{asset('images/logo.png')}}" href="{{url('/client/home')}}">
+        <img width="50px" src="{{asset('images/logo3.png')}}" href="{{url('/client/home')}}">
     </div>
     <div class="menu">
         <li><a href="{{url('/client/home')}}">Trang chủ</a></li>
@@ -107,7 +107,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="logo">
-                                <a href=""><img src="{{asset('images/logo.png')}}" alt="{{url('/client/home')}}"/></a>
+                                <a href=""><img src="{{asset('images/logo3.png')}}" alt="{{url('/client/home')}}"/></a>
                             </div>
                         </div>
                     </div>
