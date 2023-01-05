@@ -9,6 +9,7 @@ use App\Models\Sell_product;
 use App\Models\User;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use mysql_xdevapi\Table;
 
@@ -18,6 +19,35 @@ class ClientController extends Controller
         $products = DB::select("SELECT * FROM products INNER JOIN images ON products.product_id = images.product_id INNER JOIN sell_products ON products.product_id = sell_products.product_id");
         return view('client/home',['products'=>$products]);
     }
+
+    public function viewInfo(){
+        $infos = DB::table('users')
+            ->where('isAdmin','=',0)
+            ->get();
+        return view('client/info',compact('infos'));
+    }
+
+    public function editInfo($id){
+        $infos = DB::table('users')
+            ->select('users.*')
+            ->get()
+            ->where('users.isAdmin','=',0)
+            ->where('users.id','=',$id);
+        return view('client/editInfo',compact('infos'));
+    }
+
+
+    public function update(Request $request,$id){
+        $updateInfo = $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'phone' => 'required|numeric',
+            'address'=> 'required',
+            ]);
+        DB::table('users')->where('id','=',$id)->update($updateInfo);
+        return redirect('client/info');
+    }
+
 
     public function viewCategory(Request $request){
         //$products = DB::select("SELECT * FROM products INNER JOIN images ON products.product_id = images.product_id INNER JOIN sell_products ON products.product_id = sell_products.product_id");

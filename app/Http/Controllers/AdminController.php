@@ -16,7 +16,10 @@ class AdminController extends Controller
     }
 
     function viewUser(){
-        return view('admin/users/index');
+        $users = DB::table('users')
+            ->where('isAdmin','=',0)
+            ->get();
+        return view('admin/users/index',compact('users'));
     }
 
     function viewProduct(){
@@ -41,5 +44,6 @@ class AdminController extends Controller
         $request->session()->regenerateToken();
         return redirect('/');
     }
+
 
 }

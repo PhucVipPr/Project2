@@ -94,7 +94,7 @@
                     @endif
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Info</a>
+                    <a class="dropdown-item" href="{{url('client/info')}}">Info</a>
                     <form action="{{url('logout')}}" method="POST">
                         @csrf
                     <button class="fa fa-sign-out">Logout</button>

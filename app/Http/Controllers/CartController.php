@@ -24,7 +24,6 @@ class CartController extends Controller
 
     public function addCart(Request $request,$product_id)
     {
-
         if (Auth::check()) {
             $user = auth()->user();
             $products = DB::table('products')
@@ -51,7 +50,5 @@ class CartController extends Controller
         $cartItems->delete();
         return redirect('client/cartList');
     }
-
-
 
 }

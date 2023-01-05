@@ -27,6 +27,8 @@ Route::get('home',function (){
 Route::get('/login',[\App\Http\Controllers\LoginController::class,'viewLogin']);
 Route::post('/login',[\App\Http\Controllers\LoginController::class,'login']);
 Route::post('/logout',[\App\Http\Controllers\LoginController::class,'logout']);
+
+
 //Register
 Route::get('/register',[\App\Http\Controllers\RegisterController::class,'register']);
 Route::post('/register',[\App\Http\Controllers\RegisterController::class,'storeaccount']);
@@ -53,6 +55,9 @@ Route::delete('/admin/category/{category}/delete',[\App\Http\Controllers\AdminCa
 
 //Client
 Route::get('/client/home',[\App\Http\Controllers\ClientController::class,'viewClient']);
+Route::get('/client/info',[\App\Http\Controllers\ClientController::class,'viewInfo']);
+Route::get('/client/{id}/edit',[\App\Http\Controllers\ClientController::class,'editInfo']);
+Route::put('/client/{id}/edit',[\App\Http\Controllers\ClientController::class],'update');
 //Tat ca san pham
 Route::get('/client/home/category',[\App\Http\Controllers\ClientController::class,'viewCategory']);
 //Xem chi tiet san pham
