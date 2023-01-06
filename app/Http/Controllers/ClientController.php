@@ -55,14 +55,14 @@ class ClientController extends Controller
             ->join('images','images.product_id','=','products.product_id')
             ->join('sell_products','sell_products.product_id','=','products.product_id')
             ->select('products.*','images.url','sell_products.prices')
-            ->paginate(3);
+            ->paginate(4);
         if($request-> get('sort')=='price_asc'){
             $product = DB::table('products')
                 ->join('images','images.product_id','=','products.product_id')
                 ->join('sell_products','sell_products.product_id','=','products.product_id')
                 ->select('products.*','images.url','sell_products.prices')
                 ->orderBy('prices','ASC')
-                ->paginate(3);
+                ->paginate(4);
         }
         elseif($request->get('sort')=='price_desc'){
             $product = DB::table('products')
@@ -70,7 +70,7 @@ class ClientController extends Controller
                 ->join('sell_products','sell_products.product_id','=','products.product_id')
                 ->select('products.*','images.url','sell_products.prices')
                 ->orderBy('prices','DESC')
-                ->paginate(3);
+                ->paginate(4);
         }
         return view('client/category')->with('products',$product);
     }

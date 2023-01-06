@@ -1,6 +1,6 @@
 <header>
     <div class="logo">
-        <img src="{{asset('images/logo.png')}}" href="{{url('/client/home')}}">
+        <img width="50px" src="{{asset('images/logo3.png')}}" href="{{url('/client/home')}}">
     </div>
     <div class="menu">
         <li><a href="{{url('/client/home')}}">Trang chủ</a></li>
@@ -49,13 +49,21 @@
         </form>
         <li> <div class="dropdown">
                 <button class="fa fa-user" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{Auth::user()->name}}
+                    @if(Auth::id()!=0)
+                        {{Auth::user()->name}}
+                    @else
+                        User
+                    @endif
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Info</a>
-                    <a class="fa fa-sign-out" href="{{url('login')}}">Logout</a>
+                    <a class="dropdown-item" href="{{url('client/info')}}">Info</a>
+                    <form action="{{url('logout')}}" method="POST">
+                        @csrf
+                        <button class="fa fa-sign-out">Logout</button>
+                    </form>
                 </div>
-            </div></li>
+            </div>
+        </li>
         <li> <a class="fa fa-shopping-cart" href="{{url('client/cartList')}}"></a></li>
     </div>
 </header>
