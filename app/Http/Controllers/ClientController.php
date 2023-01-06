@@ -7,6 +7,7 @@ use App\Models\Image;
 use App\Models\Product;
 use App\Models\Sell_product;
 use App\Models\User;
+use Illuminate\Support\Collection;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -56,6 +57,7 @@ class ClientController extends Controller
             ->join('sell_products','sell_products.product_id','=','products.product_id')
             ->select('products.*','images.url','sell_products.prices')
             ->paginate(4);
+
         if($request-> get('sort')=='price_asc'){
             $product = DB::table('products')
                 ->join('images','images.product_id','=','products.product_id')
@@ -87,9 +89,58 @@ class ClientController extends Controller
     }
 
     public function search(Request $request){
-        $keyword = $request->keyword_submit;
-        $search_product = DB::select("SELECT * FROM products INNER JOIN images ON products.product_id = images.product_id INNER JOIN sell_products ON products.product_id = sell_products.product_id WHERE product_name LIKE '%$keyword%'");
+        $keyword = $request->get('keyword_submit');
+        $search_product =DB::table('products')
+            ->join('images','images.product_id','=','products.product_id')
+            ->join('sell_products','sell_products.product_id','=','products.product_id')
+            ->select('products.*','images.url','sell_products.prices')
+            ->where('product_name','like','%'.$keyword.'%')
+            ->paginate(4);
         return view('client/search')->with('search_product',$search_product);
+    }
+    public function searchInfo(Request $request){
+        $keyword = $request->get('keyword_submit');
+//        dd($keyword);
+        $collection =DB::table('products')
+            ->join('images','images.product_id','=','products.product_id')
+            ->join('sell_products','sell_products.product_id','=','products.product_id')
+            ->select('products.*','images.url','sell_products.prices')
+            ->where('product_name','like','%'.$keyword.'%')
+            ->paginate(10);
+//            ->sortBy('prices');
+//        dd($collection);
+//        dd($collection->sortBy('prices'));
+          $collection->setCollection(
+            $collection->sortByDesc('prices')
+          );
+//        $collection = $collection->sortBy('prices')->all();
+
+
+//       ;
+//        if($keyword != null){
+//            $search_product = DB::table('products')
+//                ->join('images','images.product_id','=','products.product_id')
+//                ->join('sell_products','sell_products.product_id','=','products.product_id')
+//                ->select('products.*','images.url','sell_products.prices')
+//                ->where('product_name','like','%'.$keyword.'%');
+//        }
+//        if($request-> get('sort')=='price_asc'){
+//            $search_product = DB::table('products')
+//                ->join('images','images.product_id','=','products.product_id')
+//                ->join('sell_products','sell_products.product_id','=','products.product_id')
+//                ->select('products.*','images.url','sell_products.prices')
+//                ->orderBy('prices','ASC')
+//                ->paginate(4);
+//        }
+//        elseif($request->get('sort')=='price_desc'){
+//            $search_product = DB::table('products')
+//                ->join('images','images.product_id','=','products.product_id')
+//                ->join('sell_products','sell_products.product_id','=','products.product_id')
+//                ->select('products.*','images.url','sell_products.prices')
+//                ->orderBy('prices','DESC')
+//                ->paginate(4);
+//        }
+        return view('client/search',['search_product'=>$collection]);
     }
 
     public function news(){

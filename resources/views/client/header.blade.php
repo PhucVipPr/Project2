@@ -43,8 +43,8 @@
         </li>
     </div>
     <div class="others">
-        <form action="{{url('client/home/search')}}" method="POST">
-            {{csrf_field()}}
+        <form action="{{url('client/home/search')}}" method="get">
+{{--            {{csrf_field()}}--}}
             <li><input name="keyword_submit" placeholder="Tìm kiếm" type="text"><i class="fa fa-search" style="padding-left: 10px"></i></li>
         </form>
         <li> <div class="dropdown">
