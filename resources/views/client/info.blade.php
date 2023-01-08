@@ -42,7 +42,8 @@
         <legend><span class="number">2</span> Do you want to</legend>
 
     </fieldset>
-        <form method="GET" action="{{url('client/home')}}">
+        <form method="GET" action="{{url('/client/home')}}">
+            @csrf
         <button type="submit">Come back</button>
         </form>
 

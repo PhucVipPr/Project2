@@ -29,11 +29,9 @@ class ClientController extends Controller
     }
 
     public function editInfo($id){
-        $infos = DB::table('users')
-            ->select('users.*')
-            ->get()
-            ->where('users.isAdmin','=',0)
-            ->where('users.id','=',$id);
+        $infos = DB::table('users')->get()
+        ->where('isAdmin','=',0)
+        ->where('id','=',$id)->first();
         return view('client/editInfo',compact('infos'));
     }
 
@@ -46,7 +44,7 @@ class ClientController extends Controller
             'address'=> 'required',
             ]);
         DB::table('users')->where('id','=',$id)->update($updateInfo);
-        return redirect('client/info');
+        return view('client/info');
     }
 
 
