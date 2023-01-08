@@ -58,22 +58,7 @@ class ClientController extends Controller
             ->select('products.*','images.url','sell_products.prices')
             ->paginate(4);
 
-        if($request-> get('sort')=='price_asc'){
-            $product = DB::table('products')
-                ->join('images','images.product_id','=','products.product_id')
-                ->join('sell_products','sell_products.product_id','=','products.product_id')
-                ->select('products.*','images.url','sell_products.prices')
-                ->orderBy('prices','ASC')
-                ->paginate(4);
-        }
-        elseif($request->get('sort')=='price_desc'){
-            $product = DB::table('products')
-                ->join('images','images.product_id','=','products.product_id')
-                ->join('sell_products','sell_products.product_id','=','products.product_id')
-                ->select('products.*','images.url','sell_products.prices')
-                ->orderBy('prices','DESC')
-                ->paginate(4);
-        }
+
         return view('client/category')->with('products',$product);
     }
 
@@ -88,16 +73,6 @@ class ClientController extends Controller
         return view('client/product',compact('product','image','sellProduct'));
     }
 
-    public function search(Request $request){
-        $keyword = $request->get('keyword_submit');
-        $search_product =DB::table('products')
-            ->join('images','images.product_id','=','products.product_id')
-            ->join('sell_products','sell_products.product_id','=','products.product_id')
-            ->select('products.*','images.url','sell_products.prices')
-            ->where('product_name','like','%'.$keyword.'%')
-            ->paginate(4);
-        return view('client/search')->with('search_product',$search_product);
-    }
     public function searchInfo(Request $request){
         $keyword = $request->get('keyword_submit');
 //        dd($keyword);
@@ -110,9 +85,28 @@ class ClientController extends Controller
 //            ->sortBy('prices');
 //        dd($collection);
 //        dd($collection->sortBy('prices'));
-          $collection->setCollection(
-            $collection->sortByDesc('prices')
+        if($request-> get('sort')=='price_asc'){
+            $collection =DB::table('products')
+                ->join('images','images.product_id','=','products.product_id')
+                ->join('sell_products','sell_products.product_id','=','products.product_id')
+                ->select('products.*','images.url','sell_products.prices')
+                ->where('product_name','like','%'.$keyword.'%')
+                ->paginate(10);
+            $collection->setCollection(
+            $collection->sortBy('prices')
           );
+        }
+        if($request-> get('sort')=='price_desc'){
+            $collection =DB::table('products')
+                ->join('images','images.product_id','=','products.product_id')
+                ->join('sell_products','sell_products.product_id','=','products.product_id')
+                ->select('products.*','images.url','sell_products.prices')
+                ->where('product_name','like','%'.$keyword.'%')
+                ->paginate(10);
+            $collection->setCollection(
+                $collection->sortByDesc('prices')
+            );
+        }
 //        $collection = $collection->sortBy('prices')->all();
 
 

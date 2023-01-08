@@ -63,7 +63,6 @@ Route::get('/client/home/category',[\App\Http\Controllers\ClientController::clas
 //Xem chi tiet san pham
 Route::get('/client/home/product/{product_id}',[\App\Http\Controllers\ClientController::class,'show']);
 //Tim kiem
-Route::post('/client/home/search',[\App\Http\Controllers\ClientController::class,'search']);
 Route::get('/client/home/search',[\App\Http\Controllers\ClientController::class,'searchInfo']);
 //Gio hang
 Route::get('/client/cartList',[\App\Http\Controllers\CartController::class,'viewCart']);

@@ -58,9 +58,9 @@
                     </div>
                     <div class="category-right-top-item">
                         <a>Sắp xếp theo:</a>
-                        <a href="{{URL::current()."?keyword_submit"."&sort=price_desc"}}">Giá cao đến thấp</a>
+                        <a href="{{URL::current()."?keyword_submit=".$_GET['keyword_submit']."&sort=price_desc"}}" >Giá cao đến thấp</a>
                         <a>|</a>
-                        <a href="{{URL::current()."?keyword_submit"."&sort=price_asc"}}"> Giá thấp đến cao</a>
+                        <a href="{{URL::current()."?keyword_submit=".$_GET['keyword_submit']."&sort=price_asc"}}"> Giá thấp đến cao</a>
                     </div>
 
                     <div class="category-right-content row">
