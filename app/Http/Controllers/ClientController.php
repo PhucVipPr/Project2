@@ -79,7 +79,7 @@ class ClientController extends Controller
             ->join('sell_products','sell_products.product_id','=','products.product_id')
             ->select('products.*','images.url','sell_products.prices')
             ->where('product_name','like','%'.$keyword.'%')
-            ->paginate(4);
+            ->paginate(10);
 //            ->sortBy('prices');
 //        dd($collection);
 //        dd($collection->sortBy('prices'));
@@ -89,7 +89,7 @@ class ClientController extends Controller
                 ->join('sell_products','sell_products.product_id','=','products.product_id')
                 ->select('products.*','images.url','sell_products.prices')
                 ->where('product_name','like','%'.$keyword.'%')
-                ->paginate(4);
+                ->paginate(10);
             $collection->setCollection(
             $collection->sortBy('prices')
           );

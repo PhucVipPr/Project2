@@ -53,7 +53,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="category-right row">
+                <div class="category-right ">
                     <div class="category-right-top-item">
                         <p>Sữa tăng cân</p>
                     </div>
@@ -78,9 +78,9 @@
                     </div>
 
                     <div class="category-right-bottom row">
-                        <div class="category-right-bottom-items">
-                            <p>Hiển thị 2 <span>|</span>4 sản phẩm</p>
-                        </div>
+{{--                        <div class="category-right-bottom-items">--}}
+{{--                            <p>Hiển thị 2 <span>|</span>4 sản phẩm</p>--}}
+{{--                        </div>--}}
                         <div class="category-right-bottom-items">
                             <p><span></span>{{$products->links("pagination::bootstrap-4")}}<span></span></p>
                         </div>

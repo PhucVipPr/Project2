@@ -52,7 +52,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="category-right row">
+                <div class="category-right ">
                     <div class="category-right-top-item">
                         <p>Sữa tăng cân</p>
                     </div>
