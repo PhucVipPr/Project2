@@ -143,7 +143,9 @@ class ClientController extends Controller
         $product = DB::table('products')
             ->join('images','images.product_id','=','products.product_id')
             ->join('sell_products','sell_products.product_id','=','products.product_id')
+            ->join('categories','categories.cate_id','=','products.cate_id')
             ->select('products.*','images.url','sell_products.prices')
+            ->where('cate_name','=','mass')
             ->paginate(4);
         return view('client/category/mass')->with('products',$product);
     }
@@ -152,7 +154,9 @@ class ClientController extends Controller
         $product = DB::table('products')
             ->join('images','images.product_id','=','products.product_id')
             ->join('sell_products','sell_products.product_id','=','products.product_id')
+            ->join('categories','categories.cate_id','=','products.cate_id')
             ->select('products.*','images.url','sell_products.prices')
+            ->where('cate_name','=','Whey Protein')
             ->paginate(4);
         return view('client/category/whey')->with('products',$product);
     }
@@ -161,8 +165,11 @@ class ClientController extends Controller
         $product = DB::table('products')
             ->join('images','images.product_id','=','products.product_id')
             ->join('sell_products','sell_products.product_id','=','products.product_id')
+            ->join('categories','categories.cate_id','=','products.cate_id')
             ->select('products.*','images.url','sell_products.prices')
+            ->where('cate_name','=','bcaa')
             ->paginate(4);
+
         return view('client/category/bcaa')->with('products',$product);
     }
     public function  viewPreworkoutCreatine(){
