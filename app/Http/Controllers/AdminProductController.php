@@ -70,7 +70,7 @@ class AdminProductController extends Controller
     {
         $updateProduct = $request->validate([
             'product_name' => 'required',
-            'product_code' => 'required|numeric',
+            'product_code' => 'required',
             'product_info' => 'required',
             'cate_id' => 'required',
         ]);
@@ -83,7 +83,7 @@ class AdminProductController extends Controller
         DB::table('products')->where('product_id', '=', $product_id)->update($updateProduct);
         DB::table('images')->where('images.product_id', '=', $product_id)->update($updateUrl);
         DB::table('sell_products')->where('sell_products.product_id', '=', $product_id)->update($updatePrice);
-        return redirect('/admin/product/index')->with('completed', 'Your product has been updated');
+        return redirect('admin/product/index');
     }
 }
 

@@ -56,7 +56,7 @@
                         <div class="col-md-3">
                             <div class="protien">
                                 <img src="{{$product-> url}}" href="#"/>
-                                <h1>{{$product-> product_name}}</h1>
+                                <h1><b>{{$product-> product_name}}</b></h1>
                                 <h1>{{$product->prices}}<sup>đ</sup></h1>
                                 <a class="read_more mar_top" href="{{url('/client/home/product/'.$product->product_id)}}"> Mua ngay</a>
                             </div>
