@@ -29,11 +29,9 @@ class ClientController extends Controller
     }
 
     public function editInfo($id){
-        $infos = DB::table('users')
-            ->select('users.*')
-            ->get()
-            ->where('users.isAdmin','=',0)
-            ->where('users.id','=',$id);
+        $infos = DB::table('users')->get()
+        ->where('isAdmin','=',0)
+        ->where('id','=',$id)->first();
         return view('client/editInfo',compact('infos'));
     }
 

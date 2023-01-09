@@ -30,7 +30,7 @@
                     <h3 class="heading">{{$user->email}}<br>{{$user->phone}}</h3>
                 </div>
                 <div>
-                    <a href="">Check Orders</a>
+                    <a href="{{url('admin/users/orderDetail')}}">Check Orders</a>
                 </div>
             </div>
         </div>

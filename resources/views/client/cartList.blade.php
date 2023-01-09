@@ -23,9 +23,9 @@
                     <table class="table table-borderless table-shopping-cart">
                         <thead class="text-muted">
                         <tr class="small text-uppercase">
-                            <th scope="col">Product</th>
+                            <th scope="col">Product Name</th>
                             <th scope="col" width="120">Quantity</th>
-                            <th scope="col" width="120">Price</th>
+                            <th scope="col" width="120">Prices</th>
                             <th>Total</th>
                         </tr>
                         </thead>
@@ -52,7 +52,7 @@
                                     <div class="price-wrap"> <var name="prices">{{$item->prices}}<sup>đ</sup></var> <small class="text-muted"></small> </div>
                                 </td>
                                 <td>
-                                    <div>{{$total = $item->quantity * $item->prices}}<sup>đ</sup></div>
+                                    <div>{{$item->quantity * $item->prices}}<sup>đ</sup></div>
                                 </td>
                                 <td class="text-right d-none d-md-block">
                                     <form method="POST" action="{{url('/client/cart/'.$item->cart_id.'/delete')}}">
@@ -62,14 +62,15 @@
                                     </form>
                                 </td>
                             </tr>
-                                <tr>
-                                    @php $subtotal += $total @endphp
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>{{$subtotal}}</td>
-                                </tr>
+                            @php $total += $item->quantity * $item->prices @endphp
                             @endforeach
+                            <tr>
+                                @php $subtotal = $total @endphp
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><b>Total prices : {{$subtotal}}<sup>đ</sup></b></td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

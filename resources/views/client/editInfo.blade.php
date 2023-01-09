@@ -12,23 +12,22 @@
     @method('PUT')
     <h1>Change Info</h1>
             <fieldset>
-
                 <legend><span class="number">1</span> Your basic info</legend>
 
                 <label for="name">Name:</label>
-                <input type="text" value="{{$infos->name}}" id="name" name="user_name" >
+                <input type="text" value="{{$infos->name}}" id="name" name="name" >
 
                 <label for="mail">Email:</label>
-                <input type="email" id="mail" value="{{$infos->email}}" name="user_email" >
+                <input type="email" id="mail" value="{{$infos->email}}" name="email" >
 
                 <label for="mail">Password :</label>
-                <input type="password" id="mail" value="{{$infos->password}}" name="user_email" readonly>
+                <input type="password" id="mail" value="{{$infos->password}}"  readonly>
 
                 <label for="password">PhoneNumber:</label>
                 <input type="number" id="phone" value="{{$infos->phone}}" name="phone" >
 
                 <label>Address:</label>
-                <select>
+                <select name="address">
                     <option>Miền Bắc</option>
                     <option>Miền Nam</option>
                     <option>Miền Trung</option>
@@ -37,9 +36,7 @@
     <button type="submit">Confirm Edit</button>
 </form>
 <form>
-            <form action="{{url('client/home')}}" method="GET">
-                <button type="submit">Come back</button>
-            </form>
+            <a href="{{url('client/home')}}">Come Back</a>
 </form>
 
 </body>
