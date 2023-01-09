@@ -57,9 +57,10 @@ class AdminProductController extends Controller
     {
         $category = Category::get();
         $products = DB::table('products')
+            ->join('categories','categories.cate_id','=','products.cate_id')
             ->join('images','images.product_id','=','products.product_id')
             ->join('sell_products','sell_products.product_id','=','products.product_id')
-            ->select('products.*','images.url','sell_products.prices')
+            ->select('products.*','images.url','sell_products.prices','categories.cate_name')
             ->get()
             ->where('product_id','=',$product_id)->first();
         return view('admin/product/edit_product', compact('products','category'));
@@ -71,6 +72,7 @@ class AdminProductController extends Controller
             'product_name' => 'required',
             'product_code' => 'required|numeric',
             'product_info' => 'required',
+            'cate_id' => 'required',
         ]);
         $updateUrl = $request->validate([
             'url' => 'required',
