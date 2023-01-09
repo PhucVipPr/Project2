@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminCategory;
+use App\Http\Controllers\ClientController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,23 +49,23 @@ Route::put('/admin/product/{product_id}/edit',[\App\Http\Controllers\AdminProduc
 
 
 //Category
-Route::get('/admin/category/add_category',[\App\Http\Controllers\AdminCategory::class,'create']);
-Route::post('/admin/category/add_category',[\App\Http\Controllers\AdminCategory::class,'store']);
-Route::get('/admin/category/{cate_id}/edit',[\App\Http\Controllers\AdminCategory::class,'edit']);
-Route::put('/admin/category/{cate_id}/edit',[\App\Http\Controllers\AdminCategory::class,'update']);
-Route::delete('/admin/category/{category}/delete',[\App\Http\Controllers\AdminCategory::class,'destroy']);
+Route::get('/admin/category/add_category',[AdminCategory::class,'create']);
+Route::post('/admin/category/add_category',[AdminCategory::class,'store']);
+Route::get('/admin/category/{cate_id}/edit',[AdminCategory::class,'edit']);
+Route::put('/admin/category/{cate_id}/edit',[AdminCategory::class,'update']);
+Route::delete('/admin/category/{category}/delete',[AdminCategory::class,'destroy']);
 
 //Client
-Route::get('/client/home',[\App\Http\Controllers\ClientController::class,'viewClient']);
-Route::get('/client/info',[\App\Http\Controllers\ClientController::class,'viewInfo']);
-Route::get('/client/{id}/edit',[\App\Http\Controllers\ClientController::class,'editInfo']);
-Route::put('/client/{id}/edit',[\App\Http\Controllers\ClientController::class],'update');
+Route::get('/client/home',[ClientController::class,'viewClient']);
+Route::get('/client/info',[ClientController::class,'viewInfo']);
+Route::get('/client/{id}/edit',[ClientController::class,'editInfo']);
+Route::put('/client/{id}/edit',[ClientController::class,'update']);
 //Tat ca san pham
-Route::get('/client/home/category',[\App\Http\Controllers\ClientController::class,'viewCategory']);
+Route::get('/client/home/category',[ClientController::class,'viewCategory']);
 //Xem chi tiet san pham
-Route::get('/client/home/product/{product_id}',[\App\Http\Controllers\ClientController::class,'show']);
+Route::get('/client/home/product/{product_id}',[ClientController::class,'show']);
 //Tim kiem
-Route::get('/client/home/search',[\App\Http\Controllers\ClientController::class,'searchInfo']);
+Route::get('/client/home/search',[ClientController::class,'searchInfo']);
 //Gio hang
 Route::get('/client/cartList',[\App\Http\Controllers\CartController::class,'viewCart']);
 Route::post('/client/cart/{id}',[\App\Http\Controllers\CartController::class,'addCart']);
@@ -71,4 +73,4 @@ Route::delete('/client/cart/{id}/delete',[\App\Http\Controllers\CartController::
 
 
 //Tin tức
-Route::get('/client/home/tintuc',[\App\Http\Controllers\ClientController::class,'news']);
+Route::get('/client/home/tintuc',[ClientController::class,'news']);

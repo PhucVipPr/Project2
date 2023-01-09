@@ -36,9 +36,7 @@
     <button type="submit">Confirm Edit</button>
 </form>
 <form>
-            <form action="{{url('client/home')}}" method="GET">
-                <button type="submit">Come back</button>
-            </form>
+            <a href="{{url('client/home')}}">Come Back</a>
 </form>
 
 </body>

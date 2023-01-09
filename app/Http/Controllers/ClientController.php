@@ -44,7 +44,7 @@ class ClientController extends Controller
             'address'=> 'required',
             ]);
         DB::table('users')->where('id','=',$id)->update($updateInfo);
-        return view('client/info');
+        return redirect('client/info');
     }
 
 
