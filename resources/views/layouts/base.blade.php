@@ -46,7 +46,7 @@
 <!-- sidebar -->
 <script src="{{asset('js/jquery.mCustomScrollbar.concat.min.js')}}"></script>
 <script src="{{asset('js/custom.js')}}"></script>
-
+<script src="{{asset('js/script.js')}}"></script>
 
 </body>
 </html>
