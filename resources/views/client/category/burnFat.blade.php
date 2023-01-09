@@ -1,14 +1,13 @@
 @extends('layouts.base')
-@section('title',"Kết quả tìm kiếm")
+@section('title',"Giảm mỡ")
 
 @section('content')
     @include('client.header')
+    <!-------------------category-------------------->
     <section class="category">
         <div class="container">
             <div class="category-top row">
-                <p><a href="{{url('/client/home')}}">Trang chủ</a></p> <span>&#10230; </span> <p>Kết quả tìm kiếm </p><span>&#10230; </span> <p>@php
-                        echo ($_GET['keyword_submit']);
-                    @endphp</p>
+                <p><a href="{{url('/client/home')}}">Trang chủ</a></p> <span>&#10230; </span> <p><a href="{{url('/client/category/burnFat')}}">Giảm mỡ</a></p>
             </div>
         </div>
         <div class="container">
@@ -16,22 +15,17 @@
                 @include('client.categoryLeft')
                 <div class="category-right ">
                     <div class="category-right-top-item">
-                        <p><a>Kết quả tìm kiếm:
-                                @php
-                                    echo ($_GET['keyword_submit']);
-                                @endphp
-                            </a> </p>
+                        <p><a href="{{url('/client/category/burnFat')}}">Giảm mỡ</a></p>
                     </div>
                     <div class="category-right-top-item">
-
                         <a>Sắp xếp theo:</a>
-                        <a href="{{url('/client/home/search')."?keyword_submit=".$_GET['keyword_submit']."&sort=price_desc"}}" >Giá cao đến thấp</a>
+                        <a href="{{URL::current()."?sort=price_desc"}}">Giá cao đến thấp</a>
                         <a>|</a>
-                        <a href="{{url('/client/home/search')."?keyword_submit=".$_GET['keyword_submit']."&sort=price_asc"}}"> Giá thấp đến cao</a>
+                        <a href="{{URL::current()."?sort=price_asc"}}"> Giá thấp đến cao</a>
                     </div>
 
                     <div class="category-right-content row">
-                        @forelse($search_product as $product)
+                        @forelse($products as $product)
                             <div class="category-right-content-item">
                                 <img src="{{$product-> url}}" href="#"/>
                                 <h1>{{$product-> product_name}}</h1>
@@ -44,11 +38,11 @@
                     </div>
 
                     <div class="category-right-bottom row">
-{{--                        <div class="category-right-bottom-items">--}}
-{{--                            <p>Hiển thị 2 <span>|</span>4 sản phẩm</p>--}}
-{{--                        </div>--}}
+                        {{--                        <div class="category-right-bottom-items">--}}
+                        {{--                            <p>Hiển thị 2 <span>|</span>4 sản phẩm</p>--}}
+                        {{--                        </div>--}}
                         <div class="category-right-bottom-items">
-                            {!!$search_product->appends(['keyword_submit'=>$_GET['keyword_submit']])->links("pagination::bootstrap-4")  !!}
+                            <p><span></span>{{$products->links("pagination::bootstrap-4")}}<span></span></p>
                         </div>
                     </div>
 
@@ -56,7 +50,12 @@
             </div>
         </div>
     </section>
-
-
-
 @endsection
+
+
+
+
+
+
+
+

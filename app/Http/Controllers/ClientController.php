@@ -48,7 +48,7 @@ class ClientController extends Controller
     }
 
 
-    public function viewCategory(Request $request){
+    public function viewCategory(){
         //$products = DB::select("SELECT * FROM products INNER JOIN images ON products.product_id = images.product_id INNER JOIN sell_products ON products.product_id = sell_products.product_id");
         $product = DB::table('products')
             ->join('images','images.product_id','=','products.product_id')
@@ -77,7 +77,7 @@ class ClientController extends Controller
             ->join('sell_products','sell_products.product_id','=','products.product_id')
             ->select('products.*','images.url','sell_products.prices')
             ->where('product_name','like','%'.$keyword.'%')
-            ->paginate(10);
+            ->paginate(4);
 //            ->sortBy('prices');
 //        dd($collection);
 //        dd($collection->sortBy('prices'));
@@ -87,7 +87,7 @@ class ClientController extends Controller
                 ->join('sell_products','sell_products.product_id','=','products.product_id')
                 ->select('products.*','images.url','sell_products.prices')
                 ->where('product_name','like','%'.$keyword.'%')
-                ->paginate(10);
+                ->paginate(4);
             $collection->setCollection(
             $collection->sortBy('prices')
           );
@@ -135,6 +135,62 @@ class ClientController extends Controller
 
     public function news(){
         return view('/client/news');
+    }
+
+    //Cac trang danh muc
+    public function  viewMass(){
+        //$products = DB::select("SELECT * FROM products INNER JOIN images ON products.product_id = images.product_id INNER JOIN sell_products ON products.product_id = sell_products.product_id");
+        $product = DB::table('products')
+            ->join('images','images.product_id','=','products.product_id')
+            ->join('sell_products','sell_products.product_id','=','products.product_id')
+            ->select('products.*','images.url','sell_products.prices')
+            ->paginate(4);
+        return view('client/category/mass')->with('products',$product);
+    }
+    public function  viewWhey(){
+        //$products = DB::select("SELECT * FROM products INNER JOIN images ON products.product_id = images.product_id INNER JOIN sell_products ON products.product_id = sell_products.product_id");
+        $product = DB::table('products')
+            ->join('images','images.product_id','=','products.product_id')
+            ->join('sell_products','sell_products.product_id','=','products.product_id')
+            ->select('products.*','images.url','sell_products.prices')
+            ->paginate(4);
+        return view('client/category/whey')->with('products',$product);
+    }
+    public function  viewBCAAsEAAs(){
+        //$products = DB::select("SELECT * FROM products INNER JOIN images ON products.product_id = images.product_id INNER JOIN sell_products ON products.product_id = sell_products.product_id");
+        $product = DB::table('products')
+            ->join('images','images.product_id','=','products.product_id')
+            ->join('sell_products','sell_products.product_id','=','products.product_id')
+            ->select('products.*','images.url','sell_products.prices')
+            ->paginate(4);
+        return view('client/category/bcaa')->with('products',$product);
+    }
+    public function  viewPreworkoutCreatine(){
+        //$products = DB::select("SELECT * FROM products INNER JOIN images ON products.product_id = images.product_id INNER JOIN sell_products ON products.product_id = sell_products.product_id");
+        $product = DB::table('products')
+            ->join('images','images.product_id','=','products.product_id')
+            ->join('sell_products','sell_products.product_id','=','products.product_id')
+            ->select('products.*','images.url','sell_products.prices')
+            ->paginate(4);
+        return view('client/category/PreworkOut')->with('products',$product);
+    }
+    public function  viewVitamin(){
+        //$products = DB::select("SELECT * FROM products INNER JOIN images ON products.product_id = images.product_id INNER JOIN sell_products ON products.product_id = sell_products.product_id");
+        $product = DB::table('products')
+            ->join('images','images.product_id','=','products.product_id')
+            ->join('sell_products','sell_products.product_id','=','products.product_id')
+            ->select('products.*','images.url','sell_products.prices')
+            ->paginate(4);
+        return view('client/category/Vitamin')->with('products',$product);
+    }
+    public function  viewBurnFat(){
+        //$products = DB::select("SELECT * FROM products INNER JOIN images ON products.product_id = images.product_id INNER JOIN sell_products ON products.product_id = sell_products.product_id");
+        $product = DB::table('products')
+            ->join('images','images.product_id','=','products.product_id')
+            ->join('sell_products','sell_products.product_id','=','products.product_id')
+            ->select('products.*','images.url','sell_products.prices')
+            ->paginate(4);
+        return view('client/category/burnFat')->with('products',$product);
     }
 }
 

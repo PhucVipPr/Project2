@@ -2,12 +2,12 @@
 @section('title',"Tất cả sản phẩm")
 
 @section('content')
-    @extends('client.header')
+    @include('client.header')
     <!-------------------category-------------------->
     <section class="category">
         <div class="container">
             <div class="category-top row">
-                <p>Trang chủ</p> <span>&#10230; </span> <p>Sữa tăng cân</p> <span>&#10230; </span> <p>Tăng cân nhanh</p>
+                <p>Trang chủ</p> <span>&#10230; </span> <p>Tất cả sản phẩm</p> <span>&#10230; </span> <p>Tăng cân nhanh</p>
             </div>
         </div>
         <div class="container">
@@ -55,7 +55,7 @@
                 </div>
                 <div class="category-right ">
                     <div class="category-right-top-item">
-                        <p>Sữa tăng cân</p>
+                        <p>Tất cả sản phẩm</p>
                     </div>
                     <div class="category-right-top-item">
                         <a>Sắp xếp theo:</a>

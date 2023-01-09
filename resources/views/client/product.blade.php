@@ -1,7 +1,7 @@
 @extends('layouts.base')
 @section('title',"Chi tiết sản phẩm")
 @section('content')
-    @extends('client.header')
+    @include('client.header')
     <!-------------------------------PRODUCT-------------------->
     <section class="product">
         <form method="POST" action="{{url('client/cart',$product->product_id)}}">

@@ -2,7 +2,7 @@
 @section('title',"Trang chủ")
 
 @section('content')
-    @extends('client.header')
+    @include('client.header')
     <header1>
         <!-- header inner -->
         <div class="header">
