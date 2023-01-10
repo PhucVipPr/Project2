@@ -23,7 +23,7 @@
                     <table class="table table-borderless table-shopping-cart">
                         <thead class="text-muted">
                         <tr class="small text-uppercase">
-                            <th scope="col">Product Name</th>
+                            <th scope="col">Product Info</th>
                             <th scope="col" width="120">Quantity</th>
                             <th scope="col" width="120">Prices</th>
                             <th>Total</th>

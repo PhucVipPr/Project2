@@ -15,7 +15,11 @@
         </div>
         <div class="mb-3">
             <label class="form-label">Category_Name</label>
-            <input class="form-control" name="cate_id" value="{{$products->cate_id}}" placeholder="Enter id">
+            <select name="cate_id">
+                @foreach($category as $cate)
+                    <option value="{{$cate->cate_id}}">{{$cate->cate_name}}</option>
+                @endforeach
+            </select>
         </div>
         <div class="mb-3">
             <label class="form-label">Product_Name</label>
