@@ -54,7 +54,7 @@ class ClientController extends Controller
             ->join('images','images.product_id','=','products.product_id')
             ->join('sell_products','sell_products.product_id','=','products.product_id')
             ->select('products.*','images.url','sell_products.prices')
-            ->paginate(4);
+            ->paginate(6);
         return view('client/category')->with('products',$product);
     }
 
