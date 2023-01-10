@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect('/login');
+    return redirect('/client/home');
 });
 
 Route::get('home',function (){
@@ -40,6 +40,7 @@ Route::get('/admin/product/index',[\App\Http\Controllers\AdminController::class,
 Route::get('/admin/category/index',[\App\Http\Controllers\AdminController::class,'viewCategory']);
 Route::get('/admin/home',[\App\Http\Controllers\AdminController::class,'viewHome']);
 Route::get('/admin/users/index',[\App\Http\Controllers\AdminController::class,'viewUser']);
+Route::get('/admin/users/orderDetail',[\App\Http\Controllers\AdminController::class,'viewOrder']);
 
 //Product
 Route::get('/admin/product/add_product',[\App\Http\Controllers\AdminProductController::class,'create']);
@@ -60,6 +61,7 @@ Route::get('/client/home',[ClientController::class,'viewClient']);
 Route::get('/client/info',[ClientController::class,'viewInfo']);
 Route::get('/client/{id}/edit',[ClientController::class,'editInfo']);
 Route::put('/client/{id}/edit',[ClientController::class,'update']);
+Route::get('/client/orderDetail',[ClientController::class,'viewOrder']);
 //Cac trang danh muc ben Client
 Route::get('/client/category/mass',[ClientController::class,'viewMass']);
 Route::get('/client/category/whey',[ClientController::class,'viewWhey']);

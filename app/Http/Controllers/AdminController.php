@@ -15,6 +15,10 @@ class AdminController extends Controller
         return view('admin/home');
     }
 
+    function viewOrder(){
+        return view('admin/users/orderDetail');
+    }
+
     function viewUser(){
         $users = DB::table('users')
             ->where('isAdmin','=',0)

@@ -1,138 +1,128 @@
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{asset('css/order.css')}}">
-    <title>Your Order</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
 </head>
-<body>
-<section class="h-100 gradient-custom">
-    <div class="container py-5 h-100">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-lg-10 col-xl-8">
-                <div class="card" style="border-radius: 10px;">
-                    <div class="card-header px-4 py-5">
-                        <h5 class="text-muted mb-0">Thanks for your Order, <span style="color: #a8729a;">Anna</span>!</h5>
-                    </div>
-                    <div class="card-body p-4">
-                        <div class="d-flex justify-content-between align-items-center mb-4">
-                            <p class="lead fw-normal mb-0" style="color: #a8729a;">Receipt</p>
-                            <p class="small text-muted mb-0">Receipt Voucher : 1KAU9-84UIL</p>
-                        </div>
-                        <div class="card shadow-0 border mb-4">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/13.webp"
-                                             class="img-fluid" alt="Phone">
-                                    </div>
-                                    <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                                        <p class="text-muted mb-0">Samsung Galaxy</p>
-                                    </div>
-                                    <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                                        <p class="text-muted mb-0 small">White</p>
-                                    </div>
-                                    <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                                        <p class="text-muted mb-0 small">Capacity: 64GB</p>
-                                    </div>
-                                    <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                                        <p class="text-muted mb-0 small">Qty: 1</p>
-                                    </div>
-                                    <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                                        <p class="text-muted mb-0 small">$499</p>
-                                    </div>
-                                </div>
-                                <hr class="mb-4" style="background-color: #e0e0e0; opacity: 1;">
-                                <div class="row d-flex align-items-center">
-                                    <div class="col-md-2">
-                                        <p class="text-muted mb-0 small">Track Order</p>
-                                    </div>
-                                    <div class="col-md-10">
-                                        <div class="progress" style="height: 6px; border-radius: 16px;">
-                                            <div class="progress-bar" role="progressbar"
-                                                 style="width: 65%; border-radius: 16px; background-color: #a8729a;" aria-valuenow="65"
-                                                 aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                        <div class="d-flex justify-content-around mb-1">
-                                            <p class="text-muted mt-1 mb-0 small ms-xl-5">Out for delivary</p>
-                                            <p class="text-muted mt-1 mb-0 small ms-xl-5">Delivered</p>
+<div class="container-fluid my-5  d-flex  justify-content-center">
+    <div class="card card-1">
+        <div class="card-header bg-white">
+            <div class="media flex-sm-row flex-column-reverse justify-content-between  ">
+                <div class="col my-auto"> <h4 class="mb-0">Thanks for your Order,<span class="change-color">Anjali</span> !</h4> </div>
+                <div class="col-auto text-center  my-auto pl-0 pt-sm-4"> <img class="img-fluid my-auto align-items-center mb-0 pt-3"  src="https://i.imgur.com/7q7gIzR.png" width="115" height="115"> <p class="mb-4 pt-0 Glasses">Glasses For Everyone</p>  </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row justify-content-between mb-3">
+                <div class="col-auto"> <h6 class="color-1 mb-0 change-color">Receipt</h6> </div>
+                <div class="col-auto  "> <small>Receipt Voucher : 1KAU9-84UIL</small> </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="card card-2">
+                        <div class="card-body">
+                            <div class="media">
+                                <div class="sq align-self-center "> <img class="img-fluid  my-auto align-self-center mr-2 mr-md-4 pl-0 p-0 m-0" src="https://i.imgur.com/RJOW4BL.jpg" width="135" height="135" /> </div>
+                                <div class="media-body my-auto text-right">
+                                    <div class="row  my-auto flex-column flex-md-row">
+                                        <div class="col my-auto"> <h6 class="mb-0"> Jack Jacs</h6>  </div>
+                                        <div class="col-auto my-auto"> <small>Golden Rim </small></div>
+                                        <div class="col my-auto"> <small>Size : M</small></div>
+                                        <div class="col my-auto"> <small>Qty : 1</small></div>
+                                        <div class="col my-auto"><h6 class="mb-0">&#8377;3,600.00</h6>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card shadow-0 border mb-4">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/1.webp"
-                                             class="img-fluid" alt="Phone">
-                                    </div>
-                                    <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                                        <p class="text-muted mb-0">iPad</p>
-                                    </div>
-                                    <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                                        <p class="text-muted mb-0 small">Pink rose</p>
-                                    </div>
-                                    <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                                        <p class="text-muted mb-0 small">Capacity: 32GB</p>
-                                    </div>
-                                    <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                                        <p class="text-muted mb-0 small">Qty: 1</p>
-                                    </div>
-                                    <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                                        <p class="text-muted mb-0 small">$399</p>
-                                    </div>
-                                </div>
-                                <hr class="mb-4" style="background-color: #e0e0e0; opacity: 1;">
-                                <div class="row d-flex align-items-center">
-                                    <div class="col-md-2">
-                                        <p class="text-muted mb-0 small">Track Order</p>
-                                    </div>
-                                    <div class="col-md-10">
-                                        <div class="progress" style="height: 6px; border-radius: 16px;">
-                                            <div class="progress-bar" role="progressbar"
-                                                 style="width: 20%; border-radius: 16px; background-color: #a8729a;" aria-valuenow="20"
-                                                 aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                        <div class="d-flex justify-content-around mb-1">
-                                            <p class="text-muted mt-1 mb-0 small ms-xl-5">Out for delivary</p>
-                                            <p class="text-muted mt-1 mb-0 small ms-xl-5">Delivered</p>
-                                        </div>
+                            <hr class="my-3 ">
+                            <div class="row">
+                                <div class="col-md-3 mb-3"> <small> Track Order <span><i class=" ml-2 fa fa-refresh"  aria-hidden="true"></i></span></small> </div>
+                                <div class="col mt-auto">
+                                    <div class="progress my-auto"> <div class="progress-bar progress-bar  rounded" style="width: 62%" role="progressbar" aria-valuenow="25" aria-valuemin="0"  aria-valuemax="100"></div> </div>
+                                    <div class="media row justify-content-between ">
+                                        <div class="col-auto text-right"><span> <small  class="text-right mr-sm-2"></small> <i class="fa fa-circle active"></i> </span></div>
+                                        <div class="flex-col"> <span> <small class="text-right mr-sm-2">Out for delivary</small><i class="fa fa-circle active"></i></span></div>
+                                        <div class="col-auto flex-col-auto"><small  class="text-right mr-sm-2">Delivered</small><span> <i  class="fa fa-circle"></i></span></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="d-flex justify-content-between pt-2">
-                            <p class="fw-bold mb-0">Order Details</p>
-                            <p class="text-muted mb-0"><span class="fw-bold me-4">Total</span> $898.00</p>
-                        </div>
-
-                        <div class="d-flex justify-content-between pt-2">
-                            <p class="text-muted mb-0">Invoice Number : 788152</p>
-                            <p class="text-muted mb-0"><span class="fw-bold me-4">Discount</span> $19.00</p>
-                        </div>
-
-                        <div class="d-flex justify-content-between">
-                            <p class="text-muted mb-0">Invoice Date : 22 Dec,2019</p>
-                            <p class="text-muted mb-0"><span class="fw-bold me-4">GST 18%</span> 123</p>
-                        </div>
-
-                        <div class="d-flex justify-content-between mb-5">
-                            <p class="text-muted mb-0">Recepits Voucher : 18KU-62IIK</p>
-                            <p class="text-muted mb-0"><span class="fw-bold me-4">Delivery Charges</span> Free</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col">
+                    <div class="card card-2">
+                        <div class="card-body">
+                            <div class="media">
+                                <div class="sq align-self-center "> <img class="img-fluid  my-auto align-self-center mr-2 mr-md-4 pl-0 p-0 m-0" src="https://i.imgur.com/fUWWpRS.jpg" width="135" height="135" /> </div>
+                                <div class="media-body my-auto text-right">
+                                    <div class="row  my-auto flex-column flex-md-row">
+                                        <div class="col-auto my-auto "> <h6 class="mb-0"> Michel Mark</h6> </div>
+                                        <div class="col my-auto  "> <small>Black Rim </small></div>
+                                        <div class="col my-auto  "> <small>Size : L</small></div>
+                                        <div class="col my-auto  "> <small>Qty : 1</small></div>
+                                        <div class="col my-auto ">  <h6 class="mb-0">&#8377;1,235.00</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="my-3 ">
+                            <div class="row ">
+                                <div class="col-md-3 mb-3">  <small> Track Order <span><i class=" ml-2 fa fa-refresh" aria-hidden="true"></i></span></small> </div>
+                                <div class="col mt-auto">
+                                    <div class="progress"><div class="progress-bar progress-bar  rounded" style="width: 18%"  role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div> </div>
+                                    <div class="media row justify-content-between ">
+                                        <div class="col-auto text-right"><span> <small  class="text-right mr-sm-2"></small> <i class="fa fa-circle active"></i> </span></div>
+                                        <div class="flex-col"> <span> <small class="text-right mr-sm-2">Out for delivary</small><i class="fa fa-circle"></i></span></div>
+                                        <div class="col-auto flex-col-auto"><smallclass="text-right mr-sm-2">Delivered</small><span> <i class="fa fa-circle"></i></span></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="card-footer border-0 px-4 py-5"
-                         style="background-color: #a8729a; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
-                        <h5 class="d-flex align-items-center justify-content-end text-white text-uppercase mb-0">Total
-                            paid: <span class="h2 mb-0 ms-2">$1040</span></h5>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col">
+                    <div class="row justify-content-between">
+                        <div class="col-auto"><p class="mb-1 text-dark"><b>Order Details</b></p></div>
+                        <div class="flex-sm-col text-right col"> <p class="mb-1"><b>Total</b></p> </div>
+                        <div class="flex-sm-col col-auto"> <p class="mb-1">&#8377;4,835</p> </div>
                     </div>
+                    <div class="row justify-content-between">
+                        <div class="flex-sm-col text-right col"><p class="mb-1"> <b>Discount</b></p> </div>
+                        <div class="flex-sm-col col-auto"><p class="mb-1">&#8377;150</p></div>
+                    </div>
+                    <div class="row justify-content-between">
+                        <div class="flex-sm-col text-right col"><p class="mb-1"><b>GST 18%</b></p></div>
+                        <div class="flex-sm-col col-auto"><p class="mb-1">843</p></div>
+                    </div>
+                    <div class="row justify-content-between">
+                        <div class="flex-sm-col text-right col"><p class="mb-1"><b>Delivery Charges</b></p></div>
+                        <div class="flex-sm-col col-auto"><p class="mb-1">Free</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row invoice ">
+                <div class="col"><p class="mb-1"> Invoice Number : 788152</p><p class="mb-1">Invoice Date : 22 Dec,2019</p><p class="mb-1">Recepits Voucher:18KU-62IIK</p></div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="jumbotron-fluid">
+                <div class="row justify-content-between ">
+                    <div class="col-sm-auto col-auto my-auto"><img class="img-fluid my-auto align-self-center " src="https://i.imgur.com/7q7gIzR.png" width="115" height="115"></div>
+                    <div class="col-auto my-auto "><h2 class="mb-0 font-weight-bold">TOTAL PAID</h2></div>
+                    <div class="col-auto my-auto ml-auto"><h1 class="display-3 ">&#8377; 5,528</h1></div>
+                </div>
+                <div class="row mb-3 mt-3 mt-md-0">
+                    <div class="col-auto border-line"> <small class="text-white">PAN:AA02hDW7E</small></div>
+                    <div class="col-auto border-line"> <small class="text-white">CIN:UMMC20PTC </small></div>
+                    <div class="col-auto "><small class="text-white">GSTN:268FD07EXX </small> </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
-</body>
+</div>
 </html>

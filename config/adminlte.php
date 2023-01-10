@@ -331,7 +331,12 @@ return [
         [
             'text' => 'User',
             'url' => 'admin/users/index',
-            'icon' => '',
+            'icon' => 'fas fa-user',
+        ],
+        [
+            'text' => 'Order',
+            'url' => 'admin/users/orderDetail',
+            'icon' => 'fas fa-shopping-cart'
         ],
     ],
 

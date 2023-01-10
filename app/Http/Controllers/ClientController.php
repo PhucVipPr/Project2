@@ -69,9 +69,13 @@ class ClientController extends Controller
         return view('client/product',compact('product','image','sellProduct'));
     }
 
+    public function viewOrder(){
+
+        return view('client/orderDetail');
+    }
+
     public function searchInfo(Request $request){
         $keyword = $request->get('keyword_submit');
-//        dd($keyword);
         $collection =DB::table('products')
             ->join('images','images.product_id','=','products.product_id')
             ->join('sell_products','sell_products.product_id','=','products.product_id')

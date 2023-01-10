@@ -52,7 +52,7 @@
                                     <div class="price-wrap"> <var name="prices">{{$item->prices}}<sup>đ</sup></var> <small class="text-muted"></small> </div>
                                 </td>
                                 <td>
-                                    <div>{{$item->quantity * $item->prices}}<sup>đ</sup></div>
+                                    <div>{{(int)($item->quantity) * (int)($item->prices)}}<sup>đ</sup></div>
                                 </td>
                                 <td class="text-right d-none d-md-block">
                                     <form method="POST" action="{{url('/client/cart/'.$item->cart_id.'/delete')}}">
@@ -62,7 +62,7 @@
                                     </form>
                                 </td>
                             </tr>
-                            @php $total += $item->quantity * $item->prices @endphp
+                            @php $total += (int)($item->quantity) * (int)($item->prices) @endphp
                             @endforeach
                             <tr>
                                 @php $subtotal = $total @endphp
@@ -87,7 +87,7 @@
                     </form>
                 </div>
             </div>
-                    <hr> <a href="#" class="btn btn-out btn-primary btn-square btn-main" data-abc="true"> Confirm Order </a>
+                    <hr> <a href="{{url('client/orderDetail')}}" class="btn btn-out btn-primary btn-square btn-main" data-abc="true"> Confirm Order </a>
                     <a href="{{url('client/home')}}" class="btn btn-out btn-success btn-square btn-main mt-2" data-abc="true">Continue Shopping</a>
         </aside>
     </div>

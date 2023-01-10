@@ -78,7 +78,7 @@ class AdminProductController extends Controller
             'url' => 'required',
         ]);
         $updatePrice = $request->validate([
-            'prices' => 'required|numeric|max:10000000',
+            'prices' => 'required|numeric',
         ]);
         DB::table('products')->where('product_id', '=', $product_id)->update($updateProduct);
         DB::table('images')->where('images.product_id', '=', $product_id)->update($updateUrl);
