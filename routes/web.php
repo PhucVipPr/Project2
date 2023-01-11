@@ -41,6 +41,7 @@ Route::get('/admin/category/index',[\App\Http\Controllers\AdminController::class
 Route::get('/admin/home',[\App\Http\Controllers\AdminController::class,'viewHome']);
 Route::get('/admin/users/index',[\App\Http\Controllers\AdminController::class,'viewUser']);
 Route::get('/admin/users/orderDetail',[\App\Http\Controllers\AdminController::class,'viewOrder']);
+Route::get('/admin/order/index',[\App\Http\Controllers\OrderController::class,'viewOrder']);
 
 //Product
 Route::get('/admin/product/search',[\App\Http\Controllers\AdminProductController::class,'search']);

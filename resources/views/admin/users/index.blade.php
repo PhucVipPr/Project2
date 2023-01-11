@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{{asset('css/userAdmin.css')}}">
 </head>
 <body>
-    <h1>All user</h1>
+    <h1 class="fas fa-user"> All user</h1>
     <div class="container mt-5 mb-3">
         @foreach($users as $user)
         <div class="col-md-4">

@@ -335,7 +335,7 @@ return [
         ],
         [
             'text' => 'Order',
-            'url' => 'admin/users/orderDetail',
+            'url' => 'admin/order/index',
             'icon' => 'fas fa-shopping-cart'
         ],
     ],
