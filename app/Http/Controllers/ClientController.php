@@ -149,7 +149,7 @@ class ClientController extends Controller
             ->join('sell_products','sell_products.product_id','=','products.product_id')
             ->join('categories','categories.cate_id','=','products.cate_id')
             ->select('products.*','images.url','sell_products.prices')
-            ->where('cate_name','=','mass')
+            ->where('cate_name','=','Sữa tăng cân')
             ->paginate(4);
         return view('client/category/mass')->with('products',$product);
     }
@@ -171,7 +171,7 @@ class ClientController extends Controller
             ->join('sell_products','sell_products.product_id','=','products.product_id')
             ->join('categories','categories.cate_id','=','products.cate_id')
             ->select('products.*','images.url','sell_products.prices')
-            ->where('cate_name','=','bcaa')
+            ->where('cate_name','=','BCAAs, EAAs')
             ->paginate(4);
 
         return view('client/category/bcaa')->with('products',$product);
@@ -183,7 +183,7 @@ class ClientController extends Controller
             ->join('sell_products','sell_products.product_id','=','products.product_id')
             ->join('categories','categories.cate_id','=','products.cate_id')
             ->select('products.*','images.url','sell_products.prices')
-            ->where('cate_name','=','preworkout')
+            ->where('cate_name','=','Pre-Workout,Creatine')
             ->paginate(4);
         return view('client/category/PreworkOut')->with('products',$product);
     }
@@ -194,7 +194,7 @@ class ClientController extends Controller
             ->join('sell_products','sell_products.product_id','=','products.product_id')
             ->join('categories','categories.cate_id','=','products.cate_id')
             ->select('products.*','images.url','sell_products.prices')
-            ->where('cate_name','=','vitamin')
+            ->where('cate_name','=','Vitamin,khoáng chất')
             ->paginate(4);
         return view('client/category/Vitamin')->with('products',$product);
     }
@@ -205,7 +205,7 @@ class ClientController extends Controller
             ->join('sell_products','sell_products.product_id','=','products.product_id')
             ->join('categories','categories.cate_id','=','products.cate_id')
             ->select('products.*','images.url','sell_products.prices')
-            ->where('cate_name','=','burnFat')
+            ->where('cate_name','=','Giảm mỡ')
             ->paginate(4);
         return view('client/category/burnFat')->with('products',$product);
     }
