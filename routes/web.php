@@ -80,7 +80,7 @@ Route::get('/client/home/search',[ClientController::class,'searchInfo']);
 Route::get('/client/cartList',[\App\Http\Controllers\CartController::class,'viewCart']);
 Route::post('/client/cart/{id}',[\App\Http\Controllers\CartController::class,'addCart']);
 Route::delete('/client/cart/{id}/delete',[\App\Http\Controllers\CartController::class,'delete']);
-
+Route::post('/client/cart/{id}/update',[\App\Http\Controllers\CartController::class,'update']);
 
 //Tin tức
 Route::get('/client/home/tintuc',[ClientController::class,'news']);

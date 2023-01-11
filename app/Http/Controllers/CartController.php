@@ -51,6 +51,12 @@ class CartController extends Controller
         return redirect('client/cartList');
     }
 
+    public function update(Request $request,$cartItems){
+        $cartItems = Cart::findOrFail($cartItems);
+        $cartItems->increment('quantity',1);
+        return redirect('client/cartList');
+    }
+
 
 
 }

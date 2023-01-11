@@ -46,7 +46,12 @@
                                     </figure>
                                 </td>
                                 <td>
-                                    <input type="number" name="quantity" min="1" value="{{$item->quantity}}" max="100" readonly>
+                                    <form method="post" action="{{url('/client/cart/'.$item->cart_id.'/update')}}">
+                                        @csrf
+                                        <input type="hidden" name="cart_id" value="{{$item->cart_id}}">
+                                        <input type="number" name="quantity" value="{{$item->quantity}}" max="100" min="1">
+                                        <input type="submit" name="update" value="update">
+                                    </form>
                                 </td>
                                 <td>
                                     <div class="price-wrap"> <var name="prices">{{$item->prices}}<sup>đ</sup></var> <small class="text-muted"></small> </div>
@@ -58,7 +63,7 @@
                                     <form method="POST" action="{{url('/client/cart/'.$item->cart_id.'/delete')}}">
                                         @csrf
                                         @method('delete')
-                                    <button type="submit" onclick="return confirm('Do you want to delete the product?')">Remove</button>
+                                    <button type="submit" onclick="return confirm('Do you want to delete the product?')">Remove</button><br><br>
                                     </form>
                                 </td>
                             </tr>
