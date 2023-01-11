@@ -35,7 +35,7 @@
         </div>
         <div class="mb-3">
             <label class="form-label">Product_Info</label>
-            <input class="form-control" name="product_info" id="editor" placeholder="Enter product Info">
+            <textarea class="form-control" name="product_info" id="editor" placeholder="Enter product Info"></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Confirm Add</button>
     </form>

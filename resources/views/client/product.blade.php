@@ -8,7 +8,7 @@
             @csrf
             <div class="container">
                 <div class="product-top row">
-                    <p>Trang chủ</p> <span>&#10230; </span> <p>Sữa tăng cân</p> <span>&#10230; </span> <p>{{$product->cate_name}}</p>
+                    <p>Trang chủ</p> <span>&#10230;  </span> <p>{{$product->cate_name}}</p>
                     <span>&#10230; </span> <p>{{$product->product_name}}</p>
                 </div>
                 <div class="product-content row">
@@ -62,7 +62,7 @@
                                     </div>
                                 </div>
                                 <div class="product-content-right-bottom-content-chitiet">
-                                    <p>{{$product->product_info}}</p>
+                                    <p>{!! $product->product_info !!}</p>
                                 </div>
                                 <div class="product-content-right-bottom-content-chitiethon">
                                     chi tiet hon wheygold
@@ -72,8 +72,17 @@
                     </div>
                 </div>
             </div>
-            </div>
-            </div>
+            <div class="category-right-content row">
+                @forelse($products as $product)
+                    <div class="category-right-content-item">
+                        <img src="{{$product-> url}}" href="#"/>
+                        <h1>{{$product-> product_name}}</h1>
+                        <p>{{$product->prices}}<sup>đ</sup></p>
+                        <a class="read_more mar_top" href="{{url('/client/home/product/'.$product->product_id.'/'.$product->cate_id)}}"> Mua ngay</a>
+                    </div>
+                @empty
+                    <p>Danh sach rong</p>
+                @endforelse
             </div>
         </form>
     </section>
