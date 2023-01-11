@@ -19,7 +19,7 @@
 <a href="{{url('admin/category/add_category')}}">
     <button type="button" class="btn btn-primary btn-lg" class="fa fa-plus">Add category</button>
 </a>
-<form action="{{url('admin/product/search')}}" method="get">
+<form action="{{url('admin/category/search')}}" method="get">
     <li><input name="keyword_submit" placeholder="Tìm kiếm" type="text"><i class="fa fa-search" style="padding-left: 10px"></i></li>
 </form>
 <br>
@@ -32,7 +32,7 @@
     </tr>
     </thead>
     <tbody class="table-group-divider">
-    @foreach($categories as $cate)
+    @foreach($search_category as $cate)
         <tr>
             <th scope="row">{{$cate->cate_id}}</th>
             <td>{{$cate->cate_name}}</td>
