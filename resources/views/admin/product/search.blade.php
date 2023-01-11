@@ -1,7 +1,7 @@
 @extends('layouts.admin_base')
 
 @section('content')
-<!doctype html>
+    <!doctype html>
 <html lang="en">
 <head>
     <!-- Required meta tags -->
@@ -17,7 +17,7 @@
 <h1>Product</h1>
 <br>
 <a href="{{url('admin/product/add_product')}}">
-<button type="button" class="btn btn-primary btn-lg" class="fa fa-plus">Add product</button>
+    <button type="button" class="btn btn-primary btn-lg" class="fa fa-plus">Add product</button>
 </a>
 <form action="{{url('admin/product/search')}}" method="get">
     <li><input name="keyword_submit" placeholder="Tìm kiếm" type="text"><i class="fa fa-search" style="padding-left: 10px"></i></li>
@@ -37,22 +37,22 @@
     </tr>
     </thead>
     <tbody class="table-group-divider">
-    @foreach($products as $product)
-    <tr>
-        <th scope="row">{{$product->product_id}}</th>
-        <td>{{$product->cate_name}}</td>
-        <td>{{$product->product_name}}</td>
-        <td>{{$product->product_code}}</td>
-        <td>{{$product->product_info}}</td>
-        <td><img src="{{$product->url}}" width="100px"></td>
-        <td>{{$product->prices}}</td>
-        <td>
-            <div class="action d-flex flex-row">
-                <a href="{{url('/admin/product/'.$product->product_id.'/edit')}}">Edit</a>&nbsp;
-                </form>
-            </div>
-        </td>
-    </tr>
+    @foreach($search_product as $product)
+        <tr>
+            <th scope="row">{{$product->product_id}}</th>
+            <td>{{$product->cate_name}}</td>
+            <td>{{$product->product_name}}</td>
+            <td>{{$product->product_code}}</td>
+            <td>{{$product->product_info}}</td>
+            <td><img src="{{$product->url}}" width="100px"></td>
+            <td>{{$product->prices}}</td>
+            <td>
+                <div class="action d-flex flex-row">
+                    <a href="{{url('/admin/product/'.$product->product_id.'/edit')}}">Edit</a>&nbsp;
+                    </form>
+                </div>
+            </td>
+        </tr>
     @endforeach
     </tbody>
 </table>

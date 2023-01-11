@@ -43,6 +43,7 @@ Route::get('/admin/users/index',[\App\Http\Controllers\AdminController::class,'v
 Route::get('/admin/users/orderDetail',[\App\Http\Controllers\AdminController::class,'viewOrder']);
 
 //Product
+Route::get('/admin/product/search',[\App\Http\Controllers\AdminProductController::class,'search']);
 Route::get('/admin/product/add_product',[\App\Http\Controllers\AdminProductController::class,'create']);
 Route::post('/admin/product/add_product',[\App\Http\Controllers\AdminProductController::class,'store']);
 Route::get('/admin/product/{product_id}/edit',[\App\Http\Controllers\AdminProductController::class,'edit']);
