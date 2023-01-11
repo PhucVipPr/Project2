@@ -8,6 +8,14 @@ use Illuminate\Support\Facades\DB;
 
 class AdminCategory extends Controller
 {
+    public function search(Request $request){
+        $keyword = $request->get('keyword_submit');
+        $cate = DB::table('categories')
+            ->select('categories.cate_id', 'categories.cate_name')
+            ->where('categories.cate_name','like','%'.$keyword.'%')
+            ->get();
+        return view('admin/category/search',['search_category'=>$cate]);
+    }
     public function create(){
         return view('admin/category/add_category');
     }

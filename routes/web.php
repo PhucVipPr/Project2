@@ -52,6 +52,7 @@ Route::put('/admin/product/{product_id}/edit',[\App\Http\Controllers\AdminProduc
 
 
 //Category
+Route::get('/admin/category/search',[AdminCategory::class,'search']);
 Route::get('/admin/category/add_category',[AdminCategory::class,'create']);
 Route::post('/admin/category/add_category',[AdminCategory::class,'store']);
 Route::get('/admin/category/{cate_id}/edit',[AdminCategory::class,'edit']);
