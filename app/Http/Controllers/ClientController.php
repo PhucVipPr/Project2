@@ -18,6 +18,7 @@ class ClientController extends Controller
 {
     public function viewClient(){
         $products = DB::select("SELECT * FROM products INNER JOIN images ON products.product_id = images.product_id INNER JOIN sell_products ON products.product_id = sell_products.product_id");
+
         return view('client/home',['products'=>$products]);
     }
 
@@ -53,12 +54,13 @@ class ClientController extends Controller
         $product = DB::table('products')
             ->join('images','images.product_id','=','products.product_id')
             ->join('sell_products','sell_products.product_id','=','products.product_id')
+            ->join('categories','categories.cate_id','=','products.cate_id')
             ->select('products.*','images.url','sell_products.prices')
             ->paginate(6);
         return view('client/category')->with('products',$product);
     }
 
-    public function show($product_id){
+    public function show($product_id,$cate_name){
         $product = DB::table('categories')
             ->join('products','products.cate_id','=','categories.cate_id')
             ->select('products.*','categories.cate_name')
@@ -66,7 +68,15 @@ class ClientController extends Controller
             ->where('product_id',"=",$product_id)->first();
         $image = DB::table('images')->where('product_id',"=",$product_id)->first();
         $sellProduct = DB::table('sell_products')->where('product_id',"=",$product_id)->first();
-        return view('client/product',compact('product','image','sellProduct'));
+
+        $products =DB::table('categories')
+            ->join('products','products.cate_id','=','categories.cate_id')
+            ->join('images','images.product_id','=','products.product_id')
+            ->join('sell_products','sell_products.product_id','=','products.product_id')
+            ->where('products.product_id',"!=",$product_id)
+            ->where('categories.cate_id' ,"=",$cate_name)
+            ->get()->take(3);
+        return view('client/product',compact('product','image','sellProduct','products'));
     }
 
     public function viewOrder(){

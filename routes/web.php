@@ -76,7 +76,7 @@ Route::get('/client/category/burnFat',[ClientController::class,'viewBurnFat']);
 //Tat ca san pham
 Route::get('/client/home/category',[ClientController::class,'viewCategory']);
 //Xem chi tiet san pham
-Route::get('/client/home/product/{product_id}',[ClientController::class,'show']);
+Route::get('/client/home/product/{product_id}/{cate_name}',[ClientController::class,'show']);
 //Tim kiem
 Route::get('/client/home/search',[ClientController::class,'searchInfo']);
 //Gio hang
