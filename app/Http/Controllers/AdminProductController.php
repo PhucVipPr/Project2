@@ -17,7 +17,18 @@ class AdminProductController extends Controller
         $categories = Category::get();
         return view('admin/product/add_product', ['category' => $categories]);
     }
-
+    public function search(Request $request){
+        $keyword = $request->get('keyword_submit');
+        $products = DB::table('products')
+            ->join('images', 'products.product_id', '=', 'images.product_id')
+            ->join('categories', 'products.cate_id', '=', 'categories.cate_id')
+            ->join('sell_products', 'products.product_id', '=', 'sell_products.product_id')
+            ->select('products.product_id','products.product_code','products.product_name','products.product_info',
+                'images.url','categories.cate_id', 'categories.cate_name','sell_products.prices')
+            ->where('product_name','like','%'.$keyword.'%')
+            ->get();
+        return view('admin/product/search',['search_product'=>$products]);
+    }
     public function store(Request $request)
     {
         $this->validate($request, [
