@@ -52,7 +52,7 @@
         <td>{{$product->cate_name}}</td>
         <td>{{$product->product_name}}</td>
         <td>{{$product->product_code}}</td>
-        <td>{{$product->product_info}}</td>
+        <td>{!! $product->product_info !!}</td>
         <td><img src="{{$product->url}}" width="100px"></td>
         <td>{{$product->prices}}</td>
         <td>

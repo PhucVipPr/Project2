@@ -35,8 +35,22 @@
         </div>
         <div class="mb-3">
             <label class="form-label">Product_Info</label>
-            <input class="form-control" name="product_info" value="{{$products->product_info}}" placeholder="Enter product Info">
+            <input class="form-control" name="product_info" id="editor" value="{{$products->product_info}}" placeholder="Enter product Info">
         </div>
         <button type="submit" class="btn btn-primary">Confirm Update</button>
     </form>
+@endsection
+
+@section('js')
+    @parent
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor' ) )
+            .then( editor => {
+                console.log( editor );
+            } )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
 @endsection
