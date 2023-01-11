@@ -64,7 +64,7 @@ Route::get('/client/home',[ClientController::class,'viewClient']);
 Route::get('/client/info',[ClientController::class,'viewInfo']);
 Route::get('/client/{id}/edit',[ClientController::class,'editInfo']);
 Route::put('/client/{id}/edit',[ClientController::class,'update']);
-Route::get('/client/orderDetail',[ClientController::class,'viewOrder']);
+Route::get('/client/orderDetail',[\App\Http\Controllers\OrderController::class,'viewOrder']);
 //Cac trang danh muc ben Client
 Route::get('/client/category/mass',[ClientController::class,'viewMass']);
 Route::get('/client/category/whey',[ClientController::class,'viewWhey']);

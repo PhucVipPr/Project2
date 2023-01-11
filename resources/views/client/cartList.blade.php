@@ -23,9 +23,9 @@
                     <table class="table table-borderless table-shopping-cart">
                         <thead class="text-muted">
                         <tr class="small text-uppercase">
-                            <th scope="col">Product Info</th>
-                            <th scope="col" width="120">Quantity</th>
-                            <th scope="col" width="120">Prices</th>
+                            <th scope="col"><b>Product Info</b></th>
+                            <th scope="col" width="120"><b>Quantity</b></th>
+                            <th scope="col" width="120"><b>Prices</b></th>
                             <th>Total</th>
                         </tr>
                         </thead>

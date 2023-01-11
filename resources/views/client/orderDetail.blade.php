@@ -19,26 +19,31 @@
             <div class="row justify-content-between mb-3">
                 <div class="col-auto"> <h6 class="color-1 mb-0 change-color">Receipt</h6> </div>
             </div>
+            @if($cartItems->count()>0)
+                @php $Fee =0; @endphp
+                @php $total = 0; @endphp
+                @php $subtotal = 0; @endphp
+                @foreach($cartItems as $item)
             <div class="row">
                 <div class="col">
                     <div class="card card-2">
                         <div class="card-body">
                             <div class="media">
-                                <div class="sq align-self-center "> <img class="img-fluid  my-auto align-self-center mr-2 mr-md-4 pl-0 p-0 m-0" src="" width="135" height="135" /></div>
+                                <div class="sq align-self-center "> <img class="img-fluid  my-auto align-self-center mr-2 mr-md-4 pl-0 p-0 m-0" src="{{$item->url}}" width="135" height="135" /></div>
                                 <div class="media-body my-auto text-right">
                                     <div class="row  my-auto flex-column flex-md-row">
-                                        <div class="col my-auto">Product Name</div>
-                                        <div class="col-auto my-auto"> <small>Cate name </small></div>
-                                        <div class="col my-auto"> <small>Price </small></div>
-                                        <div class="col my-auto"> <small>Quantity</small></div>
-                                        <div class="col my-auto"><h6 class="mb-0">Total:</h6>
+                                        <div class="col my-auto">{{$item->product_name}}</div>
+                                        @foreach($category as $cate)
+                                        <div class="col-auto my-auto"> <small>{{$cate->cate_name}}</small></div>
+                                        @endforeach
+                                        <div class="col my-auto"> <small>{{$item->prices}} </small></div>
+                                        <div class="col my-auto"> <small>{{$item->quantity}}</small></div>
+                                        <div class="col my-auto"><h6 class="mb-0">Total:{{$item->prices * $item->quantity}}</h6>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <hr class="my-3 ">
                             <div class="row">
-                                <div class="col-md-3 mb-3"> <small> Order Status <span></span></small> </div>
                                 <div class="col mt-auto">
                                     <div>  </div>
                                     <div class="media row justify-content-between ">
@@ -51,7 +56,8 @@
                     </div>
                 </div>
             </div>
-
+                    @php $total += $item->quantity * $item->prices @endphp
+                @endforeach
             <div class="row mt-4">
                 <div class="col">
                     <div class="row justify-content-between">
@@ -60,7 +66,6 @@
                                 <thead>
                                 <tr>
                                     <th>Name</th>
-                                    <th>Address</th>
                                     <th>Email</th>
                                     <th>Phone</th>
                                     <th>Address</th>
@@ -69,28 +74,41 @@
                                 </thead>
                                 <tbody>
                                 <tr>
+                                    @foreach($userData as $data)
                                     <td>{{Auth::user()->name}}</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>{{$data->email}}</td>
+                                    <td>{{$data->phone}}</td>
+                                    <td>{{$data->address}}</td>
+                                    <td>
+                                        @if(($data->address)=='Miền Nam')
+                                            {{$Fee}} = 200000
+                                        @elseif(($data->address)=='Miền Bắc')
+                                            {{$Fee}} = 50000
+                                        @else
+                                            {{$Fee}} = 100000
+                                        @endif
+                                    </td>
+                                    @endforeach
                                 </tr>
                                 </tbody>
                             </table>
                         </div>
                 </div>
             </div>
-
         </div>
         <div class="card-footer">
+            @php
+                $subtotal = $total + $Fee
+            @endphp
             <div class="jumbotron-fluid">
                 <div class="row justify-content-between ">
-                    <div class="col-auto my-auto "><h2 class="mb-0 font-weight-bold">Total order : </h2></div>
+                    <div class="col-auto my-auto "><h2 class="mb-0 font-weight-bold">Total order : {{$subtotal}}  </h2></div>
                     <div class="col-auto my-auto ml-auto"><h1 class="display-3 "></h1></div>
                 </div>
             </div>
         </div>
+            @endif
     </div>
+</div>
 </div>
 </html>
