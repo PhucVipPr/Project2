@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
 
+    <!-- glider-css ============= -->
+    <link rel="stylesheet" href="{{asset('css/glider.min.css')}}">
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -47,6 +49,19 @@
 <script src="{{asset('js/jquery.mCustomScrollbar.concat.min.js')}}"></script>
 <script src="{{asset('js/custom.js')}}"></script>
 <script src="{{asset('js/script.js')}}"></script>
+<script src="{{asset('js/glider.min.js')}}"></script>
 
+<script>
+    new Glider(document.querySelector('.glider'), {
+        slidesToScroll: 1,
+        slidesToShow: 4,
+        draggable: true,
+        dots: '.dots',
+        arrows: {
+            prev: '.glider-prev',
+            next: '.glider-next'
+        }
+    });
+</script>
 </body>
 </html>

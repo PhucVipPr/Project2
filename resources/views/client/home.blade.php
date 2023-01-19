@@ -50,21 +50,61 @@
                 </div>
             </div>
             <div class="column">
-                <a href="{{url('/client/home/category')}}" ><h4 class="more_product">Xem thêm sản phẩm</h4></a>
-                <div class="category-right-content row">
-                    @forelse($products as $product)
-                        <div class="col-md-3">
-                            <div class="protien">
-                                <img src="{{$product-> url}}" href="#"/>
-                                <h1><b>{{$product-> product_name}}</b></h1>
-                                <h1>{{$product->prices}}<sup>đ</sup></h1>
-                                <a class="read_more mar_top" href="{{url('/client/home/product/'.$product->product_id.'/'.$product->cate_id)}}"> Mua ngay</a>
-                            </div>
+                <section class="p-slider">
+                    <a href="{{url('/client/home/category')}}" ><h4 class="more_product">Xem thêm sản phẩm</h4></a>
+                    <!--Heading *********** -->
+                    <h3 class="product-slider-heading"></h3>
+                    <div class="glider-contain">
+                        <div class="glider">
+                            @forelse($products as $product)
+                                <!--Product-box *********** -->
+                                <div class="product-box">
+                                    <!--img-container-->
+                                    <div class="p-img-container">
+                                        <div class="p-img">
+                                            <a href="{{url('/client/home/product/'.$product->product_id.'/'.$product->cate_id)}}" >
+                                                <img src="{{$product-> url}}"  alt="Front">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!--Text *********** -->
+                                    <div class="p-box-text">
+                                        <!--category-->
+                                        <a href="{{url('/client/home/product/'.$product->product_id.'/'.$product->cate_id)}}" class="product-title">
+                                            <span>{{$product-> product_name}}</span>
+                                        </a>
+                                        <div class="price-buy">
+                                            <span class="p-price">{{$product->prices}}<sup>đ</sup></span>
+                                            <a class="read_more mar_top" href="{{url('/client/home/product/'.$product->product_id.'/'.$product->cate_id)}}"> Mua ngay</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            @empty
+                                <p>Danh sach rong</p>
+                            @endforelse
+
                         </div>
-                    @empty
-                        <p>Danh sach rong</p>
-                    @endforelse
-                </div>
+
+                        <button aria-label="Previous" class="glider-prev">«</button>
+                        <button aria-label="Next" class="glider-next">»</button>
+                    </div>
+
+                </section>
+
+{{--                <div class="category-right-content row">--}}
+{{--                    @forelse($products as $product)--}}
+{{--                        <div class="col-md-3">--}}
+{{--                            <div class="protien">--}}
+{{--                                <img src="{{$product-> url}}" href="#"/>--}}
+{{--                                <h1><b>{{$product-> product_name}}</b></h1>--}}
+{{--                                <h1>{{$product->prices}}<sup>đ</sup></h1>--}}
+{{--                                <a class="read_more mar_top" href="{{url('/client/home/product/'.$product->product_id.'/'.$product->cate_id)}}"> Mua ngay</a>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    @empty--}}
+{{--                        <p>Danh sach rong</p>--}}
+{{--                    @endforelse--}}
+{{--                </div>--}}
             </div>
         </div>
     </div>
