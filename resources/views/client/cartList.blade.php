@@ -13,7 +13,6 @@
 </head>
 <body>
 <div>
-<a href="{{url('client/home')}}"><=Home</a>
 </div>
 <div class="container-fluid">
     <div class="row">
@@ -30,6 +29,29 @@
                         </tr>
                         </thead>
                         <tbody>
+                        @if($cartItems->count()==0)
+
+                    </table>
+                    <h2>You haven't bought any products</h2>
+                </div>
+            </div>
+        </aside>
+        <aside class="col-lg-3">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <form>
+                        <div class="form-group"> <label>Do you have coupon?</label>
+                            <div class="input-group"> <input type="text" class="form-control coupon" name="" placeholder="Coupon code">
+                                <span class="input-group-append"> <button class="btn btn-primary btn-apply coupon">Apply</button> </span> </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <a href="{{url('client/home')}}" class="btn btn-out btn-success btn-square btn-main mt-2" data-abc="true">Continue Shopping</a>
+        </aside>
+    </div>
+</div>
+                        @endif
                         @if($cartItems->count()>0)
                             @php $total = 0; @endphp
                             @php $subtotal = 0; @endphp
