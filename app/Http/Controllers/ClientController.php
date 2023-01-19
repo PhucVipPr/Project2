@@ -75,7 +75,7 @@ class ClientController extends Controller
             ->join('sell_products','sell_products.product_id','=','products.product_id')
             ->where('products.product_id',"!=",$product_id)
             ->where('categories.cate_id' ,"=",$cate_name)
-            ->get()->take(3);
+            ->get()->take(5);
         return view('client/product',compact('product','image','sellProduct','products'));
     }
 
@@ -86,7 +86,7 @@ class ClientController extends Controller
             ->join('sell_products','sell_products.product_id','=','products.product_id')
             ->select('products.*','images.url','sell_products.prices')
             ->where('product_name','like','%'.$keyword.'%')
-            ->paginate(4);
+            ->paginate(6);
 //            ->sortBy('prices');
 //        dd($collection);
 //        dd($collection->sortBy('prices'));
@@ -96,7 +96,7 @@ class ClientController extends Controller
                 ->join('sell_products','sell_products.product_id','=','products.product_id')
                 ->select('products.*','images.url','sell_products.prices')
                 ->where('product_name','like','%'.$keyword.'%')
-                ->paginate(4);
+                ->paginate(6);
             $collection->setCollection(
             $collection->sortBy('prices')
           );
@@ -107,7 +107,7 @@ class ClientController extends Controller
                 ->join('sell_products','sell_products.product_id','=','products.product_id')
                 ->select('products.*','images.url','sell_products.prices')
                 ->where('product_name','like','%'.$keyword.'%')
-                ->paginate(4);
+                ->paginate(6);
             $collection->setCollection(
                 $collection->sortByDesc('prices')
             );
@@ -155,7 +155,7 @@ class ClientController extends Controller
             ->join('categories','categories.cate_id','=','products.cate_id')
             ->select('products.*','images.url','sell_products.prices')
             ->where('cate_name','=','Sữa tăng cân')
-            ->paginate(4);
+            ->paginate(6);
         return view('client/category/mass')->with('products',$product);
     }
     public function  viewWhey(){
@@ -166,7 +166,7 @@ class ClientController extends Controller
             ->join('categories','categories.cate_id','=','products.cate_id')
             ->select('products.*','images.url','sell_products.prices')
             ->where('cate_name','=','Whey Protein')
-            ->paginate(4);
+            ->paginate(6);
         return view('client/category/whey')->with('products',$product);
     }
     public function  viewBCAAsEAAs(){
@@ -177,7 +177,7 @@ class ClientController extends Controller
             ->join('categories','categories.cate_id','=','products.cate_id')
             ->select('products.*','images.url','sell_products.prices')
             ->where('cate_name','=','BCAAs, EAAs')
-            ->paginate(4);
+            ->paginate(6);
 
         return view('client/category/bcaa')->with('products',$product);
     }
@@ -189,7 +189,7 @@ class ClientController extends Controller
             ->join('categories','categories.cate_id','=','products.cate_id')
             ->select('products.*','images.url','sell_products.prices')
             ->where('cate_name','=','Pre-Workout,Creatine')
-            ->paginate(4);
+            ->paginate(6);
         return view('client/category/PreworkOut')->with('products',$product);
     }
     public function  viewVitamin(){
@@ -200,7 +200,7 @@ class ClientController extends Controller
             ->join('categories','categories.cate_id','=','products.cate_id')
             ->select('products.*','images.url','sell_products.prices')
             ->where('cate_name','=','Vitamin,khoáng chất')
-            ->paginate(4);
+            ->paginate(6);
         return view('client/category/Vitamin')->with('products',$product);
     }
     public function  viewBurnFat(){
@@ -211,7 +211,7 @@ class ClientController extends Controller
             ->join('categories','categories.cate_id','=','products.cate_id')
             ->select('products.*','images.url','sell_products.prices')
             ->where('cate_name','=','Giảm mỡ')
-            ->paginate(4);
+            ->paginate(6);
         return view('client/category/burnFat')->with('products',$product);
     }
 }
