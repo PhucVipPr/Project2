@@ -20,7 +20,6 @@
                 <div class="col-auto"> <h6 class="color-1 mb-0 change-color">Receipt</h6> </div>
             </div>
             @if($cartItems->count()>0)
-                @php $Fee =0; @endphp
                 @php $total = 0; @endphp
                 @php $subtotal = 0; @endphp
                 @foreach($cartItems as $item)
@@ -80,13 +79,10 @@
                                     <td>{{$data->phone}}</td>
                                     <td>{{$data->address}}</td>
                                     <td>
-                                        @if(($data->address)=='Miền Nam')
-                                            {{$Fee}} = 200000
-                                        @elseif(($data->address)=='Miền Bắc')
-                                            {{$Fee}} = 50000
-                                        @else
-                                            {{$Fee}} = 100000
-                                        @endif
+                                    @foreach($charges as $fee)
+                                        {{$fee->fee}}
+                                        @php $subtotal = $total + $fee->fee @endphp
+                                        @endforeach
                                     </td>
                                     @endforeach
                                 </tr>
@@ -97,9 +93,6 @@
             </div>
         </div>
         <div class="card-footer">
-            @php
-                $subtotal = $total + $Fee
-            @endphp
             <div class="jumbotron-fluid">
                 <div class="row justify-content-between ">
                     <div class="col-auto my-auto "><h2 class="mb-0 font-weight-bold">Total order : {{$subtotal}}  </h2></div>
@@ -109,6 +102,20 @@
         </div>
             @endif
     </div>
+        <div class="align-items-center">
+            <table>
+                <td>
+            <form action="{{url('client/cartList')}}" method="GET">
+                <button>Back to Cart</button>
+            </form>
+                </td>
+                <td>
+            <form action="{{url('')}}" method="GET">
+                <button>Check out</button>
+            </form>
+                </td>
+            </table>
+        </div>
 </div>
 </div>
 </html>

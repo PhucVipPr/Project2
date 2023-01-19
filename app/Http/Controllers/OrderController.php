@@ -21,7 +21,11 @@ class OrderController extends Controller
         $userData = DB::table('users')
             ->where('id','=',Auth::id())
             ->get();
-        return view('client/orderDetail',compact('cartItems','category','userData'));
+        $charges = DB::table('address')
+            ->join('users','users.address','=','address.address_dt')
+            ->select('address.fee')
+            ->take(1)->get();
+        return view('client/orderDetail',compact('cartItems','category','userData','charges'));
     }
 
     //
