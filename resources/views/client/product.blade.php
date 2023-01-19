@@ -72,18 +72,24 @@
                     </div>
                 </div>
             </div>
-            <div class="category-right-content row">
-                @forelse($products as $product)
-                    <div class="category-right-content-item">
-                        <img src="{{$product-> url}}" href="#"/>
-                        <h1>{{$product-> product_name}}</h1>
-                        <p>{{$product->prices}}<sup>đ</sup></p>
-                        <a class="read_more mar_top" href="{{url('/client/home/product/'.$product->product_id.'/'.$product->cate_id)}}"> Mua ngay</a>
-                    </div>
-                @empty
-                    <p>Danh sach rong</p>
-                @endforelse
+            <div class="product-list">
+                <div class="title">
+                    Sản phẩm liên quan
+                </div>
+                <div class="product-list row">
+                    @forelse($products as $product)
+                        <div class="product-list-item">
+                            <img src="{{$product-> url}}" href="#"/>
+                            <h1>{{$product-> product_name}}</h1>
+                            <p>{{$product->prices}}<sup>đ</sup></p>
+                            <a class="read_more mar_top" href="{{url('/client/home/product/'.$product->product_id.'/'.$product->cate_id)}}"> Mua ngay</a>
+                        </div>
+                    @empty
+                        <div class="empty">Danh sách rỗng</div>
+                    @endforelse
+                </div>
             </div>
+
         </form>
     </section>
 @endsection
