@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Order;
+use App\Models\OrderDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -26,6 +28,36 @@ class OrderController extends Controller
             ->select('address.fee')
             ->take(1)->get();
         return view('client/orderDetail',compact('cartItems','category','userData','charges'));
+    }
+
+    public function checkOut(){
+        if (Auth::user()->address==null && Auth::user()->phone==null  ){
+            redirect('client/info');
+        }else{
+        $orders = new Order();
+        $orders->user_id = Auth::user()->id;
+        $orders->order_name = Auth::user()->name;
+        $orders->order_phone = Auth::user()->phone;
+        $orders->order_address = Auth::user()->address;
+        $orders->save();
+
+        $cartItems = DB::table('carts')
+            ->join('sell_products','sell_products.product_id','=','carts.product_id')
+            ->where('carts.user_id','=',Auth::user()->id)
+            ->select('carts.*','sell_products.prices')
+            ->get();
+        foreach ($cartItems as $item){
+            OrderDetail::create([
+                'order_id' => $orders->order_id,
+                'product_id' => $item->product_id,
+                'quantity' => $item->quantity,
+                'price' => $item->prices,
+            ]);
+        }
+        $cartItems = Cart::where('user_id',Auth::id())->get();
+        Cart::destroy($cartItems);
+        return redirect('client/home');
+        }
     }
 
     //

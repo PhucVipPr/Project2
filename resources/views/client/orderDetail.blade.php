@@ -110,7 +110,7 @@
             </form>
                 </td>
                 <td>
-            <form action="{{url('')}}" method="GET">
+            <form action="{{url('client/checkOut')}}" method="GET">
                 <button>Check out</button>
             </form>
                 </td>
