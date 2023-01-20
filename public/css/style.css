@@ -499,7 +499,6 @@ ul.social_icon li a:hover {
 .protien {
      text-align: center;
      margin-bottom: 40px;
-
 }
 
 .protien h1 {
@@ -1274,7 +1273,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 50px 0px;
 
 }
 
@@ -1291,7 +1289,7 @@ body {
     flex-direction: column;
     width: 300px;
     padding: 15px;
-    border: 1px solid rgba(0,0,0,0.08);
+    border: 1px  rgba(0,0,0,0.08);
     border-radius: 10px;
     margin: 0px 20px;
 }
@@ -1320,11 +1318,11 @@ body {
 }
 
 .product-title{
-    padding-left: 50px;
     text-align: center;
     justify-content: space-between;
     align-items: center;
 }
+
 
 .price-buy{
     text-align: center;
