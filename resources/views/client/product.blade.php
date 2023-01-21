@@ -65,7 +65,8 @@
                                     <p>{!! $product->product_info !!}</p>
                                 </div>
                                 <div class="product-content-right-bottom-content-chitiethon">
-                                    chi tiet hon wheygold
+                                    <p>{!! $product->info_dt !!}</p>
+
                                 </div>
                             </div>
                         </div>

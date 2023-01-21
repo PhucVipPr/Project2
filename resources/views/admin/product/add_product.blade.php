@@ -37,6 +37,10 @@
             <label class="form-label">Product_Info</label>
             <textarea class="form-control" name="product_info" id="editor" placeholder="Enter product Info"></textarea>
         </div>
+        <div class="mb-3">
+            <label class="form-label">Info Detail</label>
+            <textarea class="form-control" name="info_dt" id="editorr" placeholder="Enter product Info detail"></textarea>
+        </div>
         <button type="submit" class="btn btn-primary">Confirm Add</button>
     </form>
 @endsection
@@ -46,6 +50,14 @@
     <script>
         ClassicEditor
             .create( document.querySelector( '#editor' ) )
+            .then( editor => {
+                console.log( editor );
+            } )
+            .catch( error => {
+                console.error( error );
+            } );
+        ClassicEditor
+            .create( document.querySelector( '#editorr' ) )
             .then( editor => {
                 console.log( editor );
             } )

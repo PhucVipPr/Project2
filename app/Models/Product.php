@@ -17,6 +17,7 @@ class Product extends Model
         'prices',
         'product_code',
         'product_info',
+        'info_dt',
     ];
 
     public function category() {

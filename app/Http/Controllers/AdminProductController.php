@@ -38,6 +38,7 @@ class AdminProductController extends Controller
             'prices' => 'required|numeric|max:10000000',
             'product_code' => 'required|numeric',
             'product_info' => 'required',
+            'info_dt' => 'required',
         ]);
         $product_id = $request->input('product_id');
         $url = $request->input('url');
@@ -45,6 +46,7 @@ class AdminProductController extends Controller
         $prices = $request->input('prices');
         $product_code = $request->input('product_code');
         $product_info = $request->input('product_info');
+        $info_dt = $request->input('info_dt');
         $cate_id = $request->input('cate_id');
         DB::table('products')->insert([
             'cate_id' => $cate_id,
@@ -52,6 +54,7 @@ class AdminProductController extends Controller
             'product_name' => $product_name,
             'product_code' => $product_code,
             'product_info' => $product_info,
+            'info_dt' => $info_dt,
         ]);
         DB::table('images')->insert([
             'product_id' => $product_id,
@@ -83,6 +86,7 @@ class AdminProductController extends Controller
             'product_name' => 'required',
             'product_code' => 'required',
             'product_info' => 'required',
+            'info_dt' => 'required',
             'cate_id' => 'required',
         ]);
         $updateUrl = $request->validate([
