@@ -55,10 +55,10 @@
                             <div class="product-content-right-bottom-content-big">
                                 <div class="product-content-right-bottom-content-title row">
                                     <div class="product-content-right-bottom-content-title-item chitiet">
-                                        <p>Chi tiết</p>
+                                        <p>Đặc điểm nổi bật</p>
                                     </div>
                                     <div class="product-content-right-bottom-content-title-item chitiethon">
-                                        <p>Chi tiết hơn</p>
+                                        <p>Thành phần</p>
                                     </div>
                                 </div>
                                 <div class="product-content-right-bottom-content-chitiet">
