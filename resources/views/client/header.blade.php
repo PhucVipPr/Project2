@@ -1,4 +1,6 @@
 <header>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <div class="logo">
         <img width="50px" src="{{asset('images/logo3.png')}}" href="{{url('/client/home')}}">
     </div>
