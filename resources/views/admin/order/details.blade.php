@@ -17,15 +17,22 @@
         </tr>
         </thead>
         <tbody>
+        @php $total=0; @endphp
+        @php $subtotal=0; @endphp
+        @foreach($orderItems as $item)
         <tr>
-            @foreach($orderItems as $item)
                 <th scope="row"><img src="{{$item->url}}" width="90px"></th>
                 <td>{{$item->product_name}}</td>
                 <td>{{$item->product_code}}</td>
                 <td>{{$item->quantity}}</td>
                 <td>{{$item->price}}</td>
                 <td>{{$item->quantity * $item->price}}</td>
-            @endforeach
+        </tr>
+            @php $total += $item->quantity * $item->price @endphp
+        @endforeach
+        @php $subtotal = $total  @endphp
+        <tr>
+            <h3>Order total : {{$subtotal}}</h3>
         </tr>
         </tbody>
     </table>

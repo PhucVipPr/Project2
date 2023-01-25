@@ -3489,7 +3489,7 @@ jQuery.Callbacks = function( options ) {
 			// Enforce single-firing
 			locked = locked || options.once;
 
-			// Execute callbacks for all pending executions,
+			// Execute callbacks for all pending.blade.php executions,
 			// respecting firingIndex overrides and runtime changes
 			fired = firing = true;
 			for ( ; queue.length; firingIndex = -1 ) {
@@ -3595,7 +3595,7 @@ jQuery.Callbacks = function( options ) {
 			},
 
 			// Disable .fire and .add
-			// Abort any current/pending executions
+			// Abort any current/pending.blade.php executions
 			// Clear all callbacks and values
 			disable: function() {
 				locked = queue = [];
@@ -3608,7 +3608,7 @@ jQuery.Callbacks = function( options ) {
 
 			// Disable .fire
 			// Also disable .add unless we have memory (since it would have no effect)
-			// Abort any pending executions
+			// Abort any pending.blade.php executions
 			lock: function() {
 				locked = queue = [];
 				if ( !memory && !firing ) {
@@ -4093,7 +4093,7 @@ jQuery.extend( {
 	// Handle when the DOM is ready
 	ready: function( wait ) {
 
-		// Abort if there are pending holds or we're already ready
+		// Abort if there are pending.blade.php holds or we're already ready
 		if ( wait === true ? --jQuery.readyWait : jQuery.isReady ) {
 			return;
 		}

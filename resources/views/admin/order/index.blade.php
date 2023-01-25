@@ -14,18 +14,22 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
         @foreach($orderItems as $item)
+            <form action="{{url('admin/order/'.$item->order_id.'/update')}}" method="POST">
+                @csrf
+                @method('PUT')
+        <tr>
             <th scope="row">{{$item->name}}</th>
             <td>{{$item->order_name}}</td>
             <td>Chưa xử lý</td>
             <td>
                 <a href="{{url('admin/order/'.$item->order_id.'/details')}}" >Check-Details </a> |
                 &nbsp;
-                <button>Confirm Order</button>
+                <button type="submit">Confirm Order</button>
             </td>
-            @endforeach
         </tr>
+            </form>
+        @endforeach
         </tbody>
     </table>
 @endsection

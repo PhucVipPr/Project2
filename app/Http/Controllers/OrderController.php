@@ -61,13 +61,6 @@ class OrderController extends Controller
         }
     }
 
-    public function checkOrder1(){
-        $orderItems = DB::table('orders')
-            ->join('users','users.id','=','orders.user_id')
-            ->where('orders.*','users.name')
-            ->get();
-        return view();
-    }
 
-    //
+
 }

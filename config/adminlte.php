@@ -337,11 +337,16 @@ return [
             'text' => 'Order',
             'url' => 'admin/order/index',
             'icon' => 'fas fa-shopping-cart',
-            [
-                'text' => 'Pending Order',
-                'url' => 'admin/order/index',
-                'icon' => 'fas fa-shopping-cart',
-                ]
+        ],
+        [
+            'text' => 'PendingOrder',
+            'url' => 'admin/order/pending',
+            'icon' => 'fas fa-shopping-cart',
+        ],
+        [
+            'text' => 'FinishOrder',
+            'url' => 'admin/order/finish',
+            'icon' => 'fas fa-shopping-cart',
         ],
     ],
 

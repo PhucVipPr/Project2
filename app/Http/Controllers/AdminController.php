@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -32,6 +33,45 @@ class AdminController extends Controller
             ->select('order_details.*','order_details.price','images.url','products.product_name','products.product_code')
             ->get();
         return view('admin/order/details',compact('orderItems'));
+    }
+
+    public function pendingOrder(){
+        $orderItems = DB::table('orders')
+            ->join('users','users.id','=','orders.user_id')
+            ->where('orders.order_status','=',1)
+            ->select('orders.*','users.name')
+            ->get();
+        return view('admin/order/pending',compact('orderItems'));
+    }
+
+    public function update($order_id){
+        $orders = Order::findOrFail($order_id);
+        $orders->update(['order_status'=>'1']);
+        return redirect('admin/order/index');
+    }
+
+    public function finishOrder(){
+        $orderItems = DB::table('orders')
+            ->join('users','users.id','=','orders.user_id')
+            ->where('orders.order_status','=',2)
+            ->select('orders.*','users.name')
+            ->get();
+        return view('admin/order/finish',compact('orderItems'));
+    }
+
+    public function updateOrder($order_id){
+        $orders = Order::findOrFail($order_id);
+        $orders->update(['order_status'=>'2']);
+        return redirect('admin/order/index');
+    }
+
+    public function finishCheck(Request $request,$order_id){
+        $orders = DB::table('orders')
+            ->where('order_id','=',$order_id)
+            ->get();
+        $orders->order_status = $request->input('order_status',2);
+        $orders->update();
+        return redirect('admin/order/finish');
     }
 
     function viewUser(){

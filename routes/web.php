@@ -51,11 +51,18 @@ Route::get('/admin/home',[\App\Http\Controllers\AdminController::class,'viewHome
 Route::get('/admin/users/index',[\App\Http\Controllers\AdminController::class,'viewUser']);
 //xem chi tiet order
 Route::get('/admin/users/orderDetail',[\App\Http\Controllers\AdminController::class,'viewOrder']);
-//xem order
+//xem order chua xu ly
 Route::get('/admin/order/index',[\App\Http\Controllers\AdminController::class,'viewOrder']);
+//xu ly order chua xu ly
+Route::put('/admin/order/{order_id}/update',[\App\Http\Controllers\AdminController::class,'update']);
+//xem order dang xu ly
+Route::get('/admin/order/pending',[\App\Http\Controllers\AdminController::class,'pendingOrder']);
+//xu ly order dang xu ly
+Route::put('/admin/order/{order_id}/updateOrder',[\App\Http\Controllers\AdminController::class,'updateOrder']);
+//xem order da xu ly
+Route::get('/admin/order/finish',[\App\Http\Controllers\AdminController::class,'finishOrder']);
 //xem chi tiet order
 Route::get('/admin/order/{order_id}/details',[\App\Http\Controllers\AdminController::class,'orderDetail']);
-
 
 //Product
 //tim kiem san pham
