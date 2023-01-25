@@ -7,7 +7,6 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use RealRas
 
 class CartController extends Controller
 {
@@ -40,11 +39,6 @@ class CartController extends Controller
             $cart->product_id = $products->product_id;
             $cart->quantity = $request->quantity;
             $cart->save();
-            Swal.fire(
-                'The Internet?',
-                'That thing is still around?',
-                'question'
-            );
             return redirect()->back();
         } else {
             return redirect('login');

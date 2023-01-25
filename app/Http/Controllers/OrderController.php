@@ -43,12 +43,13 @@ class OrderController extends Controller
 
         $cartItems = DB::table('carts')
             ->join('sell_products','sell_products.product_id','=','carts.product_id')
+            ->join('orders','orders.user_id','=','carts.user_id')
             ->where('carts.user_id','=',Auth::user()->id)
-            ->select('carts.*','sell_products.prices')
+            ->select('carts.*','sell_products.prices','orders.order_id')
             ->get();
         foreach ($cartItems as $item){
             OrderDetail::create([
-                'order_id' => $orders->order_id,
+                'order_id' => $item->order_id,
                 'product_id' => $item->product_id,
                 'quantity' => $item->quantity,
                 'price' => $item->prices,
@@ -58,6 +59,14 @@ class OrderController extends Controller
         Cart::destroy($cartItems);
         return redirect('client/home');
         }
+    }
+
+    public function checkOrder1(){
+        $orderItems = DB::table('orders')
+            ->join('users','users.id','=','orders.user_id')
+            ->where('orders.*','users.name')
+            ->get();
+        return view();
     }
 
     //

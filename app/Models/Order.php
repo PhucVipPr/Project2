@@ -9,6 +9,7 @@ use mysql_xdevapi\Table;
 class Order extends Model
 {
     use HasFactory;
+    public $timestamps = false;
     protected $primaryKey = 'order_id';
     protected $table = 'orders';
     protected $fillable = [

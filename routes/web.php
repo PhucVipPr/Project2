@@ -52,7 +52,9 @@ Route::get('/admin/users/index',[\App\Http\Controllers\AdminController::class,'v
 //xem chi tiet order
 Route::get('/admin/users/orderDetail',[\App\Http\Controllers\AdminController::class,'viewOrder']);
 //xem order
-Route::get('/admin/order/index',[\App\Http\Controllers\OrderController::class,'viewOrder']);
+Route::get('/admin/order/index',[\App\Http\Controllers\AdminController::class,'viewOrder']);
+//xem chi tiet order
+Route::get('/admin/order/{order_id}/details',[\App\Http\Controllers\AdminController::class,'orderDetail']);
 
 
 //Product
@@ -117,7 +119,7 @@ Route::post('/client/cart/{id}/update',[\App\Http\Controllers\CartController::cl
 
 //Order
 Route::get('/client/orderDetail',[\App\Http\Controllers\OrderController::class,'viewOrder']);
-Route::post('client/check_Out',[\App\Http\Controllers\OrderController::class,'checkOut']);
+Route::post('client/placeOrder',[\App\Http\Controllers\OrderController::class,'checkOut']);
 
 
 //Tin tức

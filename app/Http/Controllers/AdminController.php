@@ -16,7 +16,22 @@ class AdminController extends Controller
     }
 
     function viewOrder(){
-        return view('admin/users/orderDetail');
+        $orderItems = DB::table('orders')
+            ->join('users','users.id','=','orders.user_id')
+            ->where('orders.order_status','=',null)
+            ->select('orders.*','users.name')
+            ->get();
+        return view('admin/order/index',compact('orderItems'));
+    }
+
+    function orderDetail(){
+        $orderItems = DB::table('products')
+            ->join('order_details','products.product_id','=','order_details.product_id')
+            ->join('sell_products','order_details.product_id','=','sell_products.product_id')
+            ->join('images','images.product_id','=','products.product_id')
+            ->select('order_details.*','order_details.price','images.url','products.product_name','products.product_code')
+            ->get();
+        return view('admin/order/details',compact('orderItems'));
     }
 
     function viewUser(){
