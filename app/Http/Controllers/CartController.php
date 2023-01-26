@@ -52,11 +52,24 @@ class CartController extends Controller
     }
 
 
-
-    public function update(Request $request,$cartItems){
-        $cartItems = Cart::findOrFail($cartItems);
-        $cartItems->increment('quantity',1);
+    public function update(Request $request,$cart_id){
+        $cartItems = Cart::findOrFail($cart_id);
+        Cart::update($cart_id,$quantity->quantity+1);
         return redirect('client/cartList');
+    }
+
+    public function increaseQuantity($cart_id)
+    {
+        $cartItems = Cart::findOrFail($cart_id);
+        $quantity = $cartItems->quantity + 1;
+        Cart::instance('carts')->update($cart_id,$quantity);
+    }
+
+    public function decreaseQuantity($cart_id)
+    {
+        $cartItems = Cart::findOrFail($cart_id);
+        $quantity = $cartItems->quantity - 1;
+        Cart::instance('carts')->update($cart_id,$quantity);
     }
 
 

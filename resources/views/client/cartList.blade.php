@@ -68,12 +68,12 @@
                                     </figure>
                                 </td>
                                 <td>
-                                    <form method="post" action="{{url('/client/cart/'.$item->cart_id.'/update')}}">
-                                        @csrf
-                                        <input type="hidden" name="cart_id" value="{{$item->cart_id}}">
-                                        <input type="number" name="quantity" value="{{$item->quantity}}" max="100" min="1">
-                                        <input type="submit" name="update" value="update">
-                                    </form>
+                                    <div class="quantity-input">
+                                        <input type="text" name="product-quatity" value="{{$item->quantity}}" data-max="100" min="1" pattern="[0-9]*" >
+
+                                        <a class="btn btn-increase" href="#" wire:click.prevent="increaseQuantity('{{$item->cart_id}}')"></a>
+                                        <a class="btn btn-reduce" href="#" wire:click.prevent="decreaseQuantity('{{$item->cart_id}}')"></a>
+                                    </div>
                                 </td>
                                 <td>
                                     <div class="price-wrap"> <var name="prices">{{$item->prices}}<sup>đ</sup></var> <small class="text-muted"></small> </div>

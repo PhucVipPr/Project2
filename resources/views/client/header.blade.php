@@ -69,6 +69,11 @@
                             @csrf
                             &nbsp;&nbsp;<button class="fa fa-info-circle"> Info</button>
                         </form>
+                        <form action="{{url('client/orderDetail')}}" method="GET">
+                            @csrf
+                            &nbsp;
+                              <button class="fa fa-bookmark"> Order</button>
+                        </form>
                         <form action="{{url('logout')}}" method="POST">
                             @csrf
                             &nbsp;&nbsp;<button class="fa fa-sign-out"> Logout</button>

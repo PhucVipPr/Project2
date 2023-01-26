@@ -123,6 +123,7 @@ Route::get('/client/cartList',[\App\Http\Controllers\CartController::class,'view
 Route::post('/client/cart/{id}',[\App\Http\Controllers\CartController::class,'addCart']);
 Route::delete('/client/cart/{id}/delete',[\App\Http\Controllers\CartController::class,'delete']);
 Route::post('/client/cart/{id}/update',[\App\Http\Controllers\CartController::class,'update']);
+Route::post('client/')
 
 //Order
 Route::get('/client/orderDetail',[\App\Http\Controllers\OrderController::class,'viewOrder']);
