@@ -348,6 +348,11 @@ return [
             'url' => 'admin/order/finish',
             'icon' => 'fas fa-shopping-cart',
         ],
+        [
+            'text' => 'CancelOrder',
+            'url' => 'admin/order/cancel',
+            'icon' => 'fas fa-shopping-cart',
+        ],
     ],
 
     /*

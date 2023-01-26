@@ -34,12 +34,17 @@ class CartController extends Controller
                     'images.url', 'categories.cate_id', 'categories.cate_name', 'sell_products.prices')
                 ->where('products.product_id','=',$product_id)
                 ->first();
-            $cart = new cart;
-            $cart->user_id = $user->id;
-            $cart->product_id = $products->product_id;
-            $cart->quantity = $request->quantity;
-            $cart->save();
-            return redirect()->back();
+            if ($cart = Cart::where('product_id',$request->product_id)->first()){
+                $cart->increment('quantity',$request->quantity);
+                return redirect()->back();
+            }else {
+                $cart = new cart;
+                $cart->user_id = $user->id;
+                $cart->product_id = $products->product_id;
+                $cart->quantity = $request->quantity;
+                $cart->save();
+                return redirect()->back();
+            }
         } else {
             return redirect('login');
         }
@@ -54,24 +59,8 @@ class CartController extends Controller
 
     public function update(Request $request,$cart_id){
         $cartItems = Cart::findOrFail($cart_id);
-        Cart::update($cart_id,$quantity->quantity+1);
+        $cartItems->update(['quantity'=>$request->quantity]);
         return redirect('client/cartList');
     }
-
-    public function increaseQuantity($cart_id)
-    {
-        $cartItems = Cart::findOrFail($cart_id);
-        $quantity = $cartItems->quantity + 1;
-        Cart::instance('carts')->update($cart_id,$quantity);
-    }
-
-    public function decreaseQuantity($cart_id)
-    {
-        $cartItems = Cart::findOrFail($cart_id);
-        $quantity = $cartItems->quantity - 1;
-        Cart::instance('carts')->update($cart_id,$quantity);
-    }
-
-
 
 }

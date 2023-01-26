@@ -59,8 +59,12 @@ Route::put('/admin/order/{order_id}/update',[\App\Http\Controllers\AdminControll
 Route::get('/admin/order/pending',[\App\Http\Controllers\AdminController::class,'pendingOrder']);
 //xu ly order dang xu ly
 Route::put('/admin/order/{order_id}/updateOrder',[\App\Http\Controllers\AdminController::class,'updateOrder']);
+//huy don hang
+Route::put('/admin/order/{order_id}/cancelOrder',[\App\Http\Controllers\AdminController::class,'cancelOrder']);
 //xem order da xu ly
 Route::get('/admin/order/finish',[\App\Http\Controllers\AdminController::class,'finishOrder']);
+//xem order da huy
+Route::get('/admin/order/cancel',[\App\Http\Controllers\AdminController::class,'cancel']);
 //xem chi tiet order
 Route::get('/admin/order/{order_id}/details',[\App\Http\Controllers\AdminController::class,'orderDetail']);
 
@@ -97,7 +101,7 @@ Route::get('/client/home',[ClientController::class,'viewClient']);
 Route::get('/client/info',[ClientController::class,'viewInfo']);
 Route::get('/client/{id}/edit',[ClientController::class,'editInfo']);
 Route::put('/client/{id}/edit',[ClientController::class,'update']);
-
+Route::get('/client/clientOrder',[\App\Http\Controllers\OrderController::class,'clientOrder']);
 
 
 //Cac trang danh muc ben Client
@@ -123,7 +127,6 @@ Route::get('/client/cartList',[\App\Http\Controllers\CartController::class,'view
 Route::post('/client/cart/{id}',[\App\Http\Controllers\CartController::class,'addCart']);
 Route::delete('/client/cart/{id}/delete',[\App\Http\Controllers\CartController::class,'delete']);
 Route::post('/client/cart/{id}/update',[\App\Http\Controllers\CartController::class,'update']);
-Route::post('client/')
 
 //Order
 Route::get('/client/orderDetail',[\App\Http\Controllers\OrderController::class,'viewOrder']);

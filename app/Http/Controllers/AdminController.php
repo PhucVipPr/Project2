@@ -25,11 +25,12 @@ class AdminController extends Controller
         return view('admin/order/index',compact('orderItems'));
     }
 
-    function orderDetail(){
+    function orderDetail($order_id){
         $orderItems = DB::table('products')
             ->join('order_details','products.product_id','=','order_details.product_id')
             ->join('sell_products','order_details.product_id','=','sell_products.product_id')
             ->join('images','images.product_id','=','products.product_id')
+            ->where('order_details.order_id','=',$order_id)
             ->select('order_details.*','order_details.price','images.url','products.product_name','products.product_code')
             ->get();
         return view('admin/order/details',compact('orderItems'));
@@ -65,13 +66,19 @@ class AdminController extends Controller
         return redirect('admin/order/index');
     }
 
-    public function finishCheck(Request $request,$order_id){
-        $orders = DB::table('orders')
-            ->where('order_id','=',$order_id)
+    public function cancelOrder($order_id){
+        $orders = Order::findOrFail($order_id);
+        $orders->update(['order_status'=>'3']);
+        return redirect('admin/order/index');
+    }
+
+    public function cancel(){
+        $orderItems = DB::table('orders')
+            ->join('users','users.id','=','orders.user_id')
+            ->where('orders.order_status','=',3)
+            ->select('orders.*','users.name')
             ->get();
-        $orders->order_status = $request->input('order_status',2);
-        $orders->update();
-        return redirect('admin/order/finish');
+        return view('admin/order/cancel',compact('orderItems'));
     }
 
     function viewUser(){
