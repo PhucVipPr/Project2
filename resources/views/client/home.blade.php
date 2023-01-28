@@ -24,7 +24,7 @@
                             <div class="col-md-5">
                                 <div class="banner_text">
                                     <h1>Hàng ngon <br>Biến hình ngay thôi</h1>
-                                    <a class="get_btn" href="#protien" role="button" >Về sản phẩm</a> <a class="get_btn" href="#contact" role="button">Liên hệ ngay nào!</a>
+                                    <a class="get_btn" href="#protien" role="button" >Về sản phẩm</a> <a class="get_btn" href="{{url('/login')}}" role="button">Đăng ký ngay nào!</a>
                                 </div>
                             </div>
                             <div class="col-md-7">
@@ -82,7 +82,7 @@
                                     </div>
                                 </div>
                             @empty
-                                <p>Danh sach rong</p>
+                                <p>Danh sách rỗng</p>
                             @endforelse
 
                         </div>
@@ -242,33 +242,11 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="titlepage">
-                        <h2>Liên lạc với chúng tôi</h2>
+                        <h2>Thương hiệu nổi bật</h2>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-6 offset-md-3">
-                    <form id="request" class="main_form">
-                        <div class="row">
-                            <div class="col-md-12 ">
-                                <input class="contactus" placeholder="Họ tên" type="type" name="Full Name">
-                            </div>
-                            <div class="col-md-12">
-                                <input class="contactus" placeholder="Email " type="type" name="Email ">
-                            </div>
-                            <div class="col-md-12">
-                                <input class="contactus" placeholder="Số điện thoại" type="type" name="Phone Number">
-                            </div>
-                            <div class="col-md-12">
-                                <textarea class="textarea" placeholder="Lời nhắn gửi" type="type" Message="Name"></textarea>
-                            </div>
-                            <div class="col-md-12">
-                                <button class="send_btn">Gửi</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+
         </div>
     </div>
 

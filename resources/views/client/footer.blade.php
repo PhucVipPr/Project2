@@ -57,14 +57,5 @@
                 </div>
             </div>
         </div>
-        <div class="copyright">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-10 offset-md-1">
-                        <p>© 2019 All Rights Reserved.<a href="https://html.design/"> Free html Templates</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </footer>

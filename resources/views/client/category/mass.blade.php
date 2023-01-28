@@ -33,7 +33,7 @@
                                 <a class="read_more mar_top" href="{{url('/client/home/product/'.$product->product_id.'/'.$product->cate_id)}}"> Mua ngay</a>
                             </div>
                         @empty
-                            <p>Danh sach rong</p>
+                            <p>Danh sách rỗng</p>
                         @endforelse
                     </div>
 

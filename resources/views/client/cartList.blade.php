@@ -12,8 +12,7 @@
     <link rel="stylesheet" href="{{asset('js/cart.js')}}">
 </head>
 <body>
-<div>
-</div>
+
 <div class="container-fluid">
     <div class="row">
         <aside class="col-lg-9">

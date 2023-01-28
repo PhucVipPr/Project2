@@ -24,14 +24,14 @@
             {{--                                <li><a href="">Đơn chất</a></li>--}}
             {{--                            </ul>--}}
         </li>
-        <li class="category-left-li"><a href="vitamin">Vitamin,khoáng chất</a>
+        <li class="category-left-li"><a href="{{url('/client/category/vitamin')}}">Vitamin,khoáng chất</a>
             {{--                            <ul class="sub-menu">--}}
             {{--                                <li><a href="">Bổ sung Vitamin</a></li>--}}
             {{--                                <li><a href="">Tăng Testosterone</a></li>--}}
             {{--                                <li><a href="">Bổ sung dầu cá</a></li>--}}
             {{--                            </ul>--}}
         </li>
-        <li class="category-left-li"><a href="burnFat">Giảm mỡ</a>
+        <li class="category-left-li"><a href="{{url('/client/category/burnFat')}}">Giảm mỡ</a>
             {{--                            <ul class="sub-menu">--}}
             {{--                                <li><a href="">Sinh nhiệt đốt mỡ</a></li>--}}
             {{--                                <li><a href="">Ít chất kích thích</a></li>--}}
