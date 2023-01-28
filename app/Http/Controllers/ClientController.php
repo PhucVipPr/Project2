@@ -36,7 +36,6 @@ class ClientController extends Controller
         return view('client/editInfo',compact('infos'));
     }
 
-
     public function update(Request $request,$id){
         $updateInfo = $request->validate([
             'name' => 'required',
@@ -68,7 +67,6 @@ class ClientController extends Controller
             ->where('product_id',"=",$product_id)->first();
         $image = DB::table('images')->where('product_id',"=",$product_id)->first();
         $sellProduct = DB::table('sell_products')->where('product_id',"=",$product_id)->first();
-
         $products =DB::table('categories')
             ->join('products','products.cate_id','=','categories.cate_id')
             ->join('images','images.product_id','=','products.product_id')
@@ -76,7 +74,9 @@ class ClientController extends Controller
             ->where('products.product_id',"!=",$product_id)
             ->where('categories.cate_id' ,"=",$cate_name)
             ->get()->take(5);
-        return view('client/product',compact('product','image','sellProduct','products'));
+        $flavors = DB::table('flavors')
+            ->get();
+        return view('client/product',compact('product','image','sellProduct','products','flavors'));
     }
 
     public function searchInfo(Request $request){

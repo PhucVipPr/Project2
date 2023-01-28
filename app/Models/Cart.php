@@ -12,7 +12,7 @@ class Cart extends Model
     public $timestamps = false;
 
     protected $primaryKey = 'cart_id';
-    protected $fillable = ['user_id','product_id','quantity'];
+    protected $fillable = ['user_id','product_id','flavor_name','quantity'];
     public function products(){
         return $this->belongsTo(Product::class,'product_id','product_id');
     }

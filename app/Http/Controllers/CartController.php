@@ -17,9 +17,13 @@ class CartController extends Controller
             ->join('sell_products','carts.product_id','=','sell_products.product_id')
             ->select('products.product_name','products.product_code','images.url','sell_products.prices','carts.cart_id','carts.quantity')
             ->where('carts.user_id','=',Auth::id())
-            ->get();
+            ->get('carts.*');
         $category = DB::table('categories')->take(1)->get();
-        return view('client/cartList',compact('cartItems','category'));
+        $quantity = DB::table('products')
+            ->join('carts','carts.product_id','=','products.product_id')
+            ->select('products.*')
+            ->take(1)->get();
+        return view('client/cartList',compact('cartItems','category','quantity'));
     }
 
     public function addCart(Request $request,$product_id)

@@ -25,19 +25,35 @@
                         <div class="product-content-right-product-price">
                             <p>Giá : {{$sellProduct->prices}} <sup>đ</sup></p>
                         </div>
-                        <div class="product-content-right-product-favor">
-                            <p style="font-weight: bold;">Hương vị:</p>
-                            <div class="favor">
-                                <span>Chocolate</span>
-                                <span>Strawberry</span>
-                                <span>Vanila</span>
-                                <span>Cookie's cream</span>
-                                <span>Rocky rode</span>
+                        <p style="color: blue;"><b>Chọn hương vị của bạn</b>
+                            <br>
+                        <select name="flavor">
+                            @foreach($flavors as $flavor)
+                                <option value="{{$flavor->flavor_id}}">{{$flavor->flavor_name}}</option>
+                            @endforeach
+                        </select>
+                        </p>
+                        <br>
+                        @if($product->quantity==0)
+                            <p style="color: red;">Sản phẩm này đang hết</p>
+                        @endif
+                        @if($product->quantity<5)
+                            <p style="font-weight:bold;">Số lượng</p>&nbsp;
+                            <input name="quantity" type="number" min="1" value="1" max="{{$product->quantity}}"><br>
+                            <p style="color: red;">Sản phẩm này sắp hết</p>
+                            <div class="product-content-right-product-button">
+                                <form method="POST">
+                                    @csrf
+                                    <input type="hidden" name="product_id" value="{{$product->product_id}}">
+                                    <button>
+                                        <i class="fa fa-shopping-cart"></i>
+                                        <p>Mua Hàng</p>
+                                    </button>
+                                </form>
                             </div>
-                        </div>
+                        @else
                         <p style="font-weight:bold;">Số lượng</p>&nbsp;
-                        <input name="quantity" type="number" min="1" value="1" max="100"><br>
-                        <p style="color: red;">Vui lòng chọn hương vị</p>
+                        <input name="quantity" type="number" min="1" value="1" max="{{$product->quantity}}"><br>
                         <div class="product-content-right-product-button">
                             <form method="POST">
                                 @csrf
@@ -48,6 +64,7 @@
                                 </button>
                             </form>
                         </div>
+                        @endif
                         <div class="product-content-right-bottom">
                             <div class="product-content-right-bottom-top">
                                 &#8744;

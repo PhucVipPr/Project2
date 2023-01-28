@@ -23,6 +23,7 @@
                         <thead class="text-muted">
                         <tr class="small text-uppercase">
                             <th scope="col"><b>Product Info</b></th>
+                            <th scope="col"><b>Flavor</b></th>
                             <th scope="col" width="120"><b>Quantity</b></th>
                             <th scope="col" width="120"><b>Prices</b></th>
                             <th>Total</th>
@@ -30,7 +31,6 @@
                         </thead>
                         <tbody>
                         @if($cartItems->count()==0)
-
                     </table>
                     <h2>You haven't bought any products</h2>
                 </div>
@@ -68,10 +68,14 @@
                                     </figure>
                                 </td>
                                 <td>
+                                </td>
+                                <td>
                                     <form method="post" action="{{url('/client/cart/'.$item->cart_id.'/update')}}">
                                         @csrf
                                         <input type="hidden" name="cart_id" value="{{$item->cart_id}}">
-                                        <input type="number" name="quantity" value="{{$item->quantity}}" max="100" min="1">
+                                        @foreach($quantity as $quan)
+                                        <input type="number" name="quantity" value="{{$item->quantity}}" max="{{$quan->quantity}}" min="1">
+                                        @endforeach
                                         <input type="submit" name="update" value="update">
                                     </form>
                                 </td>

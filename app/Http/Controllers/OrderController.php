@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderDetail;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -54,6 +55,9 @@ class OrderController extends Controller
                 'quantity' => $item->quantity,
                 'price' => $item->prices,
             ]);
+            $product = Product::where('product_id',$item->product_id)->first();
+            $product->quantity = (int)($product->quantity) - (int)($item->quantity);
+            $product->update(['quantity'=>$product->quantity]);
         }
         $cartItems = Cart::where('user_id',Auth::id())->get();
         Cart::destroy($cartItems);

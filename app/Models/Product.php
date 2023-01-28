@@ -8,6 +8,7 @@ use App\Models\Category;
 class Product extends Model
 {
     use HasFactory;
+    public $timestamps = false;
     protected $primaryKey = 'product_id';
     protected $fillable = [
         'product_id',
@@ -22,5 +23,9 @@ class Product extends Model
 
     public function category() {
         return $this->belongsTo(Category::class,'cate_id', 'cate_id');
+    }
+
+    public function flavor(){
+        return $this->hasMany(Flavor::class,'flavor_id','flavor');
     }
 }
