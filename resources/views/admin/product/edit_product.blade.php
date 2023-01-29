@@ -27,7 +27,7 @@
         </div>
         <div class="mb-3">
             <label class="form-label">Product_Price</label>
-            <input class="form-control" name="prices" value="{{number_format($products->prices, 0, '.', '.')}}" placeholder="Enter prices" min="1">
+            <input class="form-control" name="prices" value="{{$products->prices}}" placeholder="Enter prices" min="1">
         </div>
         <div class="mb-3">
             <label class="form-label">Product_Code</label>
