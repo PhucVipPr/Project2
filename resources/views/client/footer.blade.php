@@ -49,7 +49,7 @@
                 </div>
                 <div class="col-sm-12">
                     <ul class="social2_icon">
-                        <li><a href="javascript:void(0)"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.facebook.com/Nhoctuthuoc/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                         <li><a href="javascript:void(0)"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
                         <li><a href="javascript:void(0)"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
                         <li><a href="javascript:void(0)"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
