@@ -29,7 +29,7 @@
                             <div class="category-right-content-item">
                                 <img src="{{$product-> url}}" href="#"/>
                                 <h1>{{$product-> product_name}}</h1>
-                                <p>{{$product->prices}}<sup>đ</sup></p>
+                                <p>{{number_format($product->prices, 0, '.', '.')}}<sup>đ</sup></p>
                                 <a class="read_more mar_top" href="{{url('/client/home/product/'.$product->product_id.'/'.$product->cate_id)}}"> Mua ngay</a>
                             </div>
                         @empty

@@ -38,9 +38,9 @@
                                         @foreach($category as $cate)
                                         <div class="col-auto my-auto"> <small>{{$cate->cate_name}}</small></div>
                                         @endforeach
-                                        <div class="col my-auto"> <small>{{$item->prices}} </small></div>
+                                        <div class="col my-auto"> <small>{{number_format($item->prices, 0, '.', '.')}}<sup>đ</sup></small></div>
                                         <div class="col my-auto"> <small>{{$item->quantity}}</small></div>
-                                        <div class="col my-auto"><h6 class="mb-0">Total:{{$item->prices * $item->quantity}}</h6>
+                                        <div class="col my-auto"><h6 class="mb-0">Total:{{number_format($item->prices * $item->quantity, 0, '.', '.')}}<sup>đ</sup></h6>
                                         </div>
                                     </div>
                                 </div>
@@ -83,7 +83,7 @@
                                     <td>{{$data->address}}</td>
                                     <td>
                                     @foreach($charges as $fee)
-                                        {{$fee->fee}}
+                                        {{number_format($fee->fee, 0, '.', '.')}}<sup>đ</sup>
                                         @php $subtotal = $total + $fee->fee @endphp
                                         @endforeach
                                     </td>
@@ -98,7 +98,7 @@
         <div class="card-footer">
             <div class="jumbotron-fluid">
                 <div class="row justify-content-between ">
-                    <div class="col-auto my-auto "><h2 class="mb-0 font-weight-bold">Total order : {{$subtotal}}  </h2></div>
+                    <div class="col-auto my-auto "><h2 class="mb-0 font-weight-bold">Total order : {{number_format($subtotal, 0, '.', '.')}}<sup>đ</sup>  </h2></div>
                     <div class="col-auto my-auto ml-auto"><h1 class="display-3 "></h1></div>
                 </div>
             </div>

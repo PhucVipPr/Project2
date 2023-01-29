@@ -52,7 +52,7 @@
             <td>{{$product->product_name}}</td>
             <td>{{$product->product_code}}</td>
             <td><img src="{{$product->url}}" width="100px"></td>
-            <td>{{$product->prices}}</td>
+            <td>{{number_format($product->prices, 0, '.', '.')}}<sup>đ</sup></td>
             <td>
                 <div class="action d-flex flex-row">
                     <a href="{{url('/admin/product/'.$product->product_id.'/edit')}}">Edit</a>&nbsp;

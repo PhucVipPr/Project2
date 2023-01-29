@@ -25,14 +25,14 @@
                 <td>{{$item->product_name}}</td>
                 <td>{{$item->product_code}}</td>
                 <td>{{$item->quantity}}</td>
-                <td>{{$item->price}}</td>
-                <td>{{$item->quantity * $item->price}}</td>
+                <td>{{number_format($item->price, 0, '.', '.')}}<sup>đ</sup></td>
+                <td>{{number_format($item->quantity * $item->price, 0, '.', '.')}}<sup>đ</sup></td>
         </tr>
             @php $total += $item->quantity * $item->price @endphp
         @endforeach
         @php $subtotal = $total  @endphp
         <tr>
-            <h3>Order total : {{$subtotal}}</h3>
+            <h3>Order total : {{number_format($subtotal, 0, '.', '.')}}<sup>đ</sup></h3>
         </tr>
         </tbody>
     </table>
