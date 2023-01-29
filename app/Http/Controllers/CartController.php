@@ -7,6 +7,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CartController extends Controller
 {
@@ -40,6 +41,7 @@ class CartController extends Controller
                 ->first();
             if ($cart = Cart::where('product_id',$request->product_id)->first()){
                 $cart->increment('quantity',$request->quantity);
+                Alert::success('Add cart Successfully', 'Please check your cart');
                 return redirect()->back();
             }else {
                 $cart = new cart;
@@ -47,6 +49,7 @@ class CartController extends Controller
                 $cart->product_id = $products->product_id;
                 $cart->quantity = $request->quantity;
                 $cart->save();
+                Alert::success('Add cart Successfully', 'Please check your cart');
                 return redirect()->back();
             }
         } else {
@@ -57,6 +60,7 @@ class CartController extends Controller
     public function delete($cartItems){
         $cartItems = Cart::findOrFail($cartItems);
         $cartItems->delete();
+        toast('Your product has been deleted','warning');
         return redirect('client/cartList');
     }
 
@@ -64,6 +68,7 @@ class CartController extends Controller
     public function update(Request $request,$cart_id){
         $cartItems = Cart::findOrFail($cart_id);
         $cartItems->update(['quantity'=>$request->quantity]);
+        alert()->success('Product Update ', 'Successfully');
         return redirect('client/cartList');
     }
 
