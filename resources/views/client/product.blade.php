@@ -36,8 +36,7 @@
                         <br>
                         @if($product->quantity==0)
                             <p style="color: red;">Sản phẩm này đang hết</p>
-                        @endif
-                        @if($product->quantity<5)
+                        @elseif($product->quantity<5)
                             <p style="font-weight:bold;">Số lượng</p>&nbsp;
                             <input name="quantity" type="number" min="1" value="1" max="{{$product->quantity}}"><br>
                             <p style="color: red;">Sản phẩm này sắp hết</p>

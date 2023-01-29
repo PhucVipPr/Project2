@@ -22,12 +22,11 @@
             <div class="card-body">
                 <div class="row justify-content-between mb-3">
                     <div class="col-auto"> <h6 class="color-1 mb-0 change-color">Receipt</h6> </div>
-                    @foreach($orders as $order)
+                    @foreach($orderItems as $order)
                     <div class="col-auto"> <h6 class="color-1 mb-0 change-color">Status :
                             @if($order->order_status==0)
                                 Đang chờ xác nhận
-                            @endif
-                            @if($order->order_status==1)
+                            @elseif($order->order_status==1)
                                 Đang xử lý
                             @elseif($order->order_status==2)
                                 Đang giao hàng
@@ -37,10 +36,10 @@
                         </h6> </div>
                     @endforeach
                 </div>
-                @if($cartItems->count()>0)
+                @if($orderDetails->count()>0)
                     @php $total = 0; @endphp
                     @php $subtotal = 0; @endphp
-                    @foreach($cartItems as $item)
+                    @foreach($orderDetails as $item)
                         <div class="row">
                             <div class="col">
                                 <div class="card card-2">
@@ -50,12 +49,10 @@
                                             <div class="media-body my-auto text-right">
                                                 <div class="row  my-auto flex-column flex-md-row">
                                                     <div class="col my-auto">{{$item->product_name}}</div>
-                                                    @foreach($category as $cate)
-                                                        <div class="col-auto my-auto"> <small>{{$cate->cate_name}}</small></div>
-                                                    @endforeach
-                                                    <div class="col my-auto"> <small>{{$item->prices}} </small></div>
+                                                        <div class="col-auto my-auto"> <small>{{$item->cate_name}}</small></div>
+                                                    <div class="col my-auto"> <small>{{$item->price}} </small></div>
                                                     <div class="col my-auto"> <small>{{$item->quantity}}</small></div>
-                                                    <div class="col my-auto"><h6 class="mb-0">Total:{{$item->prices * $item->quantity}}</h6>
+                                                    <div class="col my-auto"><h6 class="mb-0">Total:{{$item->price * $item->quantity}}</h6>
                                                     </div>
                                                 </div>
                                             </div>
@@ -73,7 +70,7 @@
                                 </div>
                             </div>
                         </div>
-                        @php $total += $item->quantity * $item->prices @endphp
+                        @php $total += $item->quantity * $item->price @endphp
                     @endforeach
                     <div class="row mt-4">
                         <div class="col">
@@ -91,7 +88,7 @@
                                         </thead>
                                         <tbody>
                                         <tr>
-                                            @foreach($userData as $data)
+                                            @foreach($orderItems as $data)
                                                 <td>{{Auth::user()->name}}</td>
                                                 <td>{{$data->email}}</td>
                                                 <td>{{$data->phone}}</td>

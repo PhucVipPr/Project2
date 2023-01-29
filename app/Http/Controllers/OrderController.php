@@ -56,8 +56,10 @@ class OrderController extends Controller
                 'price' => $item->prices,
             ]);
             $product = Product::where('product_id',$item->product_id)->first();
-            $product->quantity = (int)($product->quantity) - (int)($item->quantity);
-            $product->update(['quantity'=>$product->quantity]);
+            if ($product->quantity>0) {
+                $product->quantity = (int)($product->quantity) - (int)($item->quantity);
+                $product->update(['quantity' => $product->quantity]);
+            }
         }
         $cartItems = Cart::where('user_id',Auth::id())->get();
         Cart::destroy($cartItems);
@@ -67,24 +69,22 @@ class OrderController extends Controller
 
 
     public function clientOrder(){
-        $cartItems = DB::table('carts')
-            ->join('products','products.product_id','=','carts.product_id')
-            ->join('images','carts.product_id','=','images.product_id')
-            ->join('sell_products','carts.product_id','=','sell_products.product_id')
-            ->select('products.product_name','products.product_code','images.url','sell_products.prices','carts.cart_id','carts.quantity')
-            ->where('carts.user_id','=',Auth::id())
+        $orderItems = DB::table('orders')
+            ->join('users','users.id','=','orders.user_id')
+            ->where('orders.order_status','=',null)
+            ->select('orders.*','users.*')
             ->get();
-        $category = DB::table('categories')->take(1)->get();
-        $userData = DB::table('users')
-            ->where('id','=',Auth::id())
+        $orderDetails = DB::table('products')
+            ->join('order_details','products.product_id','=','order_details.product_id')
+            ->join('sell_products','order_details.product_id','=','sell_products.product_id')
+            ->join('images','images.product_id','=','products.product_id')
+            ->join('categories','categories.cate_id','=','products.cate_id')
+            ->select('order_details.*','order_details.price','images.url','products.product_name','products.product_code','categories.*')
             ->get();
-        $charges = DB::table('address')
-            ->join('users','users.address','=','address.address_dt')
-            ->select('address.fee')
-            ->take(1)->get();
-        $orders = DB::table('orders')
-            ->take(1)->get();
-        return view('client/clientOrder',compact('cartItems','category','userData','charges','orders'));
+        $charges = DB::table('users')
+            ->join('address','users.address','=','address.address_dt')
+            ->get();
+        return view('client/clientOrder',compact('orderItems','orderDetails','charges'));
     }
 
 
