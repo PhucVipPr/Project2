@@ -25,7 +25,7 @@
                             <a href="{{url('admin/order/'.$item->order_id.'/details')}}" >Check-Details </a>
                             &nbsp;</th>
                         <th>
-                            <form action="{{url('admin/order/'.$item->order_id.'/update')}}" method="POST">
+                            <form action="{{url('admin/order/'.$item->order_id.'/updateOrder')}}" method="POST">
                                 @csrf
                                 @method('PUT')
                                 <button type="submit">Confirm Order</button>

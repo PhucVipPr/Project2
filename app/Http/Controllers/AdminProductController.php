@@ -34,6 +34,7 @@ class AdminProductController extends Controller
         $this->validate($request, [
             'product_id' => 'required|max:255',
             'url' => 'required',
+            'quantity' => 'required',
             'product_name' => 'required',
             'prices' => 'required|numeric|max:10000000',
             'product_code' => 'required|numeric',
@@ -44,6 +45,7 @@ class AdminProductController extends Controller
         $url = $request->input('url');
         $product_name = $request->input('product_name');
         $prices = $request->input('prices');
+        $quantity = $request->input('quantity');
         $product_code = $request->input('product_code');
         $product_info = $request->input('product_info');
         $info_dt = $request->input('info_dt');
@@ -55,6 +57,7 @@ class AdminProductController extends Controller
             'product_code' => $product_code,
             'product_info' => $product_info,
             'info_dt' => $info_dt,
+            'quantity' => $quantity,
         ]);
         DB::table('images')->insert([
             'product_id' => $product_id,
@@ -87,7 +90,11 @@ class AdminProductController extends Controller
             'product_code' => 'required',
             'product_info' => 'required',
             'cate_id' => 'required',
+<<<<<<< HEAD
             'info_dt'=> 'required',
+=======
+            'quantity' => 'required',
+>>>>>>> 7f58555aec4c801933095f0265541d7c5b2c38f8
         ]);
         $updateUrl = $request->validate([
             'url' => 'required',
