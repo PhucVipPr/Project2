@@ -71,7 +71,6 @@ class OrderController extends Controller
     public function clientOrder(){
         $orderItems = DB::table('orders')
             ->join('users','users.id','=','orders.user_id')
-            ->where('orders.order_status','=',null)
             ->select('orders.*','users.*')
             ->get();
         $orderDetails = DB::table('products')

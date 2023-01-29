@@ -7,13 +7,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
-<form action="{{url('client/clientOrder')}}" method="GET">
+<form action="{{url('client/home')}}" method="GET">
     @csrf
     <div class="container-fluid my-5  d-flex  justify-content-center">
         <div class="card card-1">
             <div class="card-header bg-white">
-                <button class="checkOut" type="submit">Update Status</button>
-                <a href="{{url('client/home')}}">Back Home</a>
+                <button type="submit">Back Home</button>
                 <div class="media flex-sm-row flex-column-reverse justify-content-between  ">
                     <div class="col my-auto"> <h4 class="mb-0">Here is your Order<span class="change-color"></span> </h4> </div>
                     <div class="col-auto text-center  my-auto pl-0 pt-sm-4"> <img class="img-fluid my-auto align-items-center mb-0 pt-3"  src="{{asset('images/logo3.png')}}" width="115" height="115"> <p class="mb-4 pt-0 Glasses"></p>  </div>
@@ -21,6 +20,9 @@
             </div>
             <div class="card-body">
                 <div class="row justify-content-between mb-3">
+                    @if($orderItems->count()==0)
+                        <div class="col-auto"> <h6 class="color-1 mb-0 change-color">Nothing here~~</h6> </div>
+                    @else
                     <div class="col-auto"> <h6 class="color-1 mb-0 change-color">Receipt</h6> </div>
                     @foreach($orderItems as $order)
                     <div class="col-auto"> <h6 class="color-1 mb-0 change-color">Status :
@@ -116,9 +118,9 @@
                         </div>
                     </div>
                 @endif
+                @endif
             </div>
         </div>
     </div>
-
 </form>
 </html>
