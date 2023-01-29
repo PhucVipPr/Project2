@@ -23,7 +23,7 @@
                             <p>Mã sản phẩm : {{$product->product_code}}</p>
                         </div>
                         <div class="product-content-right-product-price">
-                            <p>Giá : {{$sellProduct->prices}} <sup>đ</sup></p>
+                            <p>Giá : {{number_format($sellProduct->prices, 0, '.', '.')}} <sup>đ</sup></p>
                         </div>
                         <p style="color: blue;"><b>Chọn hương vị của bạn</b>
                             <br>
@@ -98,7 +98,7 @@
                         <div class="product-list-item">
                             <img src="{{$product-> url}}" href="#"/>
                             <h1>{{$product-> product_name}}</h1>
-                            <p>{{$product->prices}}<sup>đ</sup></p>
+                            <p>{{number_format($product->prices, 0, '.', '.')}}<sup>đ</sup></p>
                             <a class="read_more mar_top" href="{{url('/client/home/product/'.$product->product_id.'/'.$product->cate_id)}}"> Mua ngay</a>
                         </div>
                     @empty

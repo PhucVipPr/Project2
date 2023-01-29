@@ -16,12 +16,21 @@
 <body>
 <h1>Category</h1>
 <br>
+<table>
+    <th>
 <a href="{{url('admin/category/add_category')}}">
     <button type="button" class="btn btn-primary btn-lg" class="fa fa-plus">Add category</button>
 </a>
+    </th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th>
 <form action="{{url('admin/category/search')}}" method="get">
-    <li><input name="keyword_submit" placeholder="Tìm kiếm" type="text"><i class="fa fa-search" style="padding-left: 10px"></i></li>
+    <input name="keyword_submit" placeholder="Tìm kiếm" type="text"><i class="fa fa-search" style="padding-left: 10px"></i>
 </form>
+    </th>
+</table>
 <br>
 <table class="table">
     <thead>

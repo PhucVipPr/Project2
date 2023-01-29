@@ -76,7 +76,7 @@
                                         </a>
                                         </div>
                                         <div class="price-buy">
-                                            <span class="p-price">{{$product->prices}}<sup>đ</sup></span>
+                                            <span class="p-price">{{number_format($product->prices, 0, '.', '.')}}<sup>đ</sup></span>
                                             <a class="read_more mar_top" href="{{url('/client/home/product/'.$product->product_id.'/'.$product->cate_id)}}"> Mua ngay</a>
                                         </div>
                                     </div>

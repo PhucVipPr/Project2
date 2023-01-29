@@ -79,10 +79,10 @@
                                     </form>
                                 </td>
                                 <td>
-                                    <div class="price-wrap"> <var name="prices">{{$item->prices}}<sup>đ</sup></var> <small class="text-muted"></small> </div>
+                                    <div class="price-wrap"> <var name="prices">{{number_format($item->prices, 0, '.', '.')}}<sup>đ</sup></var> <small class="text-muted"></small> </div>
                                 </td>
                                 <td>
-                                    <div>{{(int)($item->quantity) * (int)($item->prices)}}<sup>đ</sup></div>
+                                    <div>{{number_format((int)($item->quantity) * (int)($item->prices),0,'.', '.')}}<sup>đ</sup></div>
                                 </td>
                                 <td class="text-right d-none d-md-block">
                                     <form method="POST" action="{{url('/client/cart/'.$item->cart_id.'/delete')}}">
@@ -99,7 +99,7 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td><b>Total prices : {{$subtotal}}<sup>đ</sup></b></td>
+                                <td><b>Total prices : {{number_format($subtotal,0,'.', '.')}}<sup>đ</sup></b></td>
                             </tr>
                         </tbody>
                     </table>
