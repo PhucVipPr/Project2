@@ -1,7 +1,6 @@
-<html>
 <header>
     <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <div class="logo">
         <img width="50px" src="{{asset('images/logo3.png')}}" href="{{url('/client/home')}}">
     </div>
@@ -86,6 +85,3 @@
         <li> <a class="fa fa-shopping-cart" href="{{url('client/cartList')}}"></a></li>
     </div>
 </header>
-@include('sweetalert::alert')
-</html>
-

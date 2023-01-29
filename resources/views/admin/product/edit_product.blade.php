@@ -34,10 +34,6 @@
             <input class="form-control" name="product_code" value="{{$products->product_code}}" placeholder="Enter product Code">
         </div>
         <div class="mb-3">
-            <label class="form-label">Product_Quantity</label>
-            <input class="form-control" name="quantity" value="{{$products->quantity}}" placeholder="Enter product quantity">
-        </div>
-        <div class="mb-3">
             <label class="form-label">Product_Info</label>
             <textarea class="form-control" name="product_info" id="editor" value="{{$products->product_info}}" placeholder="Enter product Info"></textarea>
         </div>

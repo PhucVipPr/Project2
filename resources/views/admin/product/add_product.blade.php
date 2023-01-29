@@ -34,10 +34,6 @@
             <input class="form-control" name="product_code" placeholder="Enter product Code">
         </div>
         <div class="mb-3">
-            <label class="form-label">Product_Quantity</label>
-            <input class="form-control" name="quantity" placeholder="Enter product Code">
-        </div>
-        <div class="mb-3">
             <label class="form-label">Product_Info</label>
             <textarea class="form-control" name="product_info" id="editor" placeholder="Enter product Info"></textarea>
         </div>

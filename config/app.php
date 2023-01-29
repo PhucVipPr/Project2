@@ -58,12 +58,6 @@ return [
 
     'asset_url' => env('ASSET_URL'),
 
-
-    'providers' => [
-        // Other service providers...
-
-        RealRashid\SweetAlert\SweetAlertServiceProvider::class,
-    ],
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
@@ -215,7 +209,6 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
 
