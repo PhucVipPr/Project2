@@ -14,7 +14,11 @@ return [
     | any other location as required by the application or its packages.
     |
     */
+    'providers' => [
+        // Other service providers...
 
+        RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+    ],
     'name' => env('APP_NAME', 'Laravel'),
 
     /*
@@ -209,6 +213,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
+        'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
 

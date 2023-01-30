@@ -7,6 +7,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CartController extends Controller
 {
@@ -47,6 +48,7 @@ class CartController extends Controller
                 $cart->product_id = $products->product_id;
                 $cart->quantity = $request->quantity;
                 $cart->save();
+                Alert::success('Add cart Successfully', 'Please check your cart');
                 return redirect()->back();
             }
         } else {
