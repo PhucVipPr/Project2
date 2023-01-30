@@ -68,6 +68,7 @@ class CartController extends Controller
     public function update(Request $request,$cart_id){
         $cartItems = Cart::findOrFail($cart_id);
         $cartItems->update(['quantity'=>$request->quantity]);
+        Alert::success('Cart Update Successfully', 'Please check your cart');
         return redirect('client/cartList');
     }
 

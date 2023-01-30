@@ -50,11 +50,11 @@
                                             <div class="sq align-self-center "> <img class="img-fluid  my-auto align-self-center mr-2 mr-md-4 pl-0 p-0 m-0" src="{{$item->url}}" width="135" height="135" /></div>
                                             <div class="media-body my-auto text-right">
                                                 <div class="row  my-auto flex-column flex-md-row">
-                                                    <div class="col my-auto">{{$item->product_name}}</div>
-                                                        <div class="col-auto my-auto"> <small>{{$item->cate_name}}</small></div>
-                                                    <div class="col my-auto"> <small>{{number_format($item->price, 0, '.', '.')}}<sup>đ</sup> </small></div>
-                                                    <div class="col my-auto"> <small>{{$item->quantity}}</small></div>
-                                                    <div class="col my-auto"><h6 class="mb-0">Total:{{number_format($item->price * $item->quantity, 0, '.', '.')}}<sup>đ</sup> </h6>
+                                                    <div class="col my-auto"><b>Tên sản phẩm</b> {{$item->product_name}}</div>
+                                                        <div class="col-auto my-auto"> <small><b>Danh mục</b><br>{{$item->cate_name}}</small></div>
+                                                    <div class="col my-auto"> <b>Giá :</b><small> {{number_format($item->price, 0, '.', '.')}}<sup>đ</sup> </small></div>
+                                                    <div class="col my-auto"> <b>Số lượng : </b><small>{{$item->quantity}}</small></div>
+                                                    <div class="col my-auto"><h6 class="mb-0">Tổng : {{number_format($item->price * $item->quantity, 0, '.', '.')}}<sup>đ</sup> </h6>
                                                     </div>
                                                 </div>
                                             </div>
@@ -64,7 +64,6 @@
                                                 <div>  </div>
                                                 <div class="media row justify-content-between ">
                                                     <div class="col-auto text-right"><span> <small  class="text-right mr-sm-2"></small> <i class="fa fa-circle active"></i> </span></div>
-
                                                 </div>
                                             </div>
                                         </div>
@@ -96,10 +95,8 @@
                                                 <td>{{$data->phone}}</td>
                                                 <td>{{$data->address}}</td>
                                                 <td>
-                                                    @foreach($charges as $fee)
-                                                        {{number_format($fee->fee, 0, '.', '.')}}<sup>đ</sup>
-                                                        @php $subtotal = $total + $fee->fee @endphp
-                                                    @endforeach
+                                                        {{number_format($data->fee, 0, '.', '.')}}<sup>đ</sup>
+                                                        @php $subtotal = $total + $data->fee @endphp
                                                 </td>
                                             @endforeach
                                         </tr>

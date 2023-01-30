@@ -85,9 +85,7 @@ class AdminProductController extends Controller
         $updateProduct = $request->validate([
             'product_name' => 'required',
             'product_code' => 'required',
-            'product_info' => 'required',
             'cate_id' => 'required',
-            'info_dt'=> 'required',
             'quantity' => 'required',
         ]);
         $updateUrl = $request->validate([
