@@ -63,15 +63,16 @@ class OrderController extends Controller
         }
         $cartItems = Cart::where('user_id',Auth::id())->get();
         Cart::destroy($cartItems);
+            alert()->success('Your order has been placed', 'Please wait so we can check it out');
         return redirect('client/home');
         }
     }
 
-
     public function clientOrder(){
-        $orderItems = DB::table('orders')
-            ->join('users','users.id','=','orders.user_id')
-            ->select('orders.*','users.*')
+        $orderItems = DB::table('users')
+            ->join('orders','users.id','=','orders.user_id')
+            ->join('address','users.address','=','address.address_dt')
+            ->select('orders.*','users.*','address.fee')
             ->get();
         $orderDetails = DB::table('products')
             ->join('order_details','products.product_id','=','order_details.product_id')
@@ -82,6 +83,7 @@ class OrderController extends Controller
             ->get();
         $charges = DB::table('users')
             ->join('address','users.address','=','address.address_dt')
+            ->select('address.fee')
             ->get();
         return view('client/clientOrder',compact('orderItems','orderDetails','charges'));
     }

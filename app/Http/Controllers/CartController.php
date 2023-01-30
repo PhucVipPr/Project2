@@ -60,6 +60,7 @@ class CartController extends Controller
     public function delete($cartItems){
         $cartItems = Cart::findOrFail($cartItems);
         $cartItems->delete();
+        toast('This product has been deleted','warning');
         return redirect('client/cartList');
     }
 
@@ -67,6 +68,7 @@ class CartController extends Controller
     public function update(Request $request,$cart_id){
         $cartItems = Cart::findOrFail($cart_id);
         $cartItems->update(['quantity'=>$request->quantity]);
+        Alert::success('Cart Update Successfully', 'Please check your cart');
         return redirect('client/cartList');
     }
 
