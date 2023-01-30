@@ -63,6 +63,7 @@ class OrderController extends Controller
         }
         $cartItems = Cart::where('user_id',Auth::id())->get();
         Cart::destroy($cartItems);
+            alert()->success('Your order has been placed', 'Please wait so we can check it out');
         return redirect('client/home');
         }
     }

@@ -50,7 +50,6 @@
                                     <div>  </div>
                                     <div class="media row justify-content-between ">
                                         <div class="col-auto text-right"><span> <small  class="text-right mr-sm-2"></small> <i class="fa fa-circle active"></i> </span></div>
-
                                     </div>
                                 </div>
                             </div>

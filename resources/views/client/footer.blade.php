@@ -5,9 +5,9 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <ul class="conta">
-                            <li><i class="fa fa-phone" aria-hidden="true"></i> Gọi ngay:  +01 123467890</li>
+                            <li><i class="fa fa-phone" aria-hidden="true"></i> Gọi ngay: 066773508</li>
                             <li><i class="fa fa-map-marker" aria-hidden="true"></i> Vị trí cửa hàng</li>
-                            <li> <i class="fa fa-envelope" aria-hidden="true"></i><a href="#"> anhnamco9@gmail.com</a></li>
+                            <li> <i class="fa fa-envelope" aria-hidden="true"></i><a href="#"> Pt@gmail.com</a></li>
                         </ul>
                     </div>
                 </div>

@@ -93,6 +93,7 @@
                 <div class="title">
                     Sản phẩm liên quan
                 </div>
+                <form>
                 <div class="product-list row">
                     @forelse($products as $product)
                         <div class="product-list-item">
@@ -105,8 +106,8 @@
                         <div class="empty">Danh sách rỗng</div>
                     @endforelse
                 </div>
+            </form>
             </div>
-
         </form>
     </section>
 @endsection

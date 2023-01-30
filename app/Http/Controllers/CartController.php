@@ -41,6 +41,7 @@ class CartController extends Controller
                 ->first();
             if ($cart = Cart::where('product_id',$request->product_id)->first()){
                 $cart->increment('quantity',$request->quantity);
+                Alert::success('Add cart Successfully', 'Please check your cart');
                 return redirect()->back();
             }else {
                 $cart = new cart;
@@ -59,6 +60,7 @@ class CartController extends Controller
     public function delete($cartItems){
         $cartItems = Cart::findOrFail($cartItems);
         $cartItems->delete();
+        toast('This product has been deleted','warning');
         return redirect('client/cartList');
     }
 
