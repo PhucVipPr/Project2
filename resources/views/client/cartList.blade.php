@@ -1,19 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Shopping Cart</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{{asset('css/client.css')}}">
-    <link rel="stylesheet" href="{{asset('js/cart.js')}}">
-</head>
-<body>
-
-<div class="container-fluid">
+@extends('layouts.base')
+@section('title',"Giỏ hàng")
+@section('content')
+    @include('client.header')
+<div class="container1-fluid">
     <div class="row">
         <aside class="col-lg-9">
             <div class="card">
@@ -28,7 +17,7 @@
                             <th>Total</th>
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody1>
                         @if($cartItems->count()==0)
                     </table>
                     <h2>You haven't bought any products</h2>
@@ -40,13 +29,13 @@
                 <div class="card-body">
                     <form>
                         <div class="form-group"> <label>Do you have coupon?</label>
-                            <div class="input-group"> <input type="text" class="form-control coupon" name="" placeholder="Coupon code">
+                            <div class="input-group"> <input type="text" class="form-control1 coupon" name="" placeholder="Coupon code">
                                 <span class="input-group-append"> <button class="btn btn-primary btn-apply coupon">Apply</button> </span> </div>
                         </div>
                     </form>
                 </div>
             </div>
-            <a href="{{url('client/home')}}" class="btn btn-out btn-success btn-square btn-main mt-2" data-abc="true">Continue Shopping</a>
+            <a href="{{url('client/home')}}" class="btn1 btn1-out btn1-success btn1-square btn1-main mt-2" data-abc="true">Continue Shopping</a>
         </aside>
     </div>
 </div>
@@ -58,7 +47,7 @@
                             <tr>
                                 <td>
                                     <figure class="itemside align-items-center">
-                                        <div class="aside" name="url"><img src="{{$item->url}}" width="100px" class="img-sm"></div>
+                                        <div class="aside" name="url"><img src="{{$item->url}}" width="100px" class="img2-sm"></div>
                                         <figcaption class="info" name="product_name"><p>Name : {{$item->product_name}}</p>
                                             @foreach($category as $cate)
                                             <p class="text-muted small" name="cate_name">Category : {{$cate->cate_name}}</p>
@@ -101,7 +90,7 @@
                                 <td></td>
                                 <td><b>Total prices : {{number_format($subtotal,0,'.', '.')}}<sup>đ</sup></b></td>
                             </tr>
-                        </tbody>
+                        </tbody1>
                     </table>
                 </div>
             </div>
@@ -122,6 +111,6 @@
         </aside>
     </div>
 </div>
+    </div>
 @endif
-</body>
-</html>
+@endsection

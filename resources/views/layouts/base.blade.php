@@ -25,7 +25,9 @@
     <!-- Tweaks for older IEs-->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- glider-css ============= -->
     <link rel="stylesheet" href="{{asset('css/glider.min.css')}}">
@@ -51,6 +53,8 @@
 <script src="{{asset('js/custom.js')}}"></script>
 <script src="{{asset('js/script.js')}}"></script>
 <script src="{{asset('js/glider.min.js')}}"></script>
+
+<script src="{{asset('js/cart.js')}}"></script>
 
 <script>
     new Glider(document.querySelector('.glider'), {
