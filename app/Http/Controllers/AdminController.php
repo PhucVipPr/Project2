@@ -108,9 +108,7 @@ class AdminController extends Controller
             ->join('categories', 'products.cate_id', '=', 'categories.cate_id')
             ->join('sell_products', 'products.product_id', '=', 'sell_products.product_id')
             ->select('products.*','images.url','categories.cate_id', 'categories.cate_name','sell_products.prices')
-            ->select('products.product_id','products.product_code','products.product_name','products.product_info',
-                'images.url','categories.cate_id', 'categories.cate_name','sell_products.prices')
-            ->paginate(10);
+            ->get();
         return view('admin/product/index',['products'=>$products]);
     }
 

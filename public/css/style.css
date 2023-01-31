@@ -977,7 +977,7 @@ header{
     font-weight:bold;
 }
 .others{
-     flex: 2.5;
+     flex: 3;
      display: flex;
 }
 .others > li {

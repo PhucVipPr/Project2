@@ -88,7 +88,7 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td><b>Total prices: {{number_format($subtotal,0,'.', '.')}}<sup>đ</sup></b></td>
+                                <td><b>Total prices : {{number_format($subtotal,0,'.', '.')}}<sup>đ</sup></b></td>
                             </tr>
                         </tbody1>
                     </table>
