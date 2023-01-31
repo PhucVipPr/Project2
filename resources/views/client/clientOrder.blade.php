@@ -8,32 +8,34 @@
 {{--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">--}}
 {{--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">--}}
 {{--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>--}}
-
+    <div class="titlepage">
+        <h1>Lịch sử mua hàng</h1>
+    </div>
 <form action="{{url('client/home')}}" method="GET">
     @csrf
     <div class="container-fluid my-5  flex  justify-content-center">
         <div class="card card-1">
             <div class="card-header bg-white">
                 <form action="{{url('client/home')}}" method="GET">
-                <button type="submit" >Back Home</button>
+                <button type="submit" >Về trang chủ</button>
                 </form>
                 <div class="media flex-sm-row flex-column-reverse justify-content-between  ">
-                    <div class="col my-auto"> <h4 class="mb-0">Here is your Order<span class="change-color"></span> </h4> </div>
+                    <div class="col my-auto"> <h4 class="mb-0">Những hóa đơn của bạn<span class="change-color"></span> </h4> </div>
                     <div class="col-auto text-center  my-auto pl-0 pt-sm-4"> <img class="img-fluid my-auto align-items-center mb-0 pt-3"  src="{{asset('images/logo3.png')}}" width="115" height="115"> <p class="mb-4 pt-0 Glasses"></p>  </div>
                 </div>
             </div>
             @if($orderItems->count()==0)
-                <h1>Nothing to see here~~</h1>
+                <h1>Không có gì cả</h1>
             @else
             <div class="card-body">
                 <div class="row justify-content-between mb-3">
                     <table class="table table-bordered border-primary">
                         <thead>
                         <tr>
-                            <th scope="col">Order by</th>
-                            <th scope="col">Order Name</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Action</th>
+                            <th scope="col">Người mua</th>
+                            <th scope="col">Tên người mua</th>
+                            <th scope="col">Trạng thái</th>
+                            <th scope="col">Hành động</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -43,19 +45,19 @@
                                 <td>{{$item->order_name}}</td>
                                 <td>
                                     @if($item->order_status==0)
-                                        Chua xu ly
+                                    Chưa xử lý
                                     @elseif($item->order_status==1)
-                                    Dang xu ly
+                                    Đang xử lý
                                     @elseif($item->order_status==2)
-                                    Dang giao
+                                    Đang giao
                                     @else
-                                    Da huy
+                                    Đã hủy
                                     @endif
                                 </td>
                                 <td>
                                     <form action="{{url('client/'.$item->order_id.'/details')}}" method="GET">
                                         @csrf
-                                        <button type="submit" >Check-Details </button>
+                                        <button type="submit" >Xem chi tiết đơn hàng </button>
                                     </form>
                                 </td>
                             </tr>

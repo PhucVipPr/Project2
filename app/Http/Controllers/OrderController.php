@@ -62,7 +62,7 @@ class OrderController extends Controller
         }
             $cartItem = Cart::where('user_id',Auth::id())->get();
             Cart::destroy($cartItem);
-            alert()->success('Your order has been placed', 'Please wait so we can check it out');
+            alert()->success('Đơn hàng của bạn đã được đặt', 'Vui lòng đợi để chúng tôi xử lí đơn hàng của bạn nhé!');
         return redirect('client/home');
         }
     }

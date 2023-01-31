@@ -68,16 +68,16 @@
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <form action="{{url('client/info')}}" method="get">
                             @csrf
-                            &nbsp;&nbsp;<button class="fa fa-info-circle"> Info</button>
+                            &nbsp;&nbsp;<button class="fa fa-info-circle"> Thông tin</button>
                         </form>
                         <form action="{{url('client/clientOrder')}}" method="GET">
                             @csrf
                             &nbsp;
-                              <button class="fa fa-bookmark"> Order</button>
+                              <button class="fa fa-bookmark"> Lịch sử mua hàng</button>
                         </form>
                         <form action="{{url('logout')}}" method="POST">
                             @csrf
-                            &nbsp;&nbsp;<button class="fa fa-sign-out"> Logout</button>
+                            &nbsp;&nbsp;<button class="fa fa-sign-out">Đăng xuất</button>
                         </form>
                     </div>
                 @endif

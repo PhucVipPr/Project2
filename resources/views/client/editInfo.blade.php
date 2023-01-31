@@ -3,40 +3,37 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{asset('css/info.css')}}">
-    <title>Your Info</title>
+    <title>Thông tin của bạn</title>
 </head>
 <body>
 
 <form action="{{url('/client/'.$infos->id.'/edit')}}" method="POST">
     @csrf
     @method('PUT')
-    <h1>Change Info</h1>
+    <h1>Thay đổi thông tin</h1>
             <fieldset>
-                <legend><span class="number">1</span> Your basic info</legend>
+                <legend><span class="number">1</span> Thông tin của bạn</legend>
 
-                <label for="name">Name:</label>
+                <label for="name">Tên:</label>
                 <input type="text" value="{{$infos->name}}" id="name" name="name" >
 
                 <label for="mail">Email:</label>
                 <input type="email" id="mail" value="{{$infos->email}}" name="email" >
 
-                <label for="mail">Password :</label>
-                <input type="password" id="mail" value="{{$infos->password}}"  readonly>
-
-                <label for="password">PhoneNumber:</label>
+                <label for="phonenumber">Số điện thoại:</label>
                 <input type="number" id="phone" value="{{$infos->phone}}" name="phone" >
 
-                <label>Address:</label>
+                <label>Địa chỉ:</label>
                 <select name="address">
                     <option>Miền Bắc</option>
                     <option>Miền Nam</option>
                     <option>Miền Trung</option>
                 </select>
             </fieldset>
-    <button type="submit">Confirm Edit</button>
+    <button type="submit">Xác nhận</button>
 </form>
 <form>
-            <a href="{{url('client/home')}}">Come Back</a>
+            <a href="{{url('client/home')}}">Trở về</a>
 </form>
 
 </body>

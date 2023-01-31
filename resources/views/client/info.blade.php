@@ -6,32 +6,28 @@
     <title>Your Info</title>
 </head>
 <body>
-
 <form>
 
-    <h1>Info</h1>
+    <h1>Thông tin</h1>
     @foreach($infos as $info)
         @if(Auth::id()==($info->id))
     <fieldset>
 
-        <legend><span class="number">1</span> Your basic info</legend>
+        <legend><span class="number">1</span> Thông tin của bạn</legend>
 
-        <label for="name">Name:</label>
+        <label for="name">Tên:</label>
         <input type="text" value="{{$info->name}}" id="name" name="user_name" readonly>
 
         <label for="mail">Email:</label>
         <input type="email" id="mail" value="{{$info->email}}" name="user_email" readonly>
 
-        <label for="mail">Password :</label>
-        <input type="password" id="mail" value="{{$info->password}}" name="user_email" readonly>
-
-        <label for="password">PhoneNumber:</label>
+        <label for="phonenumber">Số điện thoại:</label>
         <input type="number" id="phone" value="{{$info->phone}}" name="phone" readonly>
 
-        <label>Address:</label>
+        <label>Địa chỉ:</label>
         <input type="text" id="address" value="{{$info->address}}" name="address" readonly>
 
-        <a href="{{url('/client/'.$info->id.'/edit')}}">Edit my info</a>
+        <a href="{{url('/client/'.$info->id.'/edit')}}">Chỉnh sửa hồ sơ</a>
         @endif
         @endforeach
     </fieldset>
@@ -39,10 +35,10 @@
 <form>
     <fieldset>
 
-        <legend><span class="number">2</span> Do you want to</legend>
+        <legend><span class="number">2</span> Bạn có muốn</legend>
 
     </fieldset>
-    <a href="{{url('client/home')}}">Come Back</a>
+    <a href="{{url('client/home')}}">Về trang chủ</a>
 
 </form>
 </body>

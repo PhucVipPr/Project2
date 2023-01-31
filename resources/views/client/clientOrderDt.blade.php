@@ -11,16 +11,16 @@
         <div class="card card-1">
             <div class="card-header bg-white">
                 <form action="{{url('client/home')}}" method="GET">
-                    <button type="submit" >Back Home</button>
+                    <button type="submit" >Về trang chủ</button>
                 </form>
                 <div class="media flex-sm-row flex-column-reverse justify-content-between  ">
-                    <div class="col my-auto"> <h4 class="mb-0">Here is your Order<span class="change-color"></span> </h4> </div>
+                    <div class="col my-auto"> <h4 class="mb-0">Hóa đơn của bạn<span class="change-color"></span> </h4> </div>
                     <div class="col-auto text-center  my-auto pl-0 pt-sm-4"> <img class="img-fluid my-auto align-items-center mb-0 pt-3"  src="{{asset('images/logo3.png')}}" width="115" height="115"> <p class="mb-4 pt-0 Glasses"></p>  </div>
                 </div>
             </div>
             <div class="card-body">
                 <div class="row justify-content-between mb-3">
-                    <div class="col-auto"> <h6 class="color-1 mb-0 change-color">Receipt</h6> </div>
+                    <div class="col-auto"> <h6 class="color-1 mb-0 change-color">Biên lai</h6> </div>
                 </div>
                 @if($orderItems->count()>0)
                     @php $total = 0; @endphp
@@ -62,15 +62,15 @@
                     <div class="row mt-4">
                         <div class="col">
                             <div class="row justify-content-between">
-                                <div class="col-auto"><p class="mb-1 text-dark"><h3><b>Informations</b></h3></p>
+                                <div class="col-auto"><p class="mb-1 text-dark"><h3><b>Thông tin</b></h3></p>
                                     <table class="table">
                                         <thead>
                                         <tr>
-                                            <th>Name</th>
+                                            <th>Tên</th>
                                             <th>Email</th>
-                                            <th>Phone</th>
-                                            <th>Address</th>
-                                            <th>DeliveryCharge</th>
+                                            <th>Số điện thoại</th>
+                                            <th>Địa chỉ</th>
+                                            <th>Phí vận chuyển</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -94,7 +94,7 @@
                             </div>
                             @foreach($status as $sta)
                             @if($sta->order_status==0)
-                            <b><h3><p class="mb-1 text-dark">The store will start processing this order when you transfer the shipping deposit</p></h3></b>
+                            <b><h3><p class="mb-1 text-dark">Cửa hàng sẽ bắt đầu xử lý đơn hàng này khi bạn chuyển khoản đặt cọc vận chuyển</p></h3></b>
                                 <img width="150px" src="https://scontent.xx.fbcdn.net/v/t1.15752-9/327993066_1261587051095150_8276409121544611546_n.jpg?stp=dst-jpg_s480x480&_nc_cat=108&ccb=1-7&_nc_sid=aee45a&_nc_ohc=yCCgv2crQ7wAX-_GSaw&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdQ0buOsKSbYAPjPOEuScSLxvflVkL6tISipuoRZJT5Ykw&oe=6400A395">
                             @endif
                             @endforeach
@@ -103,7 +103,7 @@
                     <div class="card-footer">
                         <div class="jumbotron-fluid">
                             <div class="row justify-content-between ">
-                                <div class="col-auto my-auto "><h2 class="mb-0 font-weight-bold">Total order : {{number_format($subtotal, 0, '.', '.')}}<sup>đ</sup>  </h2></div>
+                                <div class="col-auto my-auto "><h2 class="mb-0 font-weight-bold">Tổng tiền : {{number_format($subtotal, 0, '.', '.')}}<sup>đ</sup>  </h2></div>
                                 <div class="col-auto my-auto ml-auto"><h1 class="display-3 "></h1></div>
                             </div>
                         </div>
