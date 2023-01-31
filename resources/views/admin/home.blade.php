@@ -65,9 +65,9 @@
                     <td><img src="{{$item->url}}" width="80px"></td>
                     <td>{{$item->cate_name}}</td>
                     <td>{{$item->product_name}}</td>
-                    <td>{{$item->prices}}</td>
+                    <td>{{number_format($item->prices, 0, '.', '.')}}<sup>đ</sup></td>
                     <td>{{10-$item->quantity}}</td>
-                    <td>{{$item->prices * (10-$item->quantity)}}</td>
+                    <td>{{number_format($item->prices * (10-$item->quantity), 0, '.', '.')}}<sup>đ</sup></td>
                 </tr>
                 @php $total += $item->prices * (10-$item->quantity) @endphp
                 @php $sold  += $item->quantity @endphp
@@ -79,7 +79,7 @@
                     <td></td>
                     <td></td>
                     <td><b><p style="color: red;">Total sold : {{$sold}}</p> </b></td>
-                    <td><b><p style="color: blue;">Total income : {{$total}}</p></b></td>
+                    <td><b><p style="color: blue;">Total income : {{number_format($total, 0, '.', '.')}}<sup>đ</sup></p></b></td>
                 </tr>
             @endif
             </tbody>
