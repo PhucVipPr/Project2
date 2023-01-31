@@ -49,7 +49,7 @@ class ClientController extends Controller
     }
 
 
-    public function viewCategory(){
+    public function viewCategory(Request $request){
         //$products = DB::select("SELECT * FROM products INNER JOIN images ON products.product_id = images.product_id INNER JOIN sell_products ON products.product_id = sell_products.product_id");
         $product = DB::table('products')
             ->join('images','images.product_id','=','products.product_id')
@@ -57,6 +57,26 @@ class ClientController extends Controller
             ->join('categories','categories.cate_id','=','products.cate_id')
             ->select('products.*','images.url','sell_products.prices')
             ->paginate(6);
+        if($request-> get('sort')=='price_asc'){
+            $product =DB::table('products')
+                ->join('images','images.product_id','=','products.product_id')
+                ->join('sell_products','sell_products.product_id','=','products.product_id')
+                ->select('products.*','images.url','sell_products.prices')
+                ->paginate(6);
+            $product->setCollection(
+                $product->sortBy('prices')
+            );
+        }
+        if($request-> get('sort')=='price_desc'){
+            $product =DB::table('products')
+                ->join('images','images.product_id','=','products.product_id')
+                ->join('sell_products','sell_products.product_id','=','products.product_id')
+                ->select('products.*','images.url','sell_products.prices')
+                ->paginate(6);
+            $product->setCollection(
+                $product->sortByDesc('prices')
+            );
+        }
         return view('client/category')->with('products',$product);
     }
 
@@ -172,7 +192,7 @@ class ClientController extends Controller
     }
 
     //Cac trang danh muc
-    public function  viewMass(){
+    public function  viewMass(Request $request){
         //$products = DB::select("SELECT * FROM products INNER JOIN images ON products.product_id = images.product_id INNER JOIN sell_products ON products.product_id = sell_products.product_id");
         $product = DB::table('products')
             ->join('images','images.product_id','=','products.product_id')
@@ -181,9 +201,33 @@ class ClientController extends Controller
             ->select('products.*','images.url','sell_products.prices')
             ->where('cate_name','=','Sữa tăng cân')
             ->paginate(6);
+        if($request-> get('sort')=='price_asc'){
+            $product =DB::table('products')
+                ->join('images','images.product_id','=','products.product_id')
+                ->join('sell_products','sell_products.product_id','=','products.product_id')
+                ->join('categories','categories.cate_id','=','products.cate_id')
+                ->select('products.*','images.url','sell_products.prices')
+                ->where('cate_name','=','Sữa tăng cân')
+                ->paginate(6);
+            $product->setCollection(
+                $product->sortBy('prices')
+            );
+        }
+        if($request-> get('sort')=='price_desc'){
+            $product =DB::table('products')
+                ->join('images','images.product_id','=','products.product_id')
+                ->join('sell_products','sell_products.product_id','=','products.product_id')
+                ->join('categories','categories.cate_id','=','products.cate_id')
+                ->select('products.*','images.url','sell_products.prices')
+                ->where('cate_name','=','Sữa tăng cân')
+                ->paginate(6);
+            $product->setCollection(
+                $product->sortByDesc('prices')
+            );
+        }
         return view('client/category/mass')->with('products',$product);
     }
-    public function  viewWhey(){
+    public function  viewWhey(Request $request){
         //$products = DB::select("SELECT * FROM products INNER JOIN images ON products.product_id = images.product_id INNER JOIN sell_products ON products.product_id = sell_products.product_id");
         $product = DB::table('products')
             ->join('images','images.product_id','=','products.product_id')
@@ -192,9 +236,33 @@ class ClientController extends Controller
             ->select('products.*','images.url','sell_products.prices')
             ->where('cate_name','=','Whey Protein')
             ->paginate(6);
+        if($request-> get('sort')=='price_asc'){
+            $product =DB::table('products')
+                ->join('images','images.product_id','=','products.product_id')
+                ->join('sell_products','sell_products.product_id','=','products.product_id')
+                ->join('categories','categories.cate_id','=','products.cate_id')
+                ->select('products.*','images.url','sell_products.prices')
+                ->where('cate_name','=','Whey Protein')
+                ->paginate(6);
+            $product->setCollection(
+                $product->sortBy('prices')
+            );
+        }
+        if($request-> get('sort')=='price_desc'){
+            $product =DB::table('products')
+                ->join('images','images.product_id','=','products.product_id')
+                ->join('sell_products','sell_products.product_id','=','products.product_id')
+                ->join('categories','categories.cate_id','=','products.cate_id')
+                ->select('products.*','images.url','sell_products.prices')
+                ->where('cate_name','=','Whey Protein')
+                ->paginate(6);
+            $product->setCollection(
+                $product->sortByDesc('prices')
+            );
+        }
         return view('client/category/whey')->with('products',$product);
     }
-    public function  viewBCAAsEAAs(){
+    public function  viewBCAAsEAAs(Request $request){
         //$products = DB::select("SELECT * FROM products INNER JOIN images ON products.product_id = images.product_id INNER JOIN sell_products ON products.product_id = sell_products.product_id");
         $product = DB::table('products')
             ->join('images','images.product_id','=','products.product_id')
@@ -203,10 +271,33 @@ class ClientController extends Controller
             ->select('products.*','images.url','sell_products.prices')
             ->where('cate_name','=','BCAAs, EAAs')
             ->paginate(6);
-
+        if($request-> get('sort')=='price_asc'){
+            $product =DB::table('products')
+                ->join('images','images.product_id','=','products.product_id')
+                ->join('sell_products','sell_products.product_id','=','products.product_id')
+                ->join('categories','categories.cate_id','=','products.cate_id')
+                ->select('products.*','images.url','sell_products.prices')
+                ->where('cate_name','=','BCAAs, EAAs')
+                ->paginate(6);
+            $product->setCollection(
+                $product->sortBy('prices')
+            );
+        }
+        if($request-> get('sort')=='price_desc'){
+            $product =DB::table('products')
+                ->join('images','images.product_id','=','products.product_id')
+                ->join('sell_products','sell_products.product_id','=','products.product_id')
+                ->join('categories','categories.cate_id','=','products.cate_id')
+                ->select('products.*','images.url','sell_products.prices')
+                ->where('cate_name','=','BCAAs, EAAs')
+                ->paginate(6);
+            $product->setCollection(
+                $product->sortByDesc('prices')
+            );
+        }
         return view('client/category/bcaa')->with('products',$product);
     }
-    public function  viewPreworkoutCreatine(){
+    public function  viewPreworkoutCreatine(Request $request){
         //$products = DB::select("SELECT * FROM products INNER JOIN images ON products.product_id = images.product_id INNER JOIN sell_products ON products.product_id = sell_products.product_id");
         $product = DB::table('products')
             ->join('images','images.product_id','=','products.product_id')
@@ -215,9 +306,33 @@ class ClientController extends Controller
             ->select('products.*','images.url','sell_products.prices')
             ->where('cate_name','=','Pre-Workout,Creatine')
             ->paginate(6);
+        if($request-> get('sort')=='price_asc'){
+            $product =DB::table('products')
+                ->join('images','images.product_id','=','products.product_id')
+                ->join('sell_products','sell_products.product_id','=','products.product_id')
+                ->join('categories','categories.cate_id','=','products.cate_id')
+                ->select('products.*','images.url','sell_products.prices')
+                ->where('cate_name','=','Pre-Workout,Creatine')
+                ->paginate(6);
+            $product->setCollection(
+                $product->sortBy('prices')
+            );
+        }
+        if($request-> get('sort')=='price_desc'){
+            $product =DB::table('products')
+                ->join('images','images.product_id','=','products.product_id')
+                ->join('sell_products','sell_products.product_id','=','products.product_id')
+                ->join('categories','categories.cate_id','=','products.cate_id')
+                ->select('products.*','images.url','sell_products.prices')
+                ->where('cate_name','=','Pre-Workout,Creatine')
+                ->paginate(6);
+            $product->setCollection(
+                $product->sortByDesc('prices')
+            );
+        }
         return view('client/category/PreworkOut')->with('products',$product);
     }
-    public function  viewVitamin(){
+    public function  viewVitamin(Request $request){
         //$products = DB::select("SELECT * FROM products INNER JOIN images ON products.product_id = images.product_id INNER JOIN sell_products ON products.product_id = sell_products.product_id");
         $product = DB::table('products')
             ->join('images','images.product_id','=','products.product_id')
@@ -226,9 +341,33 @@ class ClientController extends Controller
             ->select('products.*','images.url','sell_products.prices')
             ->where('cate_name','=','Vitamin,khoáng chất')
             ->paginate(6);
+        if($request-> get('sort')=='price_asc'){
+            $product =DB::table('products')
+                ->join('images','images.product_id','=','products.product_id')
+                ->join('sell_products','sell_products.product_id','=','products.product_id')
+                ->join('categories','categories.cate_id','=','products.cate_id')
+                ->select('products.*','images.url','sell_products.prices')
+                ->where('cate_name','=','Vitamin,khoáng chất')
+                ->paginate(6);
+            $product->setCollection(
+                $product->sortBy('prices')
+            );
+        }
+        if($request-> get('sort')=='price_desc'){
+            $product =DB::table('products')
+                ->join('images','images.product_id','=','products.product_id')
+                ->join('sell_products','sell_products.product_id','=','products.product_id')
+                ->join('categories','categories.cate_id','=','products.cate_id')
+                ->select('products.*','images.url','sell_products.prices')
+                ->where('cate_name','=','Vitamin,khoáng chất')
+                ->paginate(6);
+            $product->setCollection(
+                $product->sortByDesc('prices')
+            );
+        }
         return view('client/category/Vitamin')->with('products',$product);
     }
-    public function  viewBurnFat(){
+    public function  viewBurnFat(Request $request){
         //$products = DB::select("SELECT * FROM products INNER JOIN images ON products.product_id = images.product_id INNER JOIN sell_products ON products.product_id = sell_products.product_id");
         $product = DB::table('products')
             ->join('images','images.product_id','=','products.product_id')
@@ -237,6 +376,30 @@ class ClientController extends Controller
             ->select('products.*','images.url','sell_products.prices')
             ->where('cate_name','=','Giảm mỡ')
             ->paginate(6);
+        if($request-> get('sort')=='price_asc'){
+            $product =DB::table('products')
+                ->join('images','images.product_id','=','products.product_id')
+                ->join('sell_products','sell_products.product_id','=','products.product_id')
+                ->join('categories','categories.cate_id','=','products.cate_id')
+                ->select('products.*','images.url','sell_products.prices')
+                ->where('cate_name','=','Giảm mỡ')
+                ->paginate(6);
+            $product->setCollection(
+                $product->sortBy('prices')
+            );
+        }
+        if($request-> get('sort')=='price_desc'){
+            $product =DB::table('products')
+                ->join('images','images.product_id','=','products.product_id')
+                ->join('sell_products','sell_products.product_id','=','products.product_id')
+                ->join('categories','categories.cate_id','=','products.cate_id')
+                ->select('products.*','images.url','sell_products.prices')
+                ->where('cate_name','=','Giảm mỡ')
+                ->paginate(6);
+            $product->setCollection(
+                $product->sortByDesc('prices')
+            );
+        }
         return view('client/category/burnFat')->with('products',$product);
     }
 }

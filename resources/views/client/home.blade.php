@@ -186,7 +186,7 @@
                                         <div class="carousel-caption relative2">
                                             <div class="row d_flex">
                                                 <div class="col-md-11">
-                                                    <i><img src="{{asset('images/costu.png')}}" alt="#"/></i>
+                                                    <i><img src="{{asset('images/cheems.png')}}" alt="#"/></i>
                                                     <span>Tú 1 năm trước</span>
                                                     <p>lần đầu dùng thử mass , hy vọng tôi sẽ hết là bộ xương di động</p>
                                                 </div>
@@ -199,7 +199,7 @@
                                         <div class="carousel-caption relative2">
                                             <div class="row d_flex">
                                                 <div class="col-md-11">
-                                                    <i><img src="{{asset('images/costu.png')}}" alt="#"/></i>
+                                                    <i><img src="{{asset('images/doge.png')}}" alt="#"/></i>
                                                     <span>Tú hiện tại</span>
                                                     <p>OMG , giờ tôi đã trở thành 1 người bình thường </p>
                                                 </div>
@@ -243,8 +243,8 @@
                 <div class="col-md-12">
                     <div class="titlepage">
                         <h2>Thương hiệu nổi bật</h2>
+                        <br>
                         <div class="container">
-                            <div class="carousel-caption relative2">
                                 <div class="row">
                                         <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th1.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
                                         <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th2.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
@@ -297,7 +297,6 @@
 
 
                                     </div>
-                                </div>
                             </div>
                         </div>
                     </div>
