@@ -60,7 +60,7 @@
             .catch( error => {
                 console.error( error );
             } );
-        ClassicEditorr
+        ClassicEditor
             .create( document.querySelector( '#editorr' ) )
             .then( editor => {
                 console.log( editor );

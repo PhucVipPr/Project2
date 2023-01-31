@@ -45,6 +45,7 @@ class AdminProductController extends Controller
         $product_name = $request->input('product_name');
         $prices = $request->input('prices');
         $product_code = $request->input('product_code');
+        $quantity = $request->input('quantity');
         $product_info = $request->input('product_info');
         $info_dt = $request->input('info_dt');
         $cate_id = $request->input('cate_id');
@@ -53,6 +54,7 @@ class AdminProductController extends Controller
             'product_id' => $product_id,
             'product_name' => $product_name,
             'product_code' => $product_code,
+            'quantity' => $quantity,
             'product_info' => $product_info,
             'info_dt' => $info_dt,
         ]);
@@ -64,7 +66,7 @@ class AdminProductController extends Controller
             'product_id' => $product_id,
             'prices' => $prices,
         ]);
-        return redirect('admin/product/add_product');
+        return redirect('admin/product/index');
     }
 
     public function edit($product_id)
