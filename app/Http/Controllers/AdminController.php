@@ -26,7 +26,7 @@ class AdminController extends Controller
             ->join('categories','categories.cate_id','=','products.cate_id')
             ->join('sell_products','sell_products.product_id','=','products.product_id')
             ->select('products.*','categories.*','images.url','sell_products.prices')
-            ->get();
+            ->paginate(10);
         return view('admin/home',compact('bestItems','allItems'));
     }
 

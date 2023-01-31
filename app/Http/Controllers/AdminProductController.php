@@ -26,7 +26,7 @@ class AdminProductController extends Controller
             ->select('products.product_id','products.product_code','products.product_name','products.product_info',
                 'images.url','categories.cate_id', 'categories.cate_name','sell_products.prices')
             ->where('product_name','like','%'.$keyword.'%')
-            ->get();
+            ->paginate(10);
         return view('admin/product/search',['search_product'=>$products]);
     }
     public function store(Request $request)
@@ -45,6 +45,7 @@ class AdminProductController extends Controller
         $product_name = $request->input('product_name');
         $prices = $request->input('prices');
         $product_code = $request->input('product_code');
+        $quantity = $request->input('quantity');
         $product_info = $request->input('product_info');
         $info_dt = $request->input('info_dt');
         $cate_id = $request->input('cate_id');
@@ -53,6 +54,7 @@ class AdminProductController extends Controller
             'product_id' => $product_id,
             'product_name' => $product_name,
             'product_code' => $product_code,
+            'quantity' => $quantity,
             'product_info' => $product_info,
             'info_dt' => $info_dt,
         ]);
@@ -64,7 +66,7 @@ class AdminProductController extends Controller
             'product_id' => $product_id,
             'prices' => $prices,
         ]);
-        return redirect('admin/product/add_product');
+        return redirect('admin/product/index');
     }
 
     public function edit($product_id)
@@ -87,6 +89,8 @@ class AdminProductController extends Controller
             'product_code' => 'required',
             'cate_id' => 'required',
             'quantity' => 'required',
+            'info_dt' => 'required',
+            'product_info' => 'required'
         ]);
         $updateUrl = $request->validate([
             'url' => 'required',

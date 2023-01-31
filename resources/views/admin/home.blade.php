@@ -117,6 +117,9 @@
             @endif
             </tbody>
         </table>
+        <div class="category-right-bottom-items">
+        <p><span></span>{{$allItems->links("pagination::bootstrap-4")}}<span></span></p>
+        </div>
     </div>
 
 @endsection
