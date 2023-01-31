@@ -65,7 +65,7 @@ Route::put('/admin/order/{order_id}/cancelOrder',[\App\Http\Controllers\AdminCon
 Route::get('/admin/order/finish',[\App\Http\Controllers\AdminController::class,'finishOrder']);
 //xem order da huy
 Route::get('/admin/order/cancel',[\App\Http\Controllers\AdminController::class,'cancel']);
-//xem chi tiet order
+//xem chi tiet order tai admin
 Route::get('/admin/order/{order_id}/details',[\App\Http\Controllers\AdminController::class,'orderDetail']);
 
 //Product
@@ -102,6 +102,7 @@ Route::get('/client/info',[ClientController::class,'viewInfo']);
 Route::get('/client/{id}/edit',[ClientController::class,'editInfo']);
 Route::put('/client/{id}/edit',[ClientController::class,'update']);
 Route::get('/client/clientOrder',[\App\Http\Controllers\OrderController::class,'clientOrder']);
+Route::get('/client/{order_id}/details',[\App\Http\Controllers\ClientController::class,'orderDetail']);
 
 
 //Cac trang danh muc ben Client

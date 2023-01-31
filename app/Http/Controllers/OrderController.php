@@ -35,22 +35,21 @@ class OrderController extends Controller
         if (Auth::user()->address==null && Auth::user()->phone==null  ){
             redirect('client/info');
         }else{
-        $orders = new Order();
-        $orders->user_id = Auth::user()->id;
-        $orders->order_name = Auth::user()->name;
-        $orders->order_phone = Auth::user()->phone;
-        $orders->order_address = Auth::user()->address;
-        $orders->save();
+        $order = new Order();
+        $order->user_id = Auth::id();
+        $order->order_name = Auth::user()->name;
+        $order->order_phone = Auth::user()->phone;
+        $order->order_address = Auth::user()->address;
+        $order->save();
 
         $cartItems = DB::table('carts')
             ->join('sell_products','sell_products.product_id','=','carts.product_id')
-            ->join('orders','orders.user_id','=','carts.user_id')
-            ->where('carts.user_id','=',Auth::user()->id)
-            ->select('carts.*','sell_products.prices','orders.order_id')
+            ->where('carts.user_id','=',Auth::id())
+            ->select('carts.*','sell_products.prices')
             ->get();
         foreach ($cartItems as $item){
             OrderDetail::create([
-                'order_id' => $item->order_id,
+                'order_id' => $order->order_id,
                 'product_id' => $item->product_id,
                 'quantity' => $item->quantity,
                 'price' => $item->prices,
@@ -63,8 +62,6 @@ class OrderController extends Controller
         }
             $cartItem = Cart::where('user_id',Auth::id())->get();
             Cart::destroy($cartItem);
-            $abc = OrderDetail::all();
-            dd($abc);
             alert()->success('Your order has been placed', 'Please wait so we can check it out');
         return redirect('client/home');
         }
@@ -75,7 +72,7 @@ class OrderController extends Controller
             ->join('orders','users.id','=','orders.user_id')
             ->join('address','users.address','=','address.address_dt')
             ->select('orders.*','users.*','address.fee')
-            ->take(1)->get();
+            ->get();
         $orderDetails = DB::table('order_details')
             ->join('products','products.product_id','=','order_details.product_id')
             ->join('sell_products','order_details.product_id','=','sell_products.product_id')

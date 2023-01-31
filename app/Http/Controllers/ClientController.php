@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Image;
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\Sell_product;
 use App\Models\User;
@@ -58,6 +59,30 @@ class ClientController extends Controller
             ->paginate(6);
         return view('client/category')->with('products',$product);
     }
+
+    function orderDetail($order_id){
+        $orderItems = DB::table('products')
+            ->join('order_details','products.product_id','=','order_details.product_id')
+            ->join('sell_products','order_details.product_id','=','sell_products.product_id')
+            ->join('images','images.product_id','=','products.product_id')
+            ->where('order_details.order_id','=',$order_id)
+            ->select('order_details.*','order_details.price','images.url','products.product_name','products.product_code')
+            ->get();
+        $categories = DB::table('categories')
+            ->join('products','categories.cate_id','=','products.cate_id')
+            ->take(1)->get();
+        $userData = User::where('id',Auth::id())->get();
+        $charges = DB::table('address')
+            ->join('users','address.address_dt','=','users.address')
+            ->select('address.fee')
+            ->take(1)->get();
+        $status = DB::table('orders')
+            ->where('order_id',$order_id)
+            ->select('*')
+            ->take(1)->get();
+        return view('client/clientOrderDt',compact('orderItems','userData','charges','categories','status'));
+    }
+
 
     public function show($product_id,$cate_name){
         $product = DB::table('categories')
