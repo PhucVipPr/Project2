@@ -186,7 +186,7 @@
                                         <div class="carousel-caption relative2">
                                             <div class="row d_flex">
                                                 <div class="col-md-11">
-                                                    <i><img src="{{asset('images/costu.png')}}" alt="#"/></i>
+                                                    <i><img src="{{asset('images/cheems.png')}}" alt="#"/></i>
                                                     <span>Tú 1 năm trước</span>
                                                     <p>lần đầu dùng thử mass , hy vọng tôi sẽ hết là bộ xương di động</p>
                                                 </div>
@@ -199,7 +199,7 @@
                                         <div class="carousel-caption relative2">
                                             <div class="row d_flex">
                                                 <div class="col-md-11">
-                                                    <i><img src="{{asset('images/costu.png')}}" alt="#"/></i>
+                                                    <i><img src="{{asset('images/doge.png')}}" alt="#"/></i>
                                                     <span>Tú hiện tại</span>
                                                     <p>OMG , giờ tôi đã trở thành 1 người bình thường </p>
                                                 </div>
