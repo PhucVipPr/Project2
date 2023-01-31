@@ -27,7 +27,7 @@
         </div>
         <div class="mb-3">
             <label class="form-label">Product_Price</label>
-            <input class="form-control" name="prices" placeholder="Enter prices">
+            <input type="number"  class="form-control" name="prices" placeholder="Enter prices">
         </div>
         <div class="mb-3">
             <label class="form-label">Product_Code</label>
@@ -35,7 +35,7 @@
         </div>
         <div class="mb-3">
             <label class="form-label">Product_Quantity</label>
-            <input class="form-control" name="quantity" placeholder="Enter product quantity">
+            <input type="number"  class="form-control" name="quantity" placeholder="Enter product quantity">
         </div>
         <div class="mb-3">
             <label class="form-label">Product_Info</label>
