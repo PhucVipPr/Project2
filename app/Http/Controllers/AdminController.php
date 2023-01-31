@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\OrderDetail;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,7 +14,14 @@ class AdminController extends Controller
 
     //
     function viewHome(){
-        return view('admin/home');
+        $bestItems = DB::table('products')
+            ->join('images','images.product_id','=','products.product_id')
+            ->join('categories','categories.cate_id','=','products.cate_id')
+            ->select('products.*','categories.*','images.url')
+            ->where('quantity','<',10)
+            ->orderBy('quantity','ASC')
+            ->get()->take(3);
+        return view('admin/home',compact('bestItems'));
     }
 
     function viewOrder(){
