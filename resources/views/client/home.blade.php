@@ -237,14 +237,13 @@
     </div>
     <!-- end testimonial -->
     <!--  contact -->
-    <div id="contact" class="contact">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="titlepage">
                         <h2>Thương hiệu nổi bật</h2>
+                        <br>
                         <div class="container">
-                            <div class="carousel-caption relative2">
                                 <div class="row">
                                         <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th1.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
                                         <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th2.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
@@ -293,11 +292,7 @@
                                     <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th45.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
                                     <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th46.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
                                     <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th47.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
-
-
-
                                     </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -305,8 +300,6 @@
             </div>
 
         </div>
-    </div>
-
 @endsection
 <!-- loader  -->
 <!-- end loader -->

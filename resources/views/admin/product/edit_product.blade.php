@@ -35,7 +35,7 @@
         </div>
         <div class="mb-3">
             <label class="form-label">Product_Quantity</label>
-            <input class="form-control" name="quantity" value="{{$products->quantity}}" placeholder="Enter product Code">
+            <num class="form-control" name="quantity" value="{{$products->quantity}}" placeholder="Enter product Code">
         </div>
         <div class="mb-3">
             <label class="form-label">Product_Info</label>
