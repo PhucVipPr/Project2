@@ -1,40 +1,64 @@
 @extends('layouts.admin_base')
 
 @section('content')
+    <html>
     <h1>Home Page</h1>
     <hr>
     <div class="chart">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-        <body>
-        <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
-        <script>
-            var xValues = [0,1,2,3,4,5,6,7,8,9,10,11,12];
+        <!DOCTYPE HTML>
+        <html>
+        <head>
+            <script>
+                window.onload = function () {
 
-            new Chart("myChart", {
-                type: "line",
-                data: {
-                    labels: xValues,
-                    datasets: [{
-                        data: [860,1140,1060,1060,1070,1110,1330,2210,7830,2478],
-                        borderColor: "red",
-                        fill: false
-                    }, {
-                        data: [1600,1700,1700,1900,2000,2700,4000,5000,6000,7000],
-                        borderColor: "green",
-                        fill: false
-                    }, {
-                        data: [300,700,2000,5000,6000,4000,2000,1000,200,100],
-                        borderColor: "blue",
-                        fill: false
-                    }]
-                },
-                options: {
-                    legend: {display: false}
+                    var chart = new CanvasJS.Chart("chartContainer", {
+                        animationEnabled: true,
+
+                        title:{
+                            text:"Income This Year"
+                        },
+                        axisX:{
+                            interval: 1
+                        },
+                        axisY2:{
+                            interlacedColor: "rgba(1,77,101,.2)",
+                            gridColor: "rgba(1,77,101,.1)",
+                            title: "Income of Sold Product"
+                        },
+                        data: [{
+                            type: "bar",
+                            name: "companies",
+                            axisYType: "secondary",
+                            color: "#014D65",
+                            dataPoints: [
+                                { y: 3, label: "January" },
+                                { y: 7, label: "February" },
+                                { y: 5, label: "March" },
+                                { y: 9, label: "April" },
+                                { y: 7, label: "May" },
+                                { y: 7, label: "June" },
+                                { y: 9, label: "July" },
+                                { y: 8, label: "August" },
+                                { y: 11, label: "September" },
+                                { y: 15, label: "October" },
+                                { y: 12, label: "November" },
+                                { y: 15, label: "December" }
+                            ]
+                        }]
+                    });
+                    chart.render();
+
                 }
-            });
-        </script>
+            </script>
+        </head>
+        <body>
+        <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
         </body>
+        </html>
     </div>
+
+
 
     <div class="best-seller">
         <b><h3><p style="color: green">Best Seller</p></h3></b>
@@ -121,5 +145,5 @@
         <p><span></span>{{$allItems->links("pagination::bootstrap-4")}}<span></span></p>
         </div>
     </div>
-
+    </html>
 @endsection
