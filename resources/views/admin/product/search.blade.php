@@ -63,6 +63,9 @@
     @endforeach
     </tbody>
 </table>
+<div class="category-right-bottom-items">
+    <p><span></span>{{$search_product->links("pagination::bootstrap-4")}}<span></span></p>
+</div>
 
 
 <!-- Optional JavaScript; choose one of the two! -->

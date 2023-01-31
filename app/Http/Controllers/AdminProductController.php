@@ -26,7 +26,7 @@ class AdminProductController extends Controller
             ->select('products.product_id','products.product_code','products.product_name','products.product_info',
                 'images.url','categories.cate_id', 'categories.cate_name','sell_products.prices')
             ->where('product_name','like','%'.$keyword.'%')
-            ->get();
+            ->paginate(10);
         return view('admin/product/search',['search_product'=>$products]);
     }
     public function store(Request $request)
