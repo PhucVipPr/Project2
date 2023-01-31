@@ -84,7 +84,6 @@
             @endif
             </tbody>
         </table>
-        <p><span></span>{{$allItems->links("pagination::bootstrap-4")}}<span></span></p>
     </div>
 
 @endsection

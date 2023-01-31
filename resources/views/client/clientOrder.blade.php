@@ -1,17 +1,15 @@
-@extends('layouts.base')
-@section('title',"Giỏ hàng")
-@section('content')
-    @include('client.header')
-{{--    <link rel="stylesheet" href="{{asset('css/order.css')}}">--}}
-{{--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">--}}
-{{--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">--}}
-{{--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">--}}
-{{--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">--}}
-{{--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>--}}
-
+<html>
+<head>
+    <link rel="stylesheet" href="{{asset('css/order.css')}}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
 <form action="{{url('client/home')}}" method="GET">
     @csrf
-    <div class="container-fluid my-5  flex  justify-content-center">
+    <div class="container-fluid my-5  d-flex  justify-content-center">
         <div class="card card-1">
             <div class="card-header bg-white">
                 <button type="submit">Back Home</button>
@@ -52,15 +50,10 @@
                                     </table>
                                 </td>
                             </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
 </form>
 @endforeach
-@endsection
+</tbody>
+</table>
               {{--      @if($orderItems->count()==0)
                         <div class="col-auto"> <h6 class="color-1 mb-0 change-color">Nothing here~~</h6> </div>
                     @else
@@ -157,8 +150,8 @@
                     </div>
                 @endif
                 @endif--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</form>--}}
-{{--</html>--}}
+            </div>
+        </div>
+    </div>
+</form>
+</html>
