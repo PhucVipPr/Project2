@@ -20,7 +20,41 @@
             </div>
             <div class="card-body">
                 <div class="row justify-content-between mb-3">
-                    @if($orderItems->count()==0)
+                    <table class="table table-bordered border-primary">
+                        <thead>
+                        <tr>
+                            <th scope="col">Order by</th>
+                            <th scope="col">Order Name</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($orderItems as $item)
+                            <tr>
+                                <th scope="row">{{$item->name}}</th>
+                                <td>{{$item->order_name}}</td>
+                                <td>Chưa xử lý</td>
+                                <td>
+                                    <table>
+                                        <th>
+                                            <a href="{{url('admin/order/'.$item->order_id.'/details')}}" >Check-Details </a>
+                                            &nbsp;</th>
+                                        <th>
+                                            <form action="{{url('admin/order/'.$item->order_id.'/cancelOrder')}}" method="POST">
+                                                @csrf
+                                                @method('PUT')
+                                                <button type="submit"> Cancel Order</button>
+                                            </form>
+                                        </th>
+                                    </table>
+                                </td>
+                            </tr>
+</form>
+@endforeach
+</tbody>
+</table>
+              {{--      @if($orderItems->count()==0)
                         <div class="col-auto"> <h6 class="color-1 mb-0 change-color">Nothing here~~</h6> </div>
                     @else
                     <div class="col-auto"> <h6 class="color-1 mb-0 change-color">Receipt</h6> </div>
@@ -115,7 +149,7 @@
                         </div>
                     </div>
                 @endif
-                @endif
+                @endif--}}
             </div>
         </div>
     </div>

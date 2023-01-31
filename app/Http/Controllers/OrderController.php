@@ -61,8 +61,10 @@ class OrderController extends Controller
                 $product->update(['quantity' => $product->quantity]);
             }
         }
-        $cartItems = Cart::where('user_id',Auth::id())->get();
-        Cart::destroy($cartItems);
+            $cartItem = Cart::where('user_id',Auth::id())->get();
+            Cart::destroy($cartItem);
+            $abc = OrderDetail::all();
+            dd($abc);
             alert()->success('Your order has been placed', 'Please wait so we can check it out');
         return redirect('client/home');
         }
@@ -73,14 +75,16 @@ class OrderController extends Controller
             ->join('orders','users.id','=','orders.user_id')
             ->join('address','users.address','=','address.address_dt')
             ->select('orders.*','users.*','address.fee')
-            ->get();
-        $orderDetails = DB::table('products')
-            ->join('order_details','products.product_id','=','order_details.product_id')
+            ->take(1)->get();
+        $orderDetails = DB::table('order_details')
+            ->join('products','products.product_id','=','order_details.product_id')
             ->join('sell_products','order_details.product_id','=','sell_products.product_id')
             ->join('images','images.product_id','=','products.product_id')
+            ->join('orders','orders.order_id','=','order_details.order_id')
             ->join('categories','categories.cate_id','=','products.cate_id')
             ->select('order_details.*','order_details.price','images.url','products.product_name','products.product_code','categories.*')
-            ->get();
+            ->where('orders.order_id','=','order_details.order_id')
+            ->distinct()->get();
         $charges = DB::table('users')
             ->join('address','users.address','=','address.address_dt')
             ->select('address.fee')

@@ -21,7 +21,13 @@ class AdminController extends Controller
             ->where('quantity','<',10)
             ->orderBy('quantity','ASC')
             ->get()->take(3);
-        return view('admin/home',compact('bestItems'));
+        $allItems = DB::table('products')
+            ->join('images','images.product_id','=','products.product_id')
+            ->join('categories','categories.cate_id','=','products.cate_id')
+            ->join('sell_products','sell_products.product_id','=','products.product_id')
+            ->select('products.*','categories.*','images.url','sell_products.prices')
+            ->get();
+        return view('admin/home',compact('bestItems','allItems'));
     }
 
     function viewOrder(){
@@ -101,8 +107,7 @@ class AdminController extends Controller
             ->join('images', 'products.product_id', '=', 'images.product_id')
             ->join('categories', 'products.cate_id', '=', 'categories.cate_id')
             ->join('sell_products', 'products.product_id', '=', 'sell_products.product_id')
-            ->select('products.product_id','products.product_code','products.product_name','products.product_info',
-                'images.url','categories.cate_id', 'categories.cate_name','sell_products.prices')
+            ->select('products.*','images.url','categories.cate_id', 'categories.cate_name','sell_products.prices')
             ->get();
         return view('admin/product/index',['products'=>$products]);
     }

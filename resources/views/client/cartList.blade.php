@@ -114,9 +114,7 @@
 </div>
     </div>
 @endif
-
 @endsection
-
 </body>
 @include('sweetalert::alert')
 </html>
