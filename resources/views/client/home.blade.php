@@ -24,7 +24,7 @@
                             <div class="col-md-5">
                                 <div class="banner_text">
                                     <h1>Hàng ngon <br>Biến hình ngay thôi</h1>
-                                    <a class="get_btn" href="#protien" role="button" >Về sản phẩm</a> <a class="get_btn" href="{{url('/login')}}" role="button">Đăng ký ngay nào!</a>
+                                    <a class="get_btn" href="#protien" role="button" >Về sản phẩm</a>
                                 </div>
                             </div>
                             <div class="col-md-7">
@@ -243,6 +243,63 @@
                 <div class="col-md-12">
                     <div class="titlepage">
                         <h2>Thương hiệu nổi bật</h2>
+                        <div class="container">
+                            <div class="carousel-caption relative2">
+                                <div class="row">
+                                        <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th1.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                        <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th2.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                        <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th3.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                        <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th4.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                        <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th5.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                        <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th6.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                        <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th7.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                        <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th8.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                        <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th9.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                        <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th10.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                        <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th11.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                        <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th12.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                        <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th13.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                        <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th14.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                    <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th15.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                    <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th16.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                    <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th17.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                    <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th18.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                    <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th19.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                    <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th20.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                    <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th21.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                    <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th22.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                    <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th23.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                    <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th24.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                    <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th25.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                    <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th26.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                    <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th27.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                    <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th28.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                    <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th29.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                    <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th30.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                    <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th31.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                    <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th32.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                    <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th33.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                    <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th34.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                    <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th35.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                    <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th36.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                    <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th37.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                    <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th38.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                    <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th39.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                    <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th40.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                    <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th41.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                    <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th42.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                    <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th43.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                    <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th44.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                    <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th45.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                    <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th46.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+                                    <div class="label" style="margin: 5px">  <img class="grayscale lazy"src="{{asset('images/th47.jpg')}}" width="150" alt="Nutrabolics" title="Nutrabolics" cursorshover="true"> </a> </div>
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
