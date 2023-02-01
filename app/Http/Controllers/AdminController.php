@@ -20,12 +20,13 @@ class AdminController extends Controller
             ->select('products.*','categories.*','images.url')
             ->where('quantity','<',10)
             ->orderBy('quantity','ASC')
-            ->get()->take(3);
+            ->get()->take(5);
         $allItems = DB::table('products')
             ->join('images','images.product_id','=','products.product_id')
             ->join('categories','categories.cate_id','=','products.cate_id')
             ->join('sell_products','sell_products.product_id','=','products.product_id')
-            ->select('products.*','categories.*','images.url','sell_products.prices')
+            ->join('imports','products.product_id','=','imports.product_id')
+            ->select('products.*','categories.*','images.url','sell_products.prices','imports.import_price')
             ->paginate(10);
         return view('admin/home',compact('bestItems','allItems'));
     }

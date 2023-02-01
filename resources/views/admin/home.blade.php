@@ -9,6 +9,9 @@
         <html>
         <head>
             <script>
+                @if($allItems->count()>0)
+                    @php $sold=0; @endphp
+                @foreach($allItems as $item)
                 window.onload = function () {
 
                     var chart = new CanvasJS.Chart("chartContainer", {
@@ -31,24 +34,25 @@
                             axisYType: "secondary",
                             color: "#014D65",
                             dataPoints: [
-                                { y: 3, label: "January" },
-                                { y: 7, label: "February" },
-                                { y: 5, label: "March" },
-                                { y: 9, label: "April" },
-                                { y: 7, label: "May" },
-                                { y: 7, label: "June" },
-                                { y: 9, label: "July" },
-                                { y: 8, label: "August" },
-                                { y: 11, label: "September" },
-                                { y: 15, label: "October" },
-                                { y: 12, label: "November" },
-                                { y: 15, label: "December" }
+                                { y: {{$sold+=(int)(10-($item->quantity))}}, label: "January" },
+                                { y: 47, label: "February" },
+                                { y: 55, label: "March" },
+                                { y: 79, label: "April" },
+                                { y: 70, label: "May" },
+                                { y: 67, label: "June" },
+                                { y: 90, label: "July" },
+                                { y: 81, label: "August" },
+                                { y: 110, label: "September" },
+                                { y: 105, label: "October" },
+                                { y: 102, label: "November" },
+                                { y: 89, label: "December" }
                             ]
                         }]
                     });
                     chart.render();
-
                 }
+                @endforeach
+                @endif
             </script>
         </head>
         <body>
@@ -107,7 +111,8 @@
                 <th scope="col">Product_Image</th>
                 <th scope="col">Category_Name</th>
                 <th scope="col">Product_Name</th>
-                <th scope="col">Product_Price</th>
+                <th scope="col">Sell_Price</th>
+                <th scope="col">Import_Price</th>
                 <th scope="col">Sold Quantity</th>
                 <th scope="col">Income</th>
             </tr>
@@ -123,11 +128,12 @@
                     <td>{{$item->cate_name}}</td>
                     <td>{{$item->product_name}}</td>
                     <td>{{number_format($item->prices, 0, '.', '.')}}<sup>đ</sup></td>
+                    <td>{{number_format($item->import_price, 0, '.', '.')}}<sup>đ</sup></td>
                     <td>{{10-$item->quantity}}</td>
-                    <td>{{number_format($item->prices * (10-$item->quantity), 0, '.', '.')}}<sup>đ</sup></td>
+                    <td>{{number_format(($item->prices-$item->import_price) * (10-$item->quantity), 0, '.', '.')}}<sup>đ</sup></td>
                 </tr>
-                @php $total += $item->prices * (10-$item->quantity) @endphp
-                @php $sold  += $item->quantity @endphp
+                @php $total += ($item->prices-$item->import_price) * (10-$item->quantity) @endphp
+                @php $sold  += (10-$item->quantity) @endphp
             @endforeach
                 <tr>
                     <th scope="row"></th>
