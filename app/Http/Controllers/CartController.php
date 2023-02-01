@@ -41,7 +41,7 @@ class CartController extends Controller
                 ->first();
             if ($cart = Cart::where('product_id',$request->product_id)->first()){
                 $cart->increment('quantity',$request->quantity);
-                Alert::success('Add cart Successfully', 'Please check your cart');
+                Alert::success('Thêm vào Giỏ hàng thành công', 'Vui lòng kiểm tra giỏ hàng');
                 return redirect()->back();
             }else {
                 $cart = new cart;
@@ -49,7 +49,7 @@ class CartController extends Controller
                 $cart->product_id = $products->product_id;
                 $cart->quantity = $request->quantity;
                 $cart->save();
-                Alert::success('Add cart Successfully', 'Please check your cart');
+                Alert::success('Thêm vào Giỏ hàng thành công', 'Vui lòng kiểm tra giỏ hàng');
                 return redirect()->back();
             }
         } else {
@@ -60,7 +60,7 @@ class CartController extends Controller
     public function delete($cartItems){
         $cartItems = Cart::findOrFail($cartItems);
         $cartItems->delete();
-        toast('This product has been deleted','warning');
+        toast('Sản phẩm này đã bị xóa','warning');
         return redirect('client/cartList');
     }
 
@@ -68,7 +68,7 @@ class CartController extends Controller
     public function update(Request $request,$cart_id){
         $cartItems = Cart::findOrFail($cart_id);
         $cartItems->update(['quantity'=>$request->quantity]);
-        Alert::success('Cart Update Successfully', 'Please check your cart');
+        Alert::success('Giỏ hàng đã được cập nhật', 'Vui lòng kiểm tra giỏ hàng');
         return redirect('client/cartList');
     }
 
