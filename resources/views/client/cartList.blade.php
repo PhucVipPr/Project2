@@ -23,7 +23,7 @@
                         <tbody1>
                         @if($cartItems->count()==0)
                     </table>
-                    <h2>Bạn chưa thêm gì vào giỏ hàng cả</h2>
+                    <h2>Bạn chưa thêm gì vào giỏ hàng</h2>
                 </div>
             </div>
         </aside>
