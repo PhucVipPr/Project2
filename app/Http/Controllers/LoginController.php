@@ -22,6 +22,7 @@ class LoginController extends Controller
         );
         if($rs == true){
             $user = Auth::user();
+            dd($user);
             if($user->isAdmin ==1){
                 return redirect('admin/home');
             }else{
